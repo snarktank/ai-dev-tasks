@@ -119,6 +119,10 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 *   **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.md`) when generating tasks.
 *   **Patience and Iteration:** AI is a powerful tool, but it's not magic. Be prepared to guide, correct, and iterate. This workflow is designed to make that iteration process smoother.
 
+## 🔧 Zed IDE Rules
+
+This repository also includes `.rules` files optimized for use with the [Zed IDE](https://zed.dev/). These files are located in the `Zed Rules` folder and provide the same structured workflow for AI-assisted development within Zed's environment.
+
 ## 🤝 Contributing
 
 Got ideas to improve these `.mdc` files or have new ones that fit this workflow? Contributions are welcome!
