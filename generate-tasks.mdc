@@ -1,5 +1,5 @@
 ---
-description: 
+description: Guidelines for generating a task list from a Product Requirements Document (PRD) and a Technical Design Document (TDD).
 globs: 
 alwaysApply: false
 ---
@@ -7,7 +7,7 @@ alwaysApply: false
 
 ## Goal
 
-To guide an AI assistant in creating a detailed, step-by-step task list in Markdown format based on an existing Product Requirements Document (PRD). The task list should guide a developer through implementation.
+To guide an AI assistant in creating a detailed, step-by-step task list in Markdown format. This list must be based on **both** an existing Product Requirements Document (PRD), which defines *what* to build and *why*, and a Technical Design Document (TDD), which outlines *how* to build it. The task list should guide a developer through implementation.
 
 ## Output
 
@@ -17,14 +17,23 @@ To guide an AI assistant in creating a detailed, step-by-step task list in Markd
 
 ## Process
 
-1.  **Receive PRD Reference:** The user points the AI to a specific PRD file
-2.  **Analyze PRD:** The AI reads and analyzes the functional requirements, user stories, and other sections of the specified PRD.
-3.  **Phase 1: Generate Parent Tasks:** Based on the PRD analysis, create the file and generate the main, high-level tasks required to implement the feature. Use your judgement on how many high-level tasks to use. It's likely to be about 5. Present these tasks to the user in the specified format (without sub-tasks yet). Inform the user: "I have generated the high-level tasks based on the PRD. Ready to generate the sub-tasks? Respond with 'Go' to proceed."
+1.  **Receive Document References:** The user points the AI to specific PRD and TDD files (e.g., `@MyFeature-PRD.md` and `@tdd-MyFeature-PRD.md`).
+2.  **Analyze Documents:** The AI must thoroughly read and analyze:
+    * The specified **PRD** to understand the feature's goals, user stories, functional requirements, and success criteria (the "what" and "why").
+    * The specified **TDD** to understand the proposed system architecture, data models, API designs, key components/modules, technology stack, and other technical specifications (the "how").
+3.  **Phase 1: Generate Parent Tasks:**
+    * Based on a **synthesis of the PRD and TDD analysis**, create the task list file.
+    * Generate the main, high-level parent tasks required to implement the feature.
+    * **Crucially, the structure of these parent tasks should primarily be derived from the TDD's architectural breakdown.** For example, if the TDD outlines major components like "User Authentication Service," "Product Catalog API," "Frontend Display Module," and "Database Schema Modifications," these should form the basis of your parent tasks.
+    * Map the PRD's high-level features and requirements onto these TDD-defined structural components. Each parent task should represent a significant, technically distinct part of the work outlined in the TDD, while still clearly contributing to the overall goals stated in the PRD.
+    * Use your judgment on how many high-level tasks to use (likely 3-7, depending on the TDD's complexity).
+    * Present these parent tasks to the user in the specified format (without sub-tasks yet).
+    * Inform the user: "I have generated the high-level tasks based on the PRD and the technical structure outlined in the TDD. Ready to generate the sub-tasks? Respond with 'Go' to proceed."
 4.  **Wait for Confirmation:** Pause and wait for the user to respond with "Go".
-5.  **Phase 2: Generate Sub-Tasks:** Once the user confirms, break down each parent task into smaller, actionable sub-tasks necessary to complete the parent task. Ensure sub-tasks logically follow from the parent task and cover the implementation details implied by the PRD.
-6.  **Identify Relevant Files:** Based on the tasks and PRD, identify potential files that will need to be created or modified. List these under the `Relevant Files` section, including corresponding test files if applicable.
+5.  **Phase 2: Generate Sub-Tasks:** Once the user confirms, break down each parent task into smaller, actionable sub-tasks necessary to complete the parent task. Ensure sub-tasks logically follow from the parent task and cover the implementation details implied by **both** the PRD's functional requirements and the TDD's specific technical guidance.
+6.  **Identify Relevant Files:** Based on the tasks, PRD, and **especially the TDD (which often specifies new or modified files/modules)**, identify potential files that will need to be created or modified. List these under the `Relevant Files` section, including corresponding test files if applicable.
 7.  **Generate Final Output:** Combine the parent tasks, sub-tasks, relevant files, and notes into the final Markdown structure.
-8.  **Save Task List:** Save the generated document in the `/tasks/` directory with the filename `tasks-[prd-file-name].md`, where `[prd-file-name]` matches the base name of the input PRD file (e.g., if the input was `prd-user-profile-editing.md`, the output is `tasks-prd-user-profile-editing.md`).
+8.  **Save Task List:** Save the generated document in the `/tasks/` directory with the filename `tasks-[prd-file-name].md`, where `[prd-file-name]` matches the base name of the input PRD file.
 
 ## Output Format
 
@@ -33,16 +42,18 @@ The generated task list _must_ follow this structure:
 ```markdown
 ## Relevant Files
 
-- `path/to/potential/file1.ts` - Brief description of why this file is relevant (e.g., Contains the main component for this feature).
-- `path/to/file1.test.ts` - Unit tests for `file1.ts`.
-- `path/to/another/file.tsx` - Brief description (e.g., API route handler for data submission).
-- `path/to/another/file.test.tsx` - Unit tests for `another/file.tsx`.
+- `path/to/component/MyNewComponent.tsx` - Brief description (e.g., UI component for user profile, as specified in TDD Section 4.2).
+- `path/to/component/MyNewComponent.test.tsx` - Unit tests for `MyNewComponent.tsx`.
+- `services/api/userAuthService.ts` - Brief description (e.g., Handles authentication logic, TDD Section 3.1).
+- `services/api/userAuthService.test.ts` - Unit tests for `userAuthService.ts`.
+- `prisma/migrations/XXXXXXXXXXXXXX_add_user_roles.sql` - Brief description (e.g., DB migration for user roles, TDD Data Model).
 - `lib/utils/helpers.ts` - Brief description (e.g., Utility functions needed for calculations).
 - `lib/utils/helpers.test.ts` - Unit tests for `helpers.ts`.
 
 ### Notes
 
 - Unit tests should typically be placed alongside the code files they are testing (e.g., `MyComponent.tsx` and `MyComponent.test.tsx` in the same directory).
+- Consider TDD specifications for test coverage or specific test types.
 - Use `npx jest [optional/path/to/test/file]` to run tests. Running without a path executes all tests found by the Jest configuration.
 
 ## Tasks
