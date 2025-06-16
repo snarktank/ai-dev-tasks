@@ -38,15 +38,15 @@ You can create a lightweight PRD directly within Cursor:
 
 ### 2️⃣ Generate Your Task List from the PRD
 
-With your PRD drafted (e.g., `MyFeature-PRD.md`), the next step is to generate a detailed, step-by-step implementation plan for your AI Developer.
+With your PRD drafted (e.g., `MyFeature-PRD.mdc`), the next step is to generate a detailed, step-by-step implementation plan for your AI Developer.
 
 1.  Ensure you have `generate-tasks.mdc` accessible.
 2.  In Cursor's Agent chat, use the PRD to create tasks:
 
     ```
-    Now take @MyFeature-PRD.md and create tasks using @generate-tasks.mdc
+    Now take @MyFeature-PRD.mdc and create tasks using @generate-tasks.mdc
     ```
-    *(Note: Replace `@MyFeature-PRD.md` with the actual filename of the PRD you generated in step 1.)*
+    *(Note: Replace `@MyFeature-PRD.mdc` with the actual filename of the PRD you generated in step 1.)*
 
     ![Example of generating tasks from PRD](https://pbs.twimg.com/media/Go6FITbWkAA-RCT?format=jpg&name=medium)
 
@@ -116,7 +116,7 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 
 *   **Be Specific:** The more context and clear instructions you provide (both in your initial feature description and any clarifications), the better the AI's output will be.
 *   **MAX Mode for PRDs:** As mentioned, using MAX mode in Cursor for PRD creation (`create-prd.mdc`) can yield more thorough and higher-quality results if your budget supports it.
-*   **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.md`) when generating tasks.
+*   **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.mdc`) when generating tasks.
 *   **Patience and Iteration:** AI is a powerful tool, but it's not magic. Be prepared to guide, correct, and iterate. This workflow is designed to make that iteration process smoother.
 
 ## 🤝 Contributing
