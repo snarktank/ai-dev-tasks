@@ -1,0 +1,103 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Rule: Generating a Prototype Scope and Task List
+
+## Goal
+
+To guide an AI assistant in creating a prototype scope document and corresponding task list based on an existing PRD. The prototype should be a scrappy, functional version that demonstrates core functionality with mocked data, allowing developers and stakeholders to quickly validate concepts before full implementation.
+
+## Prerequisites
+
+This rule should be used **after**:
+1. A PRD has been created using [create-prd.mdc](mdc:create-prd.mdc)
+2. (Optional) Tasks have been generated using [generate-tasks.mdc](mdc:generate-tasks.mdc)
+
+Note: The prototype can be created with just the PRD, as it focuses on high-level functionality validation rather than detailed implementation.
+
+## Process
+
+1. **Receive PRD Reference:** The user points the AI to a specific PRD file to base the prototype on.
+2. **Analyze Requirements:** The AI reads and analyzes the PRD's functional requirements, user stories, and goals to understand the core functionality that needs validation.
+3. **Ask Prototype Clarification Questions:** Before creating the scope, the AI *must* ask clarifying questions about the prototype approach and priorities. Make sure to provide options in letter/number lists so the user can respond easily with their selections.
+4. **Generate Prototype Scope Document:** Create a focused scope document that defines what will be built, what will be mocked, and success criteria.
+5. **Generate Prototype Task List:** Create a task list specifically for building the prototype that can be used with [process-task-list.mdc](mdc:process-task-list.mdc).
+6. **Save Documents:** Save both the scope and task list in the `/tasks/` directory.
+
+## Output Documents
+
+The generated documents should include:
+
+1. **Prototype Scope Document** (`prototype-scope-[prd-name].md`):
+   - Purpose and validation goals
+   - Features to implement vs. features to mock/skip
+   - Technology stack and approach
+   - Data mocking strategy
+   - Success criteria for the prototype
+   - Timeline and effort estimates
+
+2. **Prototype Task List** (`prototype-tasks-[prd-name].md`):
+   - High-level parent tasks for building the prototype
+   - Detailed sub-tasks following the same format as [generate-tasks.mdc](mdc:generate-tasks.mdc)
+   - Relevant files section with expected prototype files
+   - Compatible with [process-task-list.mdc](mdc:process-task-list.mdc) workflow
+
+## Output
+
+* **Format:** Two Markdown documents
+* **Location:** `/tasks/`
+* **Files:**
+  - `prototype-scope-[prd-name].md` - Defines what to build and how
+  - `prototype-tasks-[prd-name].md` - Step-by-step implementation tasks
+
+## Scope Document Guidelines
+
+1. **Purpose-Driven:** Clearly state why this prototype is being built and what questions it should answer.
+
+2. **Selective Feature Implementation:**
+   - Choose 2-4 core features that best demonstrate the value proposition
+   - Clearly distinguish between "implement," "mock," and "skip"
+   - Focus on user-facing functionality over backend complexity
+
+3. **Scrappy Approach:**
+   - Prioritize speed to feedback over code quality
+   - Use shortcuts and simplifications where possible
+   - Document what would be different in production
+
+4. **Clear Success Criteria:**
+   - Define specific validation goals
+   - Include criteria for stakeholder feedback
+   - Set realistic timeline expectations
+
+## Task List Guidelines
+
+1. **Compatible Format:** Follow the exact task structure from [generate-tasks.mdc](mdc:generate-tasks.mdc) so it works with [process-task-list.mdc](mdc:process-task-list.mdc).
+
+2. **Prototype-Focused Tasks:**
+   - Emphasize quick setup and rapid iteration
+   - Include mocking and simulation tasks
+   - Focus on frontend/user-facing components
+
+3. **Relevant Files Section:**
+   - List expected prototype files with clear purposes
+   - Include simple test files for core functionality
+   - Suggest file structure that supports rapid development
+
+## Success Criteria
+
+A successful prototype scope and task list should:
+- Define clear validation goals that align with PRD objectives
+- Create an implementable plan that can be completed in 1-3 days
+- Enable rapid feedback collection from stakeholders and users
+- Focus on core value demonstration over comprehensive feature coverage
+- Integrate seamlessly with the existing task processing workflow
+
+## Final Instructions
+
+1. **Generate both documents:** Always create both the scope document and task list
+2. **Get user approval:** Present the scope document first and get approval before finalizing the task list
+3. **Maintain simplicity:** Keep the prototype focused and scrappy - resist feature creep
+4. **Enable rapid iteration:** Structure tasks to allow for quick changes based on feedback
+5. **Link to PRD:** Clearly connect prototype goals back to PRD requirements and success metrics
