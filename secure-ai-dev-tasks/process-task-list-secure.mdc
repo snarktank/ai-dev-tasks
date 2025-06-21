@@ -1,0 +1,250 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Security-Enhanced Task List Management
+
+Guidelines for managing security-focused task lists in markdown files to track progress on completing a PRD while ensuring comprehensive security validation at each step.
+
+## Security-First Task Implementation Protocol
+# Security-Enhanced Task List Management
+
+Guidelines for managing security-focused task lists in markdown files to track progress on completing a PRD while ensuring comprehensive security validation at each step.
+
+## Security-First Task Implementation Protocol
+
+### **One Sub-Task at a Time with Security Validation**
+- **Never skip security checkpoints:** Each sub-task must pass security validation before proceeding
+- **Security-first approach:** Do **NOT** start the next sub-task until security requirements are met AND user permission is granted
+- **Mandatory security validation:** Every implementation task requires corresponding security validation
+
+### **Enhanced Completion Protocol:**
+1. **Implement the sub-task** with all required security controls
+2. **Execute security validation:** Run required security tests and validation
+3. **Document security evidence:** Update security documentation and compliance records
+4. **Mark as completed:** Change `[ ]` to `[x]` only after security validation passes
+5. **Update parent task:** If **all** subtasks underneath a parent task are `[x]`, mark the **parent task** as completed
+6. **Security checkpoint review:** Stop and wait for user approval, highlighting any security findings
+
+## Security Validation Requirements
+
+Before marking any task complete, ensure:
+
+### **For Implementation Tasks:**
+- [ ] **Security controls implemented** according to requirements
+- [ ] **Input validation** properly implemented and tested
+- [ ] **Output encoding** applied where needed
+- [ ] **Authentication/Authorization** checks in place
+- [ ] **Error handling** doesn't leak sensitive information
+- [ ] **Logging** captures required security events
+- [ ] **Unit tests** include security test cases
+- [ ] **Code review** includes security review checklist
+
+### **For Security-Specific Tasks:**
+- [ ] **Threat model** updated and validated
+- [ ] **Security tests** pass all acceptance criteria
+- [ ] **Compliance requirements** verified and documented
+- [ ] **Risk assessment** updated with new findings
+- [ ] **Security documentation** complete and reviewed
+- [ ] **Monitoring/alerting** configured and tested
+
+### **For Testing Tasks:**
+- [ ] **SAST (Static Analysis)** scans pass or issues documented
+- [ ] **DAST (Dynamic Analysis)** testing completed
+- [ ] **SCA (Software Composition)** analysis performed
+- [ ] **Security unit tests** achieve required coverage
+- [ ] **Integration security tests** pass
+- [ ] **Performance impact** of security controls measured
+
+## Security Task List Maintenance
+
+### **1. Update Task List with Security Evidence:**
+   - Mark tasks and subtasks as completed (`[x]`) per the enhanced protocol above
+   - Add security validation evidence and test results
+   - Document any security exceptions or compensating controls
+   - Update risk assessments based on implementation findings
+
+### **2. Maintain Security Documentation Sections:**
+   - **"Security Review Checkpoints":** Update status of each security review
+   - **"Relevant Files":** Add new security-related files created or modified
+   - **"Security Context & Risk Level":** Update based on implementation findings
+   - **"Compliance Status":** Track compliance validation progress
+
+### **3. Security Metrics Tracking:**
+   - Track security test coverage and pass rates
+   - Document security tool scan results
+   - Monitor security performance impact
+   - Record security review completion status
+
+## AI Instructions for Security-Enhanced Processing
+
+When working with security-focused task lists, the AI must:
+
+### **Before Starting Any Task:**
+1. **Review security context** and understand risk level
+2. **Check security dependencies** and prerequisites  
+3. **Validate security requirements** are clearly understood
+4. **Confirm security tools** and environments are ready
+
+### **During Task Implementation:**
+1. **Implement security controls** as primary requirement, not afterthought
+2. **Follow secure coding practices** per organizational standards
+3. **Apply defense-in-depth** principles
+4. **Document security decisions** and trade-offs made
+5. **Test security controls** as part of implementation
+
+### **After Task Implementation:**
+1. **Execute comprehensive security validation:**
+   - Run security tests (unit, integration, scanning)
+   - Validate input sanitization and output encoding
+   - Check authentication and authorization controls
+   - Verify logging and monitoring functionality
+   - Test error handling and edge cases
+
+2. **Update security documentation:**
+   - Update threat model with implementation details
+   - Document security controls implemented
+   - Record any security assumptions or limitations
+   - Update compliance validation status
+
+3. **Security review preparation:**
+   - Gather security test results and evidence
+   - Prepare security control documentation
+   - Identify any security exceptions or compensating controls
+   - Document performance impact of security measures
+
+4. **Update task list with security evidence:**
+   - Mark task complete only after security validation
+   - Update "Relevant Files" with security artifacts
+   - Update security checkpoint status
+   - Add security validation results to task notes
+
+5. **Pause for security review:**
+   - Present security validation results to user
+   - Highlight any security findings or concerns
+   - Request user approval before proceeding
+   - Document user decisions on security trade-offs
+
+## Security Validation Checklist Template
+
+For each completed task, validate:
+
+```markdown
+## Security Validation for Task [X.Y]
+
+### **Implementation Security:**
+- [ ] Security controls implemented per requirements
+- [ ] Input validation applied and tested
+- [ ] Output encoding implemented where needed
+- [ ] Authentication/authorization checks in place
+- [ ] Error handling secure (no information leakage)
+- [ ] Secure configuration applied
+
+### **Testing Security:**
+- [ ] Security unit tests written and passing
+- [ ] SAST scan completed (results: PASS/FAIL/REVIEW NEEDED)
+- [ ] Manual security testing performed
+- [ ] Edge case security testing completed
+- [ ] Performance impact of security controls measured
+
+### **Documentation Security:**
+- [ ] Security implementation documented in `docs/security/security-controls.md`
+- [ ] Threat model updated in `docs/security/threat-model.md`
+- [ ] Project `README.md` updated with feature overview and usage
+- [ ] Confluence page drafted in `docs/wiki/confluence.md`
+- [ ] Compliance requirements validated and documented
+- [ ] Security review evidence collected
+- [ ] User security guidance updated (if applicable)
+
+### **Operational Security:**
+- [ ] Security logging configured and tested
+- [ ] Monitoring/alerting set up for security events
+- [ ] Incident response procedures updated
+- [ ] Security metrics collection enabled
+
+### **Compliance Security:**
+- [ ] Regulatory requirements validated
+- [ ] Policy compliance verified  
+- [ ] Audit trail evidence collected
+- [ ] Privacy requirements addressed (if applicable)
+```
+
+## Security Risk Management During Implementation
+
+### **Risk Escalation Protocol:**
+If security issues are discovered during implementation:
+
+1. **Immediate Assessment:**
+   - Classify risk level (Critical/High/Medium/Low)
+   - Determine if work can continue or must stop
+   - Document the security issue and impact
+
+2. **Escalation Decision:**
+   - **Critical/High risks:** Stop work, escalate immediately
+   - **Medium risks:** Document, implement compensating controls
+   - **Low risks:** Document, plan remediation
+
+3. **Documentation Requirements:**
+   - Log security issue in risk register
+   - Document remediation or acceptance decision
+   - Update threat model with new findings
+   - Communicate to stakeholders if required
+
+## Security Communication Protocol
+
+When presenting completed tasks to users:
+
+### **Security Summary Format:**
+```
+✅ **Task [X.Y] Completed:** [Task Description]
+
+**Security Validation Results:**
+- Security Tests: [PASS/FAIL - details]
+- Code Review: [COMPLETED - findings]
+- Compliance: [VALIDATED/PENDING - status]
+- Risk Level: [NO CHANGE/REDUCED/REQUIRES ATTENTION]
+
+**Security Evidence:**
+- [Link to security test results]
+- [Link to updated documentation]
+- [Any security findings or recommendations]
+
+**Ready to proceed?** Please review security validation results and confirm to continue to next task.
+```
+
+## Integration with Security Template
+
+This process must integrate with the comprehensive security template (`@security-template.md`) to ensure:
+
+### **Consistent Security Standards:**
+- All security requirements from template are addressed
+- Security controls align with organizational standards
+- Compliance requirements are properly validated
+- Risk assessments follow established methodology
+
+### **Comprehensive Security Coverage:**
+- Authentication and authorization properly implemented
+- Data protection measures in place
+- Input validation and output encoding applied
+- Security monitoring and logging configured
+- Incident response procedures updated
+
+### **Security Quality Assurance:**
+- Security testing integrated into development workflow
+- Security documentation maintained throughout process
+- Security reviews conducted at appropriate checkpoints
+- Security metrics collected and reported
+
+## Final Security Instructions
+
+1. **Security is non-negotiable:** Never compromise security for speed or convenience
+2. **Validate before proceeding:** Every task must pass security validation
+3. **Document everything:** Maintain comprehensive security evidence
+4. **Communicate transparently:** Report all security findings to users
+5. **Follow established standards:** Adhere to security template requirements
+6. **Plan for operations:** Ensure security monitoring and response capabilities
+7. **Think like an attacker:** Consider how each implementation could be misused
+8. **Design for recovery:** Plan for security incident response and recovery
+
+**Remember:** Security is built through consistent application of secure practices, not through last-minute additions. Every task is an opportunity to strengthen the overall security posture.

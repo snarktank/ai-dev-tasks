@@ -1,0 +1,200 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Rule: Generating a Security-Focused Product Requirements Document (PRD)
+
+## Goal
+
+To guide an AI assistant in creating a detailed, security-focused Product Requirements Document (PRD) in Markdown format, based on an initial user prompt. The PRD should incorporate comprehensive security considerations, privacy requirements, compliance needs, and risk assessments suitable for a junior developer to understand and implement securely.
+
+## Process
+
+1.  **Receive Initial Prompt:** The user provides a brief description or request for a new feature or functionality.
+2.  **Ask Clarifying Questions:** Before writing the PRD, the AI *must* ask clarifying questions to gather sufficient detail about both functional and security requirements.
+3.  **Security Context Assessment:** Evaluate the security implications and requirements based on the feature description.
+4.  **Generate Security-Enhanced PRD:** Based on the initial prompt, answers to clarifying questions, and security assessment, generate a PRD using the structure outlined below.
+5.  **Save PRD:** Save the generated document as `prd-[feature-name].md` inside the `/tasks` directory.
+
+## Clarifying Questions (Enhanced with Security Focus)
+
+The AI should adapt its questions based on the prompt, covering both functional and security aspects:
+
+### **Functional Requirements**
+*   **Problem/Goal:** "What problem does this feature solve for the user?" or "What is the main goal we want to achieve with this feature?"
+*   **Target User:** "Who is the primary user of this feature? What are their roles and privilege levels?"
+*   **Core Functionality:** "Can you describe the key actions a user should be able to perform with this feature?"
+*   **User Stories:** "Could you provide a few user stories? (e.g., As a [type of user], I want to [perform an action] so that [benefit].)"
+
+### **Security & Privacy Requirements**
+*   **Data Sensitivity:** "What types of data will this feature collect, process, or store? Is any of it sensitive (PII, financial, health, etc.)?"
+*   **User Authentication:** "Who should have access to this feature? What authentication/authorization requirements exist?"
+*   **Data Flow:** "Can you describe how data flows through this feature? Where does it come from and where does it go?"
+*   **External Integrations:** "Does this feature integrate with external APIs, services, or third-party systems?"
+*   **Compliance Requirements:** "Are there any regulatory or compliance requirements (GDPR, HIPAA, PCI DSS, etc.) that apply?"
+*   **Privacy Considerations:** "What privacy controls should users have over their data in this feature?"
+
+### **Risk & Threat Considerations**
+*   **Threat Landscape:** "What are the main security threats you're concerned about for this feature?"
+*   **Business Impact:** "What would be the business impact if this feature were compromised or unavailable?"
+*   **Data Breach Scenarios:** "What would happen if the data in this feature were exposed to unauthorized users?"
+
+### **Operational Security**
+*   **Monitoring Needs:** "What security events should be logged and monitored for this feature?"
+*   **Incident Response:** "How should security incidents related to this feature be handled?"
+*   **Backup/Recovery:** "What are the backup and disaster recovery requirements?"
+
+## PRD Structure (Security-Enhanced)
+
+The generated PRD should include the following sections:
+
+1.  **Introduction/Overview:** Briefly describe the feature, the problem it solves, and security context.
+
+2.  **Goals & Success Metrics:** List specific, measurable objectives including security goals.
+
+3.  **Security Classification & Risk Assessment:**
+    - Data classification (Public, Internal, Confidential, Restricted)
+    - Risk level assessment (Low, Medium, High, Critical)
+    - Threat model summary
+    - Compliance requirements
+
+4.  **User Stories:** Detail user narratives including security-related user stories.
+
+5.  **Functional Requirements:** List specific functionalities with security considerations integrated.
+
+6.  **Security Requirements:** 
+    - Authentication & Authorization requirements
+    - Data protection requirements
+    - Input validation and sanitization
+    - Communication security
+    - Privacy requirements
+    - Audit and logging requirements
+
+7.  **Privacy Requirements:**
+    - Data collection and usage transparency
+    - User consent mechanisms
+    - Data subject rights implementation
+    - Cross-border data transfer considerations
+
+8.  **Compliance Requirements:**
+    - Applicable regulations (GDPR, CCPA, HIPAA, etc.)
+    - Industry standards (PCI DSS, SOC 2, etc.)
+    - Internal policy compliance
+
+9.  **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include.
+
+10. **Technical Architecture Considerations:**
+    - Security architecture principles
+    - Integration security requirements
+    - Infrastructure security needs
+    - Performance vs security trade-offs
+
+11. **Security Controls Design:**
+    - Preventive controls
+    - Detective controls
+    - Corrective controls
+    - Compensating controls (if needed)
+
+12. **Security Operations Requirements:**
+    - Monitoring and alerting
+    - Incident response procedures
+    - Vulnerability management
+    - Security testing requirements
+
+13. **Governance & Risk Management:**
+    - Risk acceptance criteria
+    - Security review checkpoints
+    - Documentation requirements
+    - Training needs
+
+14. **User Experience Security:**
+    - Usable security design principles
+    - Security messaging and transparency
+    - Accessibility considerations for security features
+
+15. **Implementation Security Guidelines:**
+    - Secure coding requirements
+    - Security testing approach (SAST, DAST, SCA)
+    - Code review security checklist
+    - Deployment security controls
+
+16. **Documentation Requirements:**
+    - Updates to project `README.md` with feature summary and usage.
+    - Detailed Confluence page from `docs/wiki/confluence.md`.
+    - All security documentation (`threat-model.md`, `security-controls.md`, etc.).
+
+17. **Open Questions & Dependencies:**
+    - Remaining security questions
+    - External dependencies and their security posture
+    - Risk mitigation strategies needed
+
+## Security Risk Matrix Template
+
+Include this risk assessment matrix in each PRD:
+
+| Risk Category | Likelihood | Impact | Risk Level | Mitigation Required |
+|---------------|------------|---------|------------|-------------------|
+| Data Breach | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+| Unauthorized Access | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+| Data Loss | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+| Service Disruption | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+| Compliance Violation | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+| Privacy Violation | [H/M/L] | [H/M/L] | [Critical/High/Med/Low] | [Y/N] |
+
+## Target Audience
+
+Assume the primary reader includes:
+- **Junior developers** who need clear, implementable requirements
+- **Security engineers** who need to validate security controls
+- **Compliance officers** who need to verify regulatory adherence
+- **Product managers** who need to understand security trade-offs
+
+## Output Requirements
+
+*   **Format:** Markdown (`.md`)
+*   **Location:** `/tasks/`
+*   **Filename:** `prd-[feature-name].md`
+*   **Security Template Reference:** Include link to `@security-template.md`
+
+## Security Review Checkpoints
+
+The PRD must include these mandatory security review points:
+1. **Threat Modeling Review** - Before development starts
+2. **Security Architecture Review** - During design phase
+3. **Code Security Review** - During implementation
+4. **Security Testing Review** - Before deployment
+5. **Compliance Review** - Before release
+6. **Privacy Impact Assessment** - If PII is involved
+
+## Final Instructions
+
+1. **Do NOT start implementing the PRD**
+2. **Make sure to ask comprehensive security-focused clarifying questions**
+3. **Reference the security template** (`@security-template.md`) when creating requirements
+4. **Include threat modeling** as part of the PRD process
+5. **Consider privacy-by-design** principles throughout
+6. **Document compliance requirements** clearly
+7. **Create actionable security acceptance criteria**
+8. **Ensure security requirements are testable and measurable**
+
+## Security Documentation Standards
+
+All security-related sections must:
+- Be specific and measurable
+- Include acceptance criteria
+- Reference applicable standards/frameworks
+- Specify testing requirements
+- Include monitoring and alerting needs
+- Document incident response procedures
+- Address user experience considerations
+
+## Integration with Security Template
+
+This PRD process must integrate with the comprehensive security template to ensure:
+- All security considerations are addressed
+- Risk assessments are thorough
+- Compliance requirements are identified
+- Privacy requirements are defined
+- Security controls are properly designed
+- Operational security needs are documented

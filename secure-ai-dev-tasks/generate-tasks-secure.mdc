@@ -1,0 +1,280 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Rule: Generating a Security-Focused Task List from a PRD
+
+## Goal
+
+To guide an AI assistant in creating a detailed, step-by-step task list with integrated security considerations in Markdown format based on an existing Product Requirements Document (PRD). The task list should guide a developer through secure implementation while ensuring all security requirements, compliance needs, and risk mitigations are properly addressed.
+# Rule: Generating a Security-Focused Task List from a PRD
+
+## Goal
+
+To guide an AI assistant in creating a detailed, step-by-step task list with integrated security considerations in Markdown format based on an existing Product Requirements Document (PRD). The task list should guide a developer through secure implementation while ensuring all security requirements, compliance needs, and risk mitigations are properly addressed.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `tasks-[prd-file-name].md` (e.g., `tasks-prd-user-profile-editing.md`)
+- **Security Template Reference:** Must reference `@security-template.md`
+
+## Process
+
+1.  **Receive PRD Reference:** The user points the AI to a specific PRD file
+2.  **Analyze PRD:** The AI reads and analyzes the functional requirements, security requirements, compliance needs, and risk assessments from the specified PRD.
+3.  **Security Context Assessment:** Extract and prioritize security requirements, threat models, and compliance obligations.
+4.  **Phase 1: Generate Parent Tasks:** Based on the PRD analysis, create the file and generate the main, high-level tasks required to implement the feature securely. Use your judgement on how many high-level tasks to use. Present these tasks to the user in the specified format (without sub-tasks yet). Inform the user: "I have generated the high-level security-focused tasks based on the PRD. Ready to generate the detailed sub-tasks? Respond with 'Go' to proceed."
+5.  **Wait for Confirmation:** Pause and wait for the user to respond with "Go".
+6.  **Phase 2: Generate Security-Enhanced Sub-Tasks:** Once the user confirms, break down each parent task into smaller, actionable sub-tasks that include mandatory security checkpoints, validation steps, and compliance verification.
+7.  **Security Task Integration:** Ensure each functional task includes corresponding security tasks (threat modeling, security testing, code review, etc.).
+8.  **Identify Relevant Files:** Based on the tasks and PRD, identify potential files including security configurations, test files, documentation, and monitoring setup.
+9.  **Generate Final Output:** Combine all components into the final security-enhanced Markdown structure.
+10. **Save Task List:** Save the generated document in the `/tasks/` directory.
+
+## Security Task Categories
+
+Each task list must include tasks from these categories:
+
+### **1. Security Planning & Design**
+- Threat modeling and risk assessment
+- Security architecture review
+- Privacy impact assessment
+- Compliance validation planning
+
+### **2. Secure Implementation**
+- Secure coding practices
+- Input validation and sanitization
+- Authentication and authorization
+- Data protection and encryption
+
+### **3. Security Testing**
+- Static Application Security Testing (SAST)
+- Dynamic Application Security Testing (DAST)
+- Software Composition Analysis (SCA)
+- Penetration testing planning
+
+### **4. Security Operations**
+- Logging and monitoring setup
+- Incident response procedures
+- Security documentation
+- Security training materials
+
+### **5. Compliance & Governance**
+- Regulatory compliance validation
+- Policy adherence verification
+- Audit trail preparation
+- Risk management documentation
+
+## Output Format (Security-Enhanced)
+
+The generated task list _must_ follow this structure:
+
+```markdown
+# Security-Enhanced Task List for [Feature Name]
+
+## Security Context & Risk Level
+- **Risk Classification:** [Critical/High/Medium/Low]
+- **Data Sensitivity:** [Public/Internal/Confidential/Restricted]
+- **Compliance Requirements:** [GDPR, HIPAA, PCI DSS, etc.]
+- **Threat Model Reference:** Link to threat model document
+
+## Security Review Checkpoints
+- [ ] **SR-1:** Threat Modeling Review (Before development)
+- [ ] **SR-2:** Security Architecture Review (Design phase)
+- [ ] **SR-3:** Security Code Review (Implementation phase)
+- [ ] **SR-4:** Security Testing Review (Pre-deployment)
+- [ ] **SR-5:** Compliance Review (Pre-release)
+- [ ] **SR-6:** Privacy Impact Assessment (If PII involved)
+
+## Relevant Files
+
+### **Core Implementation Files**
+- `path/to/component.ts` - Main feature component
+- `path/to/component.test.ts` - Unit tests for component
+- `path/to/api-route.ts` - API endpoint handler
+- `path/to/api-route.test.ts` - API endpoint tests
+
+### **Security Configuration Files**
+- `config/security.ts` - Security configuration and constants
+- `middleware/auth.ts` - Authentication middleware
+- `middleware/validation.ts` - Input validation middleware
+- `utils/encryption.ts` - Encryption utilities
+- `utils/sanitization.ts` - Data sanitization utilities
+
+### **Security Testing Files**
+- `security-tests/sast-config.yml` - Static analysis configuration
+- `security-tests/integration.test.ts` - Security integration tests
+- `security-tests/e2e-security.test.ts` - End-to-end security tests
+
+### **Security Documentation**
+- `docs/security/threat-model.md` - Feature threat model
+- `docs/security/security-controls.md` - Implemented security controls
+- `docs/security/incident-response.md` - Incident response procedures
+- `docs/compliance/privacy-assessment.md` - Privacy impact assessment
+
+### **Project Documentation**
+- `docs/wiki/confluence.md` - Detailed documentation for Confluence wiki page.
+- `README.md` - Updates to the project README file for this feature.
+
+### **Monitoring & Operations**
+- `monitoring/security-alerts.yml` - Security monitoring configuration
+- `logging/security-events.ts` - Security event logging setup
+- `ops/security-runbook.md` - Security operations runbook
+
+### Notes
+- Security tests should be integrated with the main test suite
+- All security configurations must be externalized (not hardcoded)
+- Use `npm run security:scan` for comprehensive security scanning
+- Use `npm run test:security` for security-specific tests
+
+## Tasks
+
+- [ ] 1.0 **Security Planning & Threat Modeling**
+  - [ ] 1.1 [Conduct threat modeling for the feature]
+  - [ ] 1.2 [Create security risk assessment]
+  - [ ] 1.3 [Define security acceptance criteria]
+  - [ ] 1.4 [Identify compliance requirements]
+  - [ ] 1.5 [Document security assumptions and constraints]
+
+- [ ] 2.0 **Security Architecture & Design**
+  - [ ] 2.1 [Design secure data flow architecture]
+  - [ ] 2.2 [Define authentication and authorization model]
+  - [ ] 2.3 [Plan encryption strategy for data at rest and in transit]
+  - [ ] 2.4 [Design input validation and sanitization approach]
+  - [ ] 2.5 [Create security monitoring and logging strategy]
+
+- [ ] 3.0 **Secure Implementation - Core Feature**
+  - [ ] 3.1 [Implement core functionality with security controls]
+  - [ ] 3.2 [Add input validation and sanitization]
+  - [ ] 3.3 [Implement authentication and authorization checks]
+  - [ ] 3.4 [Add data encryption and protection measures]
+  - [ ] 3.5 [Implement secure error handling]
+
+- [ ] 4.0 **Security Testing Implementation**
+  - [ ] 4.1 [Set up static application security testing (SAST)]
+  - [ ] 4.2 [Configure dynamic application security testing (DAST)]
+  - [ ] 4.3 [Implement security unit tests]
+  - [ ] 4.4 [Create security integration tests]
+  - [ ] 4.5 [Set up software composition analysis (SCA)]
+
+- [ ] 5.0 **Privacy & Compliance Implementation**
+  - [ ] 5.1 [Implement privacy controls and user consent]
+  - [ ] 5.2 [Add data subject rights functionality (if applicable)]
+  - [ ] 5.3 [Implement audit logging for compliance]
+  - [ ] 5.4 [Add data retention and deletion capabilities]
+  - [ ] 5.5 [Validate regulatory compliance requirements]
+
+- [ ] 6.0 **Security Operations Setup**
+  - [ ] 6.1 [Configure security monitoring and alerting]
+  - [ ] 6.2 [Set up incident response procedures]
+  - [ ] 6.3 [Create security documentation and runbooks]
+  - [ ] 6.4 [Implement security metrics and reporting]
+  - [ ] 6.5 [Plan security training and awareness materials]
+
+- [ ] 7.0 **Security Validation & Review**
+  - [ ] 7.1 [Execute comprehensive security testing]
+  - [ ] 7.2 [Conduct security code review]
+  - [ ] 7.3 [Perform penetration testing (if required)]
+  - [ ] 7.4 [Validate compliance requirements]
+  - [ ] 7.5 [Review and approve security documentation]
+
+- [ ] 8.0 **Deployment Security**
+  - [ ] 8.1 [Configure secure deployment pipeline]
+  - [ ] 8.2 [Implement infrastructure security controls]
+  - [ ] 8.3 [Set up security monitoring in production]
+  - [ ] 8.4 [Conduct pre-production security validation]
+  - [ ] 8.5 [Create rollback and incident response procedures]
+
+- [ ] 9.0 **Project Documentation**
+  - [ ] 9.1 [Draft updates for the project README.md file with feature summary and usage]
+  - [ ] 9.2 [Create detailed Confluence page documentation in `docs/wiki/confluence.md`]
+  - [ ] 9.3 [Review and finalize all project and security documentation]
+
+## Security Task Templates
+
+### **Security Review Sub-Task Template:**
+```
+- [ ] X.Y [Task Description]
+  - **Security Checkpoint:** [Which security review this relates to]
+  - **Acceptance Criteria:** [Specific, measurable security criteria]
+  - **Testing Required:** [What security testing must be performed]
+  - **Documentation:** [What security documentation must be created/updated]
+  - **Compliance:** [Any compliance validation required]
+```
+
+### **Implementation Sub-Task Template:**
+```
+- [ ] X.Y [Implementation Task Description]
+  - **Security Controls:** [Which security controls must be implemented]
+  - **Validation:** [How to validate security implementation]
+  - **Testing:** [Security tests that must pass]
+  - **Monitoring:** [Security events that must be logged]
+  - **Rollback:** [How to safely rollback if issues occur]
+```
+
+## Interaction Model
+
+The process explicitly requires a pause after generating parent tasks to get user confirmation ("Go") before proceeding to generate the detailed security-enhanced sub-tasks. This ensures the high-level security plan aligns with user expectations before diving into implementation details.
+
+## Security Integration Requirements
+
+Every functional task must include:
+1. **Security validation steps**
+2. **Threat mitigation measures**
+3. **Compliance verification**
+4. **Security testing requirements**
+5. **Monitoring and alerting setup**
+6. **Documentation requirements**
+
+## Target Audience
+
+Assume the primary reader includes:
+- **Junior developers** who need clear, secure implementation guidance
+- **Security engineers** who need to validate security controls
+- **DevOps engineers** who need to implement security operations
+- **Compliance officers** who need to verify regulatory adherence
+
+## Security Testing Integration
+
+Each task list must include comprehensive security testing:
+- **Unit Tests:** Security-focused unit tests for each component
+- **Integration Tests:** Security validation across component boundaries
+- **End-to-End Tests:** Complete security workflow validation
+- **Performance Tests:** Security control performance impact
+- **Compliance Tests:** Regulatory requirement validation
+
+## Mandatory Security Documentation
+
+Each task list must include creation of:
+- **Threat Model Document**
+- **Security Controls Documentation**
+- **Privacy Impact Assessment** (if PII is involved)
+- **Incident Response Procedures**
+- **Security Operations Runbook**
+- **Compliance Validation Report**
+- **Confluence Page** (`docs/wiki/confluence.md`)
+- **README.md Updates**
+
+## Security Validation Criteria
+
+Before marking any security-related task as complete:
+1. Security controls are implemented and tested
+2. Threat mitigations are in place and validated
+3. Compliance requirements are met and documented
+4. Security testing passes all acceptance criteria
+5. Security documentation is complete and reviewed
+6. Monitoring and alerting are configured and tested
+
+## Final Instructions
+
+1. **Always reference the security template** (`@security-template.md`) when generating tasks
+2. **Include mandatory security checkpoints** for each phase
+3. **Ensure security tasks are specific and measurable**
+4. **Integrate security throughout the development lifecycle**
+5. **Plan for security operations and incident response**
+6. **Document all security assumptions and decisions**
+7. **Include compliance validation at every appropriate step**
+8. **Design for security by default, not as an afterthought**
