@@ -22,6 +22,30 @@ To guide an AI assistant in creating a detailed, step-by-step task list in Markd
 8.  **Generate Final Output:** Combine the parent tasks, sub-tasks, relevant files, and notes into the final Markdown structure.
 9.  **Save Task List:** Save the generated document in the `/tasks/` directory with the filename `tasks-[prd-file-name].md`, where `[prd-file-name]` matches the base name of the input PRD file (e.g., if the input was `prd-user-profile-editing.md`, the output is `tasks-prd-user-profile-editing.md`).
 
+## Complexity Scoring System
+
+Each sub-task should be assigned a complexity score:
+
+- **[L]** - Low Complexity (Suitable for faster models like Claude Sonnet/GPT-3.5)
+  - Following established patterns
+  - Simple CRUD operations
+  - Basic conversions
+  - Routine implementations
+  - Writing standard tests
+
+- **[M]** - Medium Complexity (May require advanced models for design, faster for implementation)
+  - Moderate refactoring
+  - Integration between components
+  - State management
+  - Error handling patterns
+
+- **[H]** - High Complexity (Requires advanced models like Claude Opus/GPT-4)
+  - Architecture design
+  - Complex async patterns
+  - Performance optimization
+  - Security implementations
+  - Novel solutions
+  
 ## Output Format
 
 The generated task list _must_ follow this structure:
