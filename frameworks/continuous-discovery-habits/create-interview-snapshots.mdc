@@ -1,0 +1,121 @@
+---
+description: > 
+  Framework for creating structured interview snapshots that capture user stories, 
+  behavioral insights, and opportunities from qualitative interviews and user tests. 
+  Follows Continuous Discovery Habits methodology to extract meaningful patterns 
+  and create actionable insights for product development.
+
+globs:
+alwaysApply: false
+---
+
+# Rule: Extracting Insights from Qualitative Interviews and User Tests (Continuous Discovery Habits)
+
+## Goal
+To guide an AI assistant in extracting meaningful insights from qualitative interviews or user test sessions, creating interview snapshots that capture specific stories, opportunities, and behavioral insights following the Continuous Discovery Habits methodology.
+
+## Output
+**Format:** Markdown (`.md`)  
+**Location:** `/user-research/interviews/snapshots/`  
+**Filename:** `snapshot-[participant-name]-[date].md`
+**Snapshot Structure:**
+
+# Interview Snapshot: [Participant Name]
+
+**Date:** [YYYY-MM-DD]  
+**Type:** [Discovery Interview | Usability Test | Other]  
+**Duration:** [Minutes]  
+**Interviewer(s):** [Name(s)]  
+
+---
+
+## Quick Facts
+- **Segment:** [User profile / role]  
+- **Key Behaviors:** [Observed behavior patterns]  
+- **Tools Used:** [Products, tools, services used]  
+- **Experience Level:** [Novice / Intermediate / Expert, etc.]  
+- **Setting:** [Contextual environment]  
+
+---
+
+## Memorable Quote
+> "[Direct quote capturing participant’s voice]"
+
+---
+
+## Story Summary
+
+### Story 1: [Short title]  
+**Context:** [Time, place, situation]  
+**What Happened:** [Concrete actions taken, step by step]  
+
+**Key Moments:**  
+- [Frustration, delight, surprise, or workaround]  
+- [Notable patterns or repeated actions]  
+
+---
+
+### Story 2: [Short title]  
+**Context:** [Time, place, situation]  
+**What Happened:** [Concrete actions taken, step by step]  
+
+**Key Moments:**  
+- [Behavioral insight #1]  
+- [Behavioral insight #2]  
+
+*(Repeat as needed for additional stories)*
+
+---
+
+## Experience Map
+*A text-based, visual representation of the participant's journey for a specific story. Focus on concrete actions and context, not generalizations.*
+
+**Scope:** [Define the start and end points of the map, e.g., "From deciding to apply for a job to submitting the application"]  
+**Goal:** [The participant's desired outcome, e.g., "To successfully apply for the Senior Product Manager role"]
+
+**Journey:**
+1.  **Stage 1: [Stage title]**
+    - **Actions:** [What the user did, e.g., "Heard about the show from a friend."]
+    - **Thoughts/Feelings:** [Quotes or paraphrased emotions, e.g., "This sounds great!"]
+    - **Pain Points:** [Specific frustrations or challenges, e.g., "Forgot the name of the show later."]
+2.  **Stage 2: [Stage title]**
+    - **Actions:** [e.g., "Opened Netflix on their TV and used the search bar."]
+    - **Thoughts/Feelings:** [e.g., "Where do I find this? Is it on this platform?"]
+    - **Pain Points:** [e.g., "Couldn't find the show with the keywords he remembered."]
+3.  **Stage 3: [Stage title]**
+    - **Actions:** [e.g., "Finally found the movie and started watching."]
+    - **Thoughts/Feelings:** [e.g., "Relieved to have found it."]
+    - **Pain Points:** [e.g., "The streaming quality was poor at the beginning."]
+
+*(Add or remove stages as necessary to map the complete, specific experience)*
+
+---
+
+## Opportunities
+- [Potential improvement or unmet need #1]  
+- [Potential improvement or unmet need #2]  
+
+---
+
+## Insights
+- [Patterns that go beyond a single story, e.g., user mental models, decision-making shortcuts, systemic frustrations]  
+
+
+## Process
+1. **Receive Interview Data:** User provides interview transcript, recording notes, or user test observations  
+2. **Identify Context:** Determine the type of session (discovery interview, usability test, etc.) and research goals  
+3. **Extract Stories:** Identify specific stories about actual behavior, not generalizations  
+4. **Map Experiences:** Create a simple experience map of the participant's journey  
+5. **Identify Opportunities:** Extract needs, pain points, and desires expressed in the stories  
+6. **Capture Insights:** Note interesting behaviors or patterns that may not yet be opportunities  
+7. **Create Snapshot:** Compile all elements into an interview snapshot  
+8. **Save Document:** Save in `/user-research/interviews/snapshots/` directory
+
+
+## Story Extraction Guidelines
+- Ask for **specific instances** (“Tell me about the last time you…”).  
+- Capture **actual behaviors** rather than speculative intentions.  
+- Note **contextual details** (when, where, with whom).  
+- Highlight **emotional moments** (frustration, delight, surprises).  
+- Favor **recent experiences** to ensure accuracy.  
+
