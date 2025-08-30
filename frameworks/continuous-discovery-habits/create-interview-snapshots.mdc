@@ -1,14 +1,6 @@
 ---
-description: > 
-  Framework for creating structured interview snapshots that capture user stories, 
-  behavioral insights, and opportunities from qualitative interviews and user tests. 
-  Follows Continuous Discovery Habits methodology to extract meaningful patterns 
-  and create actionable insights for product development.
-
-globs:
 alwaysApply: false
 ---
-
 # Rule: Extracting Insights from Qualitative Interviews and User Tests (Continuous Discovery Habits)
 
 ## Goal
