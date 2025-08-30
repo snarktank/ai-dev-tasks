@@ -1,0 +1,20 @@
+---
+description: Follow this process when I'm sharing notes from a 1:1 with someone
+alwaysApply: false
+---
+# Process
+1. Save notes in a Markdown file named after the person (e.g., `JohnDoe.md`) inside `/1-1 notes/`.
+2. If the file already exists, append the new meeting notes **at the top of the file**, so that the most recent meeting is always first.
+3. Use the following format for each meeting:
+
+   ## [YYYY-MM-DD]
+   ### Notes
+   - Key discussion points here
+   ### Action Items
+   - [ ] Task 1 (assigned to me)  
+   - [ ] Task 2 (assigned to me)
+
+4. Do **not** add action items that belong to others.  
+
+# People I work with:
+
