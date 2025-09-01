@@ -1,195 +1,129 @@
-# 🚀 AI Dev Tasks 🤖
+# 🚀 Cursor for Product Managers 🤖
 
-Welcome to **AI Dev Tasks**! This repository provides a collection of markdown files designed to supercharge your feature development workflow with AI-powered IDEs and CLIs. Originally built for [Cursor](https://cursor.sh/), these tools work with any AI coding assistant including Claude Code, Windsurf, and others. By leveraging these structured prompts, you can systematically approach building features, from ideation to implementation, with built-in checkpoints for verification.
+Welcome to **Cursor for Product Managers**! This repository provides a comprehensive toolkit and framework designed to supercharge your product management workflow using Cursor as an AI-native PM copilot. Originally inspired by the [Maven course on AI-native PMs](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work) and the [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main) structured workflow approach, this toolkit transforms Cursor from a coding tool into a powerful product thinking, strategic decision-making, and document creation platform.
 
-Stop wrestling with monolithic AI requests and start guiding your AI collaborator step-by-step!
+Stop wrestling with fragmented product management tools and start building a unified, AI-powered PM workspace that grows smarter with every conversation!
 
 ## ✨ The Core Idea
 
-Building complex features with AI can sometimes feel like a black box. This workflow aims to bring structure, clarity, and control to the process by:
+Product management involves complex workflows across research, discovery, and delivery. This toolkit aims to bring structure, clarity, and AI-native efficiency to the process by:
 
-1. **Defining Scope:** Clearly outlining what needs to be built with a Product Requirement Document (PRD).
-2. **Detailed Planning:** Breaking down the PRD into a granular, actionable task list.
-3. **Iterative Implementation:** Guiding the AI to tackle one task at a time, allowing you to review and approve each change.
+1. **Unified Context Management**: Centralizing all PM knowledge, frameworks, and insights in one AI-accessible workspace
+2. **Structured Discovery**: Leveraging proven frameworks like Continuous Discovery Habits for systematic user research
+3. **AI-Native Workflows**: Using Cursor's capabilities for document-centric work, selective context, and visual diffs
+4. **Iterative Improvement**: Building documents that grow smarter with every AI interaction
 
-This structured approach helps ensure the AI stays on track, makes it easier to debug issues, and gives you confidence in the generated code.
+This approach helps ensure your AI copilot stays on track, makes it easier to manage complex product initiatives, and gives you confidence in AI-generated strategic content.
 
-## Workflow: From Idea to Implemented Feature 💡➡️💻
+## 🗂️ Repository Structure
 
-Here's the step-by-step process using the `.md` files in this repository:
+### Company Level Context
+- **Product Vision & Strategy**: Vision documents, strategy frameworks, and product principles
+- **OKRs**: Objectives and Key Results tracking
+- **Lesson Learned**: Insights and learnings from past initiatives
+- **Team Structure**: Team organization and role definitions
 
-### 1️⃣ Create a Product Requirement Document (PRD)
+### Frameworks
+- **Continuous Discovery Habits**: Systematic user research and opportunity identification frameworks
+- **Evidence-Guided**: Data-driven decision making frameworks and templates
 
-First, lay out the blueprint for your feature. A PRD clarifies what you're building, for whom, and why.
+### User Research
+- **Interviews**: User interview snapshots and synthesis documents
+- **App Store Reviews**: App store review analysis and insights
+- **Research Archive**: Research methodology and historical data
 
-You can create a lightweight PRD directly within your AI tool of choice:
+### Meeting Notes
+- **1:1 Notes**: Individual meeting records and action items
+- **Leadership**: Leadership meeting notes and strategic discussions
+- **Product-Trio**: Product trio collaboration records
+- **Board & Investor**: Board and investor meeting documentation
 
-1. Ensure you have the `create-prd.md` file from this repository accessible.
-2. In your AI tool, initiate PRD creation:
+### Initiatives
+- Active product initiatives and project tracking
 
-    ```text
-    Use @create-prd.md
-    Here's the feature I want to build: [Describe your feature in detail]
-    Reference these files to help you: [Optional: @file1.py @file2.ts]
-    ```
-    *(Pro Tip: For Cursor users, MAX mode is recommended for complex PRDs if your budget allows for more comprehensive generation.)*
+## 🚀 How to Use
 
-    ![Example of initiating PRD creation](https://pbs.twimg.com/media/Go6DDlyX0AAS7JE?format=jpg&name=large)
+### 1️⃣ Setup Your AI-Native PM Workspace
 
-### 2️⃣ Generate Your Task List from the PRD
+First, ensure you have Cursor installed and these framework files accessible:
 
-With your PRD drafted (e.g., `MyFeature-PRD.md`), the next step is to generate a detailed, step-by-step implementation plan for your AI Developer.
+1. Clone or download this repository to your local workspace
+2. In Cursor's Agent chat, reference files with `@` (e.g., `@frameworks/continuous-discovery-habits/create-interview-snapshots.mdc`)
+3. Follow the structured workflows for different PM activities
 
-1. Ensure you have `generate-tasks.md` accessible.
-2. In your AI tool, use the PRD to create tasks:
+### 2️⃣ Leverage AI Dev Tasks Framework
 
-    ```text
-    Now take @MyFeature-PRD.md and create tasks using @generate-tasks.md
-    ```
-    *(Note: Replace `@MyFeature-PRD.md` with the actual filename of the PRD you generated in step 1.)*
+This toolkit integrates with the [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main) structured workflow for complex product initiatives:
 
-    ![Example of generating tasks from PRD](https://pbs.twimg.com/media/Go6FITbWkAA-RCT?format=jpg&name=medium)
+1. **Create PRDs**: Use AI to generate comprehensive Product Requirement Documents
+2. **Break Down Tasks**: Decompose PRDs into actionable, granular task lists
+3. **Iterative Implementation**: Guide AI through one task at a time with verification checkpoints
+4. **Progress Tracking**: Visual representation of completed tasks and next steps
 
-### 3️⃣ Examine Your Task List
+### 3️⃣ Document-Centric Workflow
 
-You'll now have a well-structured task list, often with tasks and sub-tasks, ready for the AI to start working on. This provides a clear roadmap for implementation.
+Instead of chat-based interactions, work directly in documents that grow smarter:
 
-![Example of a generated task list](https://pbs.twimg.com/media/Go6GNuOWsAEcSDm?format=jpg&name=medium)
+- **Selective Context**: Provide only necessary information to AI for focused assistance
+- **Visual Diffs**: Clearly see AI-generated content changes and modifications
+- **Continuous Learning**: Documents improve with every AI interaction and iteration
 
-### 4️⃣ Instruct the AI to Work Through Tasks (and Mark Completion)
+## 🌟 Key Benefits
 
-To ensure methodical progress and allow for verification, we'll use `process-task-list.md`. This command instructs the AI to focus on one task at a time and wait for your go-ahead before moving to the next.
+* **Structured PM Workflow**: Enforces clear processes from research to delivery
+* **AI-Native Efficiency**: Leverages Cursor's capabilities for PM-specific tasks
+* **Context Preservation**: Maintains product context across all AI interactions
+* **Framework Integration**: Built-in proven PM methodologies and frameworks
+* **Iterative Improvement**: Documents and frameworks evolve with use
+* **Unified Knowledge Base**: Single source of truth for all PM activities
 
-1. Create or ensure you have the `process-task-list.md` file accessible.
-2. In your AI tool, tell the AI to start with the first task (e.g., `1.1`):
+## 🛠️ Framework Integration
 
-    ```text
-    Please start on task 1.1 and use @process-task-list.md
-    ```
-    *(Important: You only need to reference `@process-task-list.md` for the *first* task. The instructions within it guide the AI for subsequent tasks.)*
+### Continuous Discovery Habits
+- **Interview Snapshots**: Structured templates for user research documentation
+- **Opportunity Mapping**: Systematic approach to identifying product opportunities
+- **Solution Generation**: AI-assisted ideation and solution development
+- **Synthesis**: Research insights consolidation and pattern recognition
 
-    The AI will attempt the task and then prompt you to review.
-
-    ![Example of starting on a task with process-task-list.md](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
-
-### 5️⃣ Review, Approve, and Progress ✅
-
-As the AI completes each task, you review the changes.
-
-* If the changes are good, simply reply with "yes" (or a similar affirmative) to instruct the AI to mark the task complete and move to the next one.
-* If changes are needed, provide feedback to the AI to correct the current task before moving on.
-
-You'll see a satisfying list of completed items grow, providing a clear visual of your feature coming to life!
-
-![Example of a progressing task list with completed items](https://pbs.twimg.com/media/Go6KrXZWkAA_UuX?format=jpg&name=medium)
-
-While it's not always perfect, this method has proven to be a very reliable way to build out larger features with AI assistance.
-
-### Video Demonstration 🎥
-
-If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI" podcast](https://www.youtube.com/watch?v=fD4ktSkNCw4).
-
-![Demonstration of AI Dev Tasks on How I AI Podcast](https://img.youtube.com/vi/fD4ktSkNCw4/maxresdefault.jpg)
-
-## 🗂️ Files in this Repository
-
-* **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
-* **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
-* **`process-task-list.md`**: Instructs the AI on how to process the generated task list, tackling one task at a time and waiting for your approval before proceeding. (This file also contains logic for the AI to mark tasks as complete).
-
-## 🌟 Benefits
-
-* **Structured Development:** Enforces a clear process from idea to code.
-* **Step-by-Step Verification:** Allows you to review and approve AI-generated code at each small step, ensuring quality and control.
-* **Manages Complexity:** Breaks down large features into smaller, digestible tasks for the AI, reducing the chance of it getting lost or generating overly complex, incorrect code.
-* **Improved Reliability:** Offers a more dependable approach to leveraging AI for significant development work compared to single, large prompts.
-* **Clear Progress Tracking:** Provides a visual representation of completed tasks, making it easy to see how much has been done and what's next.
-
-## 🛠️ How to Use
-
-1. **Clone or Download:** Get these `.md` files into your project or a central location where your AI tool can access them.
-   ```bash
-   git clone https://github.com/snarktank/ai-dev-tasks.git
-   ```
-2. **Follow the Workflow:** Systematically use the `.md` files in your AI assistant as described in the workflow above.
-3. **Adapt and Iterate:**
-    * Feel free to modify the prompts within the `.md` files to better suit your specific needs or coding style.
-    * If the AI struggles with a task, try rephrasing your initial feature description or breaking down tasks even further.
-
-## Tool-Specific Instructions
-
-### Cursor
-
-Cursor users can follow the workflow described above, using the `.md` files directly in the Agent chat:
-
-1. Ensure you have the files from this repository accessible
-2. In Cursor's Agent chat, reference files with `@` (e.g., `@create-prd.md`)
-3. Follow the 5-step workflow as outlined above
-4. **MAX Mode for PRDs:** Using MAX mode in Cursor for PRD creation can yield more thorough results if your budget supports it
-
-### Claude Code
-
-To use these tools with Claude Code:
-
-1. **Copy files to your repo**: Copy the three `.md` files to a subdirectory in your project (e.g., `/ai-dev-tasks`)
-
-2. **Reference in CLAUDE.md**: Add these lines to your project's `./CLAUDE.md` file:
-   ```
-   # AI Dev Tasks
-   Use these files when I request structured feature development using PRDs:
-   /ai-dev-tasks/create-prd.md
-   /ai-dev-tasks/generate-tasks.md
-   /ai-dev-tasks/process-task-list.md
-   ```
-
-3. **Create custom commands** (optional): For easier access, create these files in `.claude/commands/`:
-   - `.claude/commands/create-prd.md` with content:
-     ```
-     Please use the structured workflow in /ai-dev-tasks/create-prd.md to help me create a PRD for a new feature.
-     ```
-   - `.claude/commands/generate-tasks.md` with content:
-     ```
-     Please generate tasks from the PRD using /ai-dev-tasks/generate-tasks.md
-     If not explicitly told which PRD to use, generate a list of PRDs and ask the user to select one under `/tasks` or create a new one using `create-prd.md`:
-     - assume it's stored under `/tasks` and has a filename starting with `prd-` (e.g., `prd-[name].md`)
-     - it should not already have a corresponding task list in `/tasks` (e.g., `tasks-prd-[name].md`)
-     - **always** ask the user to confirm the PRD file name before proceeding
-     Make sure to provide options in number lists so I can respond easily (if multiple options).
-     ```
-   - `.claude/commands/process-task-list.md` with content:
-     ```
-     Please process the task list using /ai-dev-tasks/process-task-list.md
-     ```
-
-   Make sure to restart Claude Code after adding these files (`/exit`).
-   Then use commands like `/create-prd` to quickly start the workflow.
-   Note: This setup can also be adopted for a global level across all your projects, please refer to the Claude Code documentation [here](https://docs.anthropic.com/en/docs/claude-code/memory) and [here](https://docs.anthropic.com/en/docs/claude-code/common-workflows#create-personal-slash-commands).
-
-### Other Tools
-
-For other AI-powered IDEs or CLIs:
-
-1. Copy the `.md` files to your project
-2. Reference them according to your tool's documentation
-3. Follow the same workflow principles
+### Evidence-Guided Decision Making
+- Data-driven frameworks for strategic decisions
+- A/B testing templates and analysis tools
+- User behavior analysis frameworks
+- ROI calculation and measurement tools
 
 ## 💡 Tips for Success
 
-* **Be Specific:** The more context and clear instructions you provide (both in your initial feature description and any clarifications), the better the AI's output will be.
-* **Use a Capable Model:** The free version of Cursor currently uses less capable AI models that often struggle to follow the structured instructions in this workflow. For best results, consider upgrading to the Pro plan to ensure consistent, accurate task execution.
-* **MAX Mode for PRDs:** As mentioned, using MAX mode in Cursor for PRD creation (`create-prd.mdc`) can yield more thorough and higher-quality results if your budget supports it.
-* **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.md`) when generating tasks.
-* **Patience and Iteration:** AI is a powerful tool, but it's not magic. Be prepared to guide, correct, and iterate. This workflow is designed to make that iteration process smoother.
+* **Be Specific**: Provide clear context and specific instructions to your AI copilot
+* **Use MAX Mode**: For complex PRDs and strategic documents, consider using Cursor's MAX mode
+* **Document Everything**: Build your knowledge base systematically through regular documentation
+* **Iterate and Improve**: Use AI feedback to continuously enhance your frameworks and templates
+* **Maintain Context**: Keep your AI copilot informed about your product strategy and goals
+
+## 🔧 Cursor-Specific Features
+
+- **Document-Centric Work**: Work in documents rather than chats for better context retention
+- **Selective Context**: Choose what information to share with AI for focused assistance
+- **Visual Diffs**: Clearly see AI-generated changes and modifications
+- **From Instructions to Initiatives**: Build complete product initiatives step by step
 
 ## 🤝 Contributing
 
-Got ideas to improve these `.md` files or have new ones that fit this workflow? Contributions are welcome!
+Got ideas to improve these frameworks or have new PM methodologies to share? Contributions are welcome!
 
 Please feel free to:
+* Open an issue to discuss changes or suggest new frameworks
+* Submit a pull request with your enhancements
+* Share your PM workflow improvements and learnings
 
-* Open an issue to discuss changes or suggest new features.
-* Submit a pull request with your enhancements.
+## 🙏 Acknowledgments
+
+- **[Cursor isn't just for coding: how AI-native PMs work](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work)** - Tal Raviv and Hilary Gridley's course on transforming Cursor into a PM AI copilot
+- **[AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main)** - Structured workflow framework for AI-assisted development that inspired our PM workflow approach
+
+## ⚠️ Important Notes
+
+This repository contains experimental and technical approaches to AI-native product management. While powerful, these methods may not be suitable for everyone. Recommended for PMs who are fluent in AI tools and want to explore the future of AI-native product teams.
 
 ---
 
-Happy AI-assisted developing!
+Happy AI-assisted product managing! 🚀
