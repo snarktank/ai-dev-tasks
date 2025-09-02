@@ -1,0 +1,265 @@
+---
+alwaysApply: false
+---
+
+# Rule: Create and Prioritize Opportunities (Continuous Discovery Habits)
+
+## Goal
+To extract opportunities from interview snapshots and synthesis results based on customer **needs, pain points, and desires**,  
+organize, review, and prioritize them according to the **Opportunity Solution Tree** structure,  
+and ultimately **propose target opportunities for exploration**.
+
+---
+
+## When to Use
+- After completing interview snapshots using [Create Interview Snapshots](./create-interview-snapshots.mdc)
+- After synthesizing multiple snapshots using [Synthesize Interview Snapshots](./synthesize-interview-snapshots.mdc)
+- When you need to identify and prioritize customer problems worth solving
+- Before generating solutions to ensure focus on the right opportunities
+
+---
+
+## Input
+- **Primary Source**: Interview snapshots from `user-interviews/snapshots/`
+- **Secondary Source**: Synthesis documents from `user-interviews/synthesis/`
+- **Minimum Requirements**: At least 3-5 interview snapshots or 1 synthesis document
+
+---
+
+## Output
+**Format:** Markdown (`.md`)  
+**Location:** `opportunities/`  
+**Filename:** `opportunities-[YYYY-MM-DD].md`  
+
+---
+
+## AI Instructions for Opportunity Creation
+
+### When Receiving Interview Data
+- **Validate Input Quality**: Check if snapshots or synthesis meet minimum standards
+- **Identify Research Gaps**: Note missing information that could strengthen opportunity identification
+- **Request Additional Data**: Ask for more interviews if sample size is insufficient
+
+### Opportunity Extraction Guidelines
+- **Focus on Behavioral Problems**: Look for concrete actions and pain points, not opinions
+- **Identify Root Causes**: Dig deeper than surface-level complaints
+- **Preserve Customer Language**: Use exact quotes and customer terminology
+- **Document Evidence**: Link each opportunity to specific stories and quotes
+
+### Quality Standards
+- **Problem Clarity**: Each opportunity clearly describes a customer problem
+- **Evidence Strength**: Multiple participants or strong behavioral evidence
+- **Actionable Scope**: Problems that can be addressed through product changes
+- **Customer-Centric**: Expressed in customer language, not company terms
+
+---
+
+## Process
+
+### 1. Extract Opportunities
+1. Extract customer **stories, needs, pain points, and desires** from interview snapshots and synthesis results.  
+2. Organize all items as **Opportunities**.  
+   - Use **problem-focused statements** like "I want to ~ but ~ makes it difficult"  
+   - Do not include solution requests as opportunities; instead, reconstruct them as **underlying needs**.  
+3. Link **evidence** to each opportunity. (quotes, frequency, customer segments, etc.)
+
+---
+
+### 2. Map Opportunities
+1. Place all opportunities in the **Opportunity Solution Tree** structure (Outcome → Parent → Child → Leaf).  
+2. Use **parent-child relationships** and **sibling relationships** to break opportunities into specific, independent units.  
+3. Verify that each branch aligns with specific moments in the customer experience (Experience Map).  
+4. **Reconstruct or merge** opportunities that are duplicates, ambiguous, or disguised solutions.
+
+---
+
+### 3. User Review #1 — Review Opportunity Candidates
+- Present the **opportunity candidate table** to the user.  
+- Each row: `ID | Parent | Opportunity Statement | EvidenceCount | Quotes`  
+- Questions:  
+  - "Are there any opportunities to merge/split/delete?"  
+  - "Would you like to modify the name of any opportunities?"  
+- **PAUSE** and incorporate user feedback.
+
+---
+
+### 4. Assess Opportunities
+Evaluate by comparing and contrasting each **sibling set**.  
+Evaluation criteria through four lenses:  
+1. **Opportunity Sizing** — How many customers and how frequently does this occur?  
+2. **Market Factors** — How important is this from a competitive/market trend perspective? (table stakes vs differentiator)  
+3. **Company Factors** — How well does this align with our organizational strategy and capabilities?  
+4. **Customer Factors** — How important is this to customers? What is their satisfaction with existing alternatives?  
+
+> Do not use scoring.  
+> Instead, record **subjective and data-driven discussions** after comparison/contrast.
+
+---
+
+### 5. User Review #2 — Review Priorities
+- Provide priority comparison results in a summary table:  
+  `Sibling Set | Candidates | Key Factors | Discussion Notes | Tentative Winner`  
+- Questions:  
+  - "Do you agree with this selection, or would you like to explore a different opportunity first?"  
+- **PAUSE** and incorporate user feedback.
+
+---
+
+### 6. Propose Target Opportunity
+- Mark one of the tree's **leaf nodes** as a **Target Opportunity (Proposal)**.  
+- This is merely a **suitable candidate for the team to begin exploration**, not a **final decision**.  
+- This proposal has a **reversible (two-way door)** nature and can be changed at any time during exploration based on new learning.
+
+---
+
+## Process Flow
+
+### Continuous Discovery Workflow
+```
+Individual Interviews → Create Snapshots → Synthesize Patterns → Create Opportunities → Generate Solutions
+     ↓                    ↓                    ↓                    ↓                    ↓
+[Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements] [Product Ideas]
+```
+
+### Input-Output Relationship
+- **Input:** Interview snapshots and/or synthesis documents
+- **Process:** Opportunity extraction, mapping, prioritization
+- **Output:** Prioritized opportunity solution tree with target opportunity
+- **Next Step:** Use opportunities to generate multiple solutions
+
+---
+
+## Output Structure (opportunities-[date].md)
+
+```markdown
+# Opportunities — [YYYY-MM-DD]
+
+**Date Created:** [YYYY-MM-DD]  
+**Source Documents:** [List of snapshots and/or synthesis documents used]  
+**Total Opportunities Identified:** [Number]  
+
+---
+
+## Opportunity Solution Tree (Snapshot)
+- Outcome: [Desired Outcome]
+  - Parent Opportunity A
+    - Child 1
+    - Child 2 (Proposed Target Opportunity ⭐)
+
+---
+
+## Candidate Opportunities (Pre-Review)
+| ID | Parent | Opportunity Statement | Evidence Count | Supporting Quotes | Notes |
+|----|--------|----------------------|----------------|-------------------|-------|
+| 1 | [Parent] | [Problem statement in customer language] | [X] participants | "[Quote 1]" | [Additional context] |
+
+---
+
+## Review Notes #1
+- User decisions: [Merged, Removed, Renamed opportunities]
+- Changes made: [Specific modifications requested]
+
+---
+
+## Assessment (Sibling Comparisons)
+### [Sibling Set A]
+- **Candidates:** [List of opportunities being compared]
+- **Factors Considered:** 
+  - Opportunity Sizing: [Frequency and scope]
+  - Market Factors: [Competitive landscape and trends]
+  - Company Factors: [Strategic alignment and capabilities]
+  - Customer Factors: [Importance and satisfaction with alternatives]
+- **Discussion:** [Key points from comparison]
+- **Tentative Winner:** [Selected opportunity with rationale]
+
+---
+
+## Review Notes #2
+- User confirmation: [Proposed target maintained or adjusted]
+- Final decision: [Confirmed target opportunity]
+
+---
+
+## Proposed Target Opportunity
+**[ID] — [Opportunity Statement]**
+
+**Why This Opportunity:**
+- [Clear rationale for selection]
+- [Alignment with research findings]
+
+**Supporting Evidence:**
+- [Multiple quotes and behavioral observations]
+- [Frequency across participants]
+- [Impact on user experience]
+
+**Next Steps:** 
+- [ ] Explore multiple solutions (see [Generate Solutions](./generate-solutions.mdc))
+- [ ] Validate opportunity with additional research if needed
+- [ ] Share findings with product team
+
+---
+
+## Quality Indicators
+
+### Strong Opportunities
+- **Clear Problem Statement**: Specific customer problem, not general frustration
+- **Strong Evidence**: Multiple participants or detailed behavioral stories
+- **Customer Language**: Expressed in user's own words
+- **Actionable Scope**: Problem that can be addressed through product changes
+
+### Weak Opportunities
+- **Vague Description**: General statements without specific context
+- **Single Source**: Only mentioned by one participant
+- **Solution Disguised**: Product feature request instead of problem
+- **Company Language**: Internal terminology instead of customer voice
+
+---
+
+## Guardrails
+- Opportunities must be expressed in customer language (prohibition of internal company language).
+- Emotions themselves are not Opportunities. (e.g., "I'm frustrated" → reconstruct as underlying opportunity)
+- Prohibition of unnecessary precise scoring. Focus on relative comparison and discussion-based recording.
+- Decisions are suggestive and reversible, and can be adjusted at any time based on continuous learning.
+
+---
+
+## Error Handling
+
+### Insufficient Data
+- **Too Few Snapshots**: Request additional interviews before opportunity creation
+- **Weak Evidence**: Ask for more specific behavioral examples
+- **Missing Context**: Request additional details from original interviews
+
+### Quality Issues
+- **Vague Problems**: Push for specific customer stories and examples
+- **Solution Requests**: Help reframe as underlying customer needs
+- **Weak Evidence**: Highlight areas needing stronger support
+
+---
+
+## Quality Assurance Checklist
+
+### Input Validation
+- [ ] Sufficient interview data available (3+ snapshots or 1 synthesis)
+- [ ] Data quality meets standards from create-interview-snapshots.mdc
+- [ ] Behavioral evidence is concrete and specific
+
+### Opportunity Quality
+- [ ] Each opportunity clearly describes a customer problem
+- [ ] Problems are expressed in customer language
+- [ ] Evidence supports each opportunity
+- [ ] Opportunities are actionable through product changes
+
+### Process Completion
+- [ ] All opportunities mapped to solution tree structure
+- [ ] User review completed for opportunity candidates
+- [ ] Prioritization assessment completed
+- [ ] Target opportunity selected and documented
+- [ ] Next steps are clear and actionable
+
+---
+
+## Related Frameworks
+- [Create Interview Snapshots](./create-interview-snapshots.mdc)
+- [Synthesize Interview Snapshots](./synthesize-interview-snapshots.mdc)
+- [Generate Solutions](./generate-solutions.mdc)

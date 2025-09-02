@@ -1,113 +1,221 @@
 ---
 alwaysApply: false
 ---
+
 # Rule: Extracting Insights from Qualitative Interviews and User Tests (Continuous Discovery Habits)
 
 ## Goal
-To guide an AI assistant in extracting meaningful insights from qualitative interviews or user test sessions, creating interview snapshots that capture specific stories, opportunities, and behavioral insights following the Continuous Discovery Habits methodology.
+To guide an AI assistant in systematically extracting meaningful insights from qualitative interviews or user test sessions, creating structured interview snapshots that capture specific stories, opportunities, and behavioral insights following the Continuous Discovery Habits methodology.
 
 ## Output
 **Format:** Markdown (`.md`)  
-**Location:** `/user-research/interviews/snapshots/`  
+**Location:** `user-interviews/snapshots/`  
 **Filename:** `snapshot-[participant-name]-[date].md`
-**Snapshot Structure:**
 
+## Process
+1. **Data Validation**: Assess the completeness and quality of provided interview data
+2. **Context Extraction**: Identify session type, research goals, and participant context
+3. **Story Identification**: Extract specific behavioral stories, not generalizations
+4. **Experience Mapping**: Create user journey maps for key stories
+5. **Opportunity Analysis**: Identify pain points, needs, and improvement areas
+6. **Insight Synthesis**: Recognize patterns and behavioral insights
+7. **Snapshot Creation**: Compile into structured interview snapshot
+8. **Quality Review**: Validate completeness and clarity
+
+## AI Instructions
+
+### When Receiving Interview Data
+- **Ask clarifying questions** if data is incomplete or ambiguous
+- **Request specific examples** if only general statements are provided
+- **Confirm participant context** if demographic or behavioral details are missing
+- **Validate research goals** to ensure alignment with snapshot objectives
+
+### Data Processing Guidelines
+- **Focus on concrete behaviors** over opinions or intentions
+- **Extract contextual details** (when, where, with whom, why)
+- **Identify emotional moments** (frustration, delight, surprise, confusion)
+- **Capture workarounds** and problem-solving approaches
+- **Note repeated patterns** that indicate systematic issues
+
+### Quality Standards
+- **Completeness**: All required sections must be filled
+- **Specificity**: Use concrete examples, not generalizations
+- **Clarity**: Write in clear, actionable language
+- **Consistency**: Follow established format and structure
+- **Insight Value**: Each insight should be actionable or informative
+
+## Output Format
+
+### Required Structure
+```markdown
 # Interview Snapshot: [Participant Name]
 
 **Date:** [YYYY-MM-DD]  
-**Type:** [Discovery Interview | Usability Test | Other]  
+**Type:** [Discovery Interview | Usability Test | Contextual Inquiry | Other]  
 **Duration:** [Minutes]  
 **Interviewer(s):** [Name(s)]  
 
 ---
 
 ## Quick Facts
-- **Segment:** [User profile / role]  
-- **Key Behaviors:** [Observed behavior patterns]  
-- **Tools Used:** [Products, tools, services used]  
-- **Experience Level:** [Novice / Intermediate / Expert, etc.]  
-- **Setting:** [Contextual environment]  
+- **Segment:** [User profile / role / demographic]  
+- **Key Behaviors:** [2-3 observed behavior patterns]  
+- **Tools Used:** [Products, tools, services mentioned]  
+- **Experience Level:** [Novice / Intermediate / Expert / Domain-specific level]  
+- **Setting:** [Contextual environment and circumstances]  
 
 ---
 
 ## Memorable Quote
-> "[Direct quote capturing participant’s voice]"
+> "[Direct quote that captures participant's voice and perspective]"
 
 ---
 
 ## Story Summary
 
-### Story 1: [Short title]  
-**Context:** [Time, place, situation]  
+### Story 1: [Descriptive title]  
+**Context:** [Time, place, situation, trigger]  
 **What Happened:** [Concrete actions taken, step by step]  
+**Outcome:** [Result or consequence of the actions]  
 
 **Key Moments:**  
-- [Frustration, delight, surprise, or workaround]  
-- [Notable patterns or repeated actions]  
+- [Specific behavioral insight with context]  
+- [Emotional response or reaction]  
+- [Workaround or adaptation used]  
 
 ---
 
-### Story 2: [Short title]  
-**Context:** [Time, place, situation]  
+### Story 2: [Descriptive title]  
+**Context:** [Time, place, situation, trigger]  
 **What Happened:** [Concrete actions taken, step by step]  
+**Outcome:** [Result or consequence of the actions]  
 
 **Key Moments:**  
-- [Behavioral insight #1]  
-- [Behavioral insight #2]  
+- [Specific behavioral insight with context]  
+- [Emotional response or reaction]  
+- [Workaround or adaptation used]  
 
 *(Repeat as needed for additional stories)*
-
 ---
 
 ## Experience Map
 *A text-based, visual representation of the participant's journey for a specific story. Focus on concrete actions and context, not generalizations.*
 
-**Scope:** [Define the start and end points of the map, e.g., "From deciding to apply for a job to submitting the application"]  
-**Goal:** [The participant's desired outcome, e.g., "To successfully apply for the Senior Product Manager role"]
+**Scope:** [Start and end points of the journey]  
+**Goal:** [Participant's desired outcome]  
 
-**Journey:**
-1.  **Stage 1: [Stage title]**
-    - **Actions:** [What the user did, e.g., "Heard about the show from a friend."]
-    - **Thoughts/Feelings:** [Quotes or paraphrased emotions, e.g., "This sounds great!"]
-    - **Pain Points:** [Specific frustrations or challenges, e.g., "Forgot the name of the show later."]
-2.  **Stage 2: [Stage title]**
-    - **Actions:** [e.g., "Opened Netflix on their TV and used the search bar."]
-    - **Thoughts/Feelings:** [e.g., "Where do I find this? Is it on this platform?"]
-    - **Pain Points:** [e.g., "Couldn't find the show with the keywords he remembered."]
-3.  **Stage 3: [Stage title]**
-    - **Actions:** [e.g., "Finally found the movie and started watching."]
-    - **Thoughts/Feelings:** [e.g., "Relieved to have found it."]
-    - **Pain Points:** [e.g., "The streaming quality was poor at the beginning."]
+**Journey Stages:**
+1. **Stage 1: [Stage title]**
+   - **Actions:** [Specific behaviors and steps taken]
+   - **Thoughts/Feelings:** [Quotes or paraphrased emotions]
+   - **Pain Points:** [Specific frustrations or challenges]
+   - **Tools/Resources:** [What was used or available]
 
-*(Add or remove stages as necessary to map the complete, specific experience)*
+2. **Stage 2: [Stage title]**
+   - **Actions:** [Specific behaviors and steps taken]
+   - **Thoughts/Feelings:** [Quotes or paraphrased emotions]
+   - **Pain Points:** [Specific frustrations or challenges]
+   - **Tools/Resources:** [What was used or available]
+
+3. **Stage 3: [Stage title]**
+   - **Actions:** [Specific behaviors and steps taken]
+   - **Thoughts/Feelings:** [Quotes or paraphrased emotions]
+   - **Pain Points:** [Specific frustrations or challenges]
+   - **Tools/Resources:** [What was used or available]
 
 ---
 
 ## Opportunities
-- [Potential improvement or unmet need #1]  
-- [Potential improvement or unmet need #2]  
+- **[Opportunity title]**: [Specific description of customer needs, pain points, desires, wants—chances for us to intervene in a way that makes our customers' lives better.]
+- **[Opportunity title]**: [Specific description of customer needs, pain points, desires, wants—chances for us to intervene in a way that makes our customers' lives better]
 
 ---
 
 ## Insights
-- [Patterns that go beyond a single story, e.g., user mental models, decision-making shortcuts, systemic frustrations]  
+- **[Insight category]**: [Pattern or behavior that goes beyond a single story, e.g., user mental models, decision-making shortcuts, systemic frustrations]
+- **[Insight category]**: [Pattern or behavior that goes beyond a single story, e.g., user mental models, decision-making shortcuts, systemic frustrations]
+```
 
+### Optional Sections
+- **Follow-up Questions**: Additional research needed
+- **Related Research**: Connections to other studies or findings
+- **Stakeholder Notes**: Implications for different teams or roles
 
-## Process
-1. **Receive Interview Data:** User provides interview transcript, recording notes, or user test observations  
-2. **Identify Context:** Determine the type of session (discovery interview, usability test, etc.) and research goals  
-3. **Extract Stories:** Identify specific stories about actual behavior, not generalizations  
-4. **Map Experiences:** Create a simple experience map of the participant's journey  
-5. **Identify Opportunities:** Extract needs, pain points, and desires expressed in the stories  
-6. **Capture Insights:** Note interesting behaviors or patterns that may not yet be opportunities  
-7. **Create Snapshot:** Compile all elements into an interview snapshot  
-8. **Save Document:** Save in `/user-research/interviews/snapshots/` directory
+## Interaction Model
 
+### 1. Data Input Phase
+- User provides interview transcript, notes, or observations
+- AI assesses data completeness and requests clarification if needed
+- AI confirms research context and objectives
 
-## Story Extraction Guidelines
-- Ask for **specific instances** (“Tell me about the last time you…”).  
-- Capture **actual behaviors** rather than speculative intentions.  
-- Note **contextual details** (when, where, with whom).  
-- Highlight **emotional moments** (frustration, delight, surprises).  
-- Favor **recent experiences** to ensure accuracy.  
+### 2. Processing Phase
+- AI systematically extracts stories and behavioral insights
+- AI creates structured experience maps
+- AI identifies opportunities and patterns
 
+### 3. Review Phase
+- AI presents draft snapshot for user review
+- User provides feedback and requests modifications
+- AI iterates and improves based on feedback
+
+### 4. Finalization Phase
+- AI saves completed snapshot to specified location
+- AI confirms file creation and provides summary
+
+## Error Handling
+
+### Incomplete Data
+- **Missing Context**: Ask for session type, participant background, or research goals
+- **Vague Responses**: Request specific examples or concrete details
+- **Limited Stories**: Probe for additional behavioral examples
+
+### Ambiguous Information
+- **Multiple Interpretations**: Present alternatives and ask for clarification
+- **Unclear Relationships**: Request additional context or examples
+- **Conflicting Data**: Highlight inconsistencies and ask for resolution
+
+### Quality Issues
+- **Generalizations**: Push for specific behavioral examples
+- **Opinions vs. Behaviors**: Distinguish between what people say vs. what they do
+- **Missing Emotions**: Probe for emotional responses and reactions
+
+## Quality Assurance Checklist
+
+### Before Finalizing
+- [ ] All required sections are complete
+- [ ] Stories contain concrete behavioral details
+- [ ] Experience map follows logical flow
+- [ ] Opportunities are specific and actionable
+- [ ] Insights go beyond individual stories
+- [ ] Quotes are accurate and representative
+- [ ] Context is clear and complete
+
+### Validation Questions
+- Would a product team member understand this insight?
+- Is there enough detail to take action?
+- Does this capture the participant's actual behavior?
+- Are the opportunities specific enough to prioritize?
+
+## Best Practices
+
+### Story Extraction
+- Ask "Tell me about the last time you..." to get specific instances
+- Focus on recent experiences for accuracy
+- Capture the sequence of actions, not just outcomes
+- Note what participants actually did vs. what they intended
+
+### Experience Mapping
+- Start with clear boundaries (what triggers the journey, what defines success)
+- Focus on concrete actions and decisions
+- Include emotional states and pain points
+- Map the complete journey, not just the happy path
+
+### Opportunity Identification
+- Connect opportunities to specific stories and behaviors
+- Consider both explicit needs and implicit frustrations
+- Evaluate impact and feasibility
+- Prioritize based on frequency and severity
+
+---
+
+*This framework ensures consistent, actionable interview snapshots that drive product decisions and user experience improvements.*
