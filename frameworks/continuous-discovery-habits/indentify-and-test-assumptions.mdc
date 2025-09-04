@@ -1,0 +1,245 @@
+
+---
+alwaysApply: false
+---
+
+# Rule: Identify and Test Assumptions (Continuous Discovery Habits)
+
+## Goal
+To extract explicit assumptions from insights and opportunities, categorize and prioritize them to identify "leap-of-faith" assumptions, and design a lightweight, iteratively-scaled testing plan that reduces risk across desirability, usability, feasibility, viability, and ethical dimensions.
+
+---
+
+## When to Use
+- After creating opportunities using [Create Opportunities](./create-opportunities.mdc)
+- After synthesizing interviews using [Synthesize Interview Snapshots](./synthesize-interview-snapshots.mdc)
+- When preparing to generate or downselect solutions with [Generate Solutions](./generate-solutions.mdc)
+- Whenever a new idea is proposed and you need to surface and derisk its underlying assumptions
+
+---
+
+## Input
+- **Primary Sources:**
+  - Prioritized opportunities from `opportunities/`
+  - Early solution sketches from `solutions/`
+  - Interview snapshots from `user-interviews/snapshots/`
+  - Synthesis documents from `user-interviews/synthesis/`
+- **Optional Sources:**
+  - Product analytics or behavioral data
+- **Minimum Requirements:**
+  - 1 target opportunity with supporting evidence, and
+  - 2–3 candidate solution ideas OR a single idea with key user journeys
+
+---
+
+## Output
+**Format:** Markdown (`.md`)
+**Location:** `assumptions/`
+**Filename:** `assumptions-[opportunity-name]-[YYYY-MM-DD].md`
+
+---
+
+## AI Instructions for Assumption Identification
+
+### When Receiving Research and Opportunity Data
+- **Validate Inputs:** Confirm target opportunity, evidence strength, and affected segments.
+- **Clarify Scope:** Define which ideas/journeys will be story-mapped.
+- **Note Constraints:** Technical, legal, GTM, success metrics, time/resource limits.
+
+### Assumption Generation Guidelines
+- **Use Five Categories:** Desirability, Usability, Feasibility, Viability, Ethical.
+- **Phrase Positively and Specifically:** State what must be true, in concrete, testable language.
+- **Tie to Behavior:** Prefer assumptions about what users will do over what they say.
+- **Attach Evidence:** Link each assumption to quotes, behaviors, or data when available.
+- **Normalize Granularity:** Split vague, compound assumptions into specific, testable statements.
+
+### Prioritization Guidelines (Assumption Mapping)
+- Place each assumption on a 2D grid:
+  - X-axis: Evidence known (left = strong evidence, right = weak evidence)
+  - Y-axis: Importance to idea success (low → high)
+- **Leap of Faith (LoFA):** Start with the top-right most 2–3 assumptions.
+
+### Testing Guidelines
+- **Simulate an Experience, Evaluate Behavior:** Design minimal simulations that let users behave in line with or against the assumption.
+- **Define Success Upfront:** Use numbers (e.g., “≥ 3 of 10 participants choose X”), not percentages.
+- **Recruit the Right Audience:** Screen by target opportunity and segment; select for variation.
+- **Start Small, Then Scale:** Begin with quick signals; escalate to larger tests only if warranted.
+- **Triangulate:** Combine small, different methods to reduce false positives/negatives.
+
+---
+
+## Process
+
+### 1) Prepare Context and Actors
+1. Confirm target opportunity and desired outcome(s).
+2. Identify key actors (end-user types, internal systems, third parties).
+
+### 2) Story Map Candidate Ideas (or Key Journeys)
+1. Assume the solution exists; map what users do to get value.
+2. Sequence steps by actor; highlight moments critical to success.
+
+### 3) Generate Assumptions (Five Categories)
+For each pivotal step, enumerate assumptions across: Desirability, Usability, Feasibility, Viability, Ethical.
+
+### 4) Pre-Mortem (Prospective Hindsight)
+“It’s six months later; launch failed. What went wrong?” Convert reasons into specific assumptions that must be true.
+
+### 5) Walk OST Lines (Outcome ↔ Opportunity ↔ Solution)
+Write why the solution addresses the opportunity and drives the outcome. Extract each inference as a testable assumption (esp. viability).
+
+### 6) Normalize, Deduplicate, and Attach Evidence
+Rewrite assumptions to be positive, specific, and single-concept. Link supporting quotes, behaviors, analytics.
+
+### 7) Map and Prioritize (Assumption Mapping)
+Place assumptions on the grid; mark top-right-most as LoFA.
+
+### 8) Define Test Cards for LoFA Assumptions
+For each LoFA, design the smallest simulation with clear success criteria, sample size, method, audience, and time window.
+
+### 9) Run Tests → Record Results → Update the Map
+Move assumptions leftward as evidence grows; iterate simulation quality or move to next riskiest item.
+
+### 10) Decide and Proceed
+Use accumulated evidence to: evolve the idea, change the opportunity focus, or scale the solution test.
+
+---
+
+## Output Structure (assumptions-[opportunity]-[date].md)
+
+```markdown
+# Assumptions — [Opportunity Name]
+
+**Date Created:** [YYYY-MM-DD]  
+**Target Opportunity:** [Opportunity statement]  
+**Related Documents:** [Snapshots/Synthesis/Opportunities/Solutions]
+
+---
+
+## Story Map Snapshot
+- **Actors:** [End-user types, systems, partners]
+- **Key Steps:**
+  1. [Actor] — [Step]
+  2. [Actor] — [Step]
+
+---
+
+## Assumption Log
+| ID | Category | Assumption (positive, specific) | Evidence (link/quote/data) | Importance | Evidence Known | LoFA |
+|----|----------|----------------------------------|-----------------------------|------------|----------------|------|
+| A-01 | Desirability | [What must be true] | [Quote/analytics/ref] | High/Med/Low | Weak/Some/Strong | Yes/No |
+
+---
+
+## Assumption Map (Summary)
+- Top-right (LoFA): [A-01, A-07, A-12]
+- Notable clusters: [e.g., viability assumptions lacking data]
+
+---
+
+## Test Cards (LoFA)
+
+### Test Card: [A-01] — [Short name]
+- **Hypothesis (Assumption):** [Assumption statement]
+- **Simulation:** [Prototype/mock experience/data query/concept test]
+- **Method:** [Unmoderated test | 1-question survey | Data-mining | Concierge | Email smoke-screen]
+- **Audience:** [Screening criteria; segment]
+- **Sample Size & Window:** [e.g., n=10 over 2 days]
+- **Success Criteria:** [e.g., ≥ 3/10 do X]
+- **Risks & Biases:** [Key concerns and mitigations]
+- **Next Step if Pass/Fail:** [Scale test / iterate assumption / pivot idea]
+
+*(Repeat per LoFA assumption)*
+
+---
+
+## Results and Decisions
+- **Outcomes:** [Observed behaviors vs. criteria]
+- **Map Update:** [Assumptions moved left; new LoFA]
+- **Decisions:** [Proceed/iterate/stop; changes to opportunity or idea]
+
+---
+
+## Next Steps
+- [ ] Run next LoFA test
+- [ ] Evolve idea based on findings
+- [ ] Share summary with stakeholders
+```
+
+---
+
+## Templates
+
+### Assumption Statement Pattern
+- Actor + Action + Context + Outcome expected  
+Example: “Prospective subscribers will select a live game from our home screen when browsing evening entertainment options.”
+
+### Pre-Mortem Prompt
+- “It’s six months after launch and this failed. What happened?”  
+Capture each reason → rewrite as a positive, specific assumption that must be true.
+
+### Story Map (Quick)
+```
+Actors: [User, Platform, Partner]
+1) [User] does …
+2) [Platform] shows …
+3) [Partner] provides …
+```
+
+### Success Criteria Pattern
+- Define n participants and success threshold as an absolute number (not %).  
+Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
+
+---
+
+## Quality Indicators
+
+### Strong
+- **Specific & Positive:** Testable statements tied to concrete behavior.
+- **Evidence-Linked:** Quotes, analytics, or prior tests attached.
+- **Right LoFA:** Top-right-most items selected to start.
+- **Clear Criteria:** Absolute numbers, audience defined, timeboxed.
+- **Iterative Cadence:** Start small; scale only with positive signals.
+
+### Weak
+- **Vague:** Generic or compound statements.
+- **Opinion-Based:** Future-intent questions; no behavior.
+- **Ambiguous Criteria:** Percentages, no audience, no time window.
+- **Over-Building:** Large experiments before early signals.
+
+---
+
+## Common Anti-Patterns and Guardrails
+- Not generating enough assumptions → Use story map + pre-mortem + OST lines.
+- Negative phrasing → Rewrite as what must be true (positive).
+- Not specific enough → Add actor, context, behavior, and outcome.
+- Favoring one category → Cover all five: Desirability/Usability/Feasibility/Viability/Ethical.
+- Overly complex simulations → Design smallest viable simulation first.
+- Using percentages for criteria → Use absolute counts (e.g., 3 of 10).
+- Missing evaluation details → Define audience, n, window, and behavior.
+- Testing with wrong audience → Screen for the target opportunity.
+- Designing for less than best-case → Start where passing is most likely; increase difficulty later.
+
+---
+
+## Error Handling
+- **Insufficient Data:** Request more snapshots/synthesis; reduce scope.
+- **Weak Evidence:** Mark evidence as “Weak” and prioritize accordingly.
+- **Conflicting Results:** Triangulate with another small method before decisions.
+- **Ethical Concerns:** Document potential harms; design mitigation and/or halt.
+
+---
+
+## Process Flow
+```
+Individual Interviews → Create Snapshots → Synthesize Patterns → Create Opportunities → Identify & Test Assumptions → Generate Solutions
+     ↓                    ↓                    ↓                    ↓                       ↓                        ↓
+[Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements]    [Risks & Tests]      [Product Ideas]
+```
+
+---
+
+## Related Frameworks
+- [Create Interview Snapshots](./create-interview-snapshots.mdc)
+- [Synthesize Interview Snapshots](./synthesize-interview-snapshots.mdc)
+- [Create Opportunities](./create-opportunities.mdc)
+- [Generate Solutions](./generate-solutions.mdc)

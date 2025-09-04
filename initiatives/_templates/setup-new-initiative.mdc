@@ -48,6 +48,10 @@ initiatives/[initiative-name]/
 │   └── transcripts/
 ├── opportunities/
 │   └── README.md
+├── assumptions/
+│   └── README.md                  # Outputs from @indentify-and-test-assumptions.mdc
+├── solutions/
+│   └── README.md                  # Outputs from @generate-solutions.mdc
 ├── product-analytics/
 │   └── README.md
 ├── prd/
@@ -63,6 +67,8 @@ After creating the initiative structure, remind the user about these workflow in
 - **PRD Creation:** Use `@create-prd.mdc` in `prd/` folder
 - **Task Generation:** Use `@generate-tasks.mdc` with the PRD to create tasks in `tasks/` folder
 - **Task Processing:** Use `@process-task-list.mdc` to systematically work through tasks
+- **Assumption Identification:** Use `@indentify-and-test-assumptions.mdc`; outputs saved to `assumptions/`
+- **Solution Generation:** Use `@generate-solutions.mdc`; outputs saved to `solutions/`
 
 ## Validation
 Ensure the following after creation:

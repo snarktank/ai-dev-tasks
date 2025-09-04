@@ -22,6 +22,8 @@
   - `synthesis/` - Cross-interview analysis and patterns
   - `transcripts/` - Raw interview recordings and notes
 - **[opportunities/](./opportunities/)** - Identified opportunities and pain points
+- **[assumptions/](./assumptions/)** - Assumption logs and test cards from `@indentify-and-test-assumptions.mdc`
+- **[solutions/](./solutions/)** - Solution explorations from `@generate-solutions.mdc`
 - **[product-analytics/](./product-analytics/)** - Data analysis and metrics
 - **[prd/](./prd/)** - Product Requirements Document using `@create-prd.mdc`
 - **[tasks/](./tasks/)** - Implementation tasks using `@generate-tasks.mdc`
@@ -30,6 +32,8 @@
 - [PRD](./prd/)
 - [User Research Summary](./user-interviews/synthesis/)
 - [Priority Opportunities](./opportunities/)
+- [Assumptions & Tests](./assumptions/)
+- [Solution Explorations](./solutions/)
 - [Implementation Tasks](./tasks/)
 
 ## 📝 Notes
