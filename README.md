@@ -1,6 +1,6 @@
 # 🚀 Cursor for Product Managers 🤖
 
-Welcome to **Cursor for Product Managers**! This repository provides a comprehensive toolkit and framework designed to supercharge your product management workflow using Cursor as an AI-native PM copilot. Originally inspired by the [Maven course on AI-native PMs](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work) and the [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main) structured workflow approach, this toolkit transforms Cursor from a coding tool into a powerful product thinking, strategic decision-making, and document creation platform.
+Welcome to **Cursor for Product Managers**! This repository provides a comprehensive toolkit and framework designed to supercharge your product management workflow using Cursor as an AI-native PM copilot. Originally inspired by the [Maven course on AI-native PMs](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work), the [AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main) structured workflow approach, and [Lee Robinson's YouTube video](https://www.youtube.com/watch?v=8QN23ZThdRY), this toolkit transforms Cursor from a coding tool into a powerful product thinking, strategic decision-making, and document creation platform.
 
 Stop wrestling with fragmented product management tools and start building a unified, AI-powered PM workspace that grows smarter with every conversation!
 
@@ -119,6 +119,10 @@ Please feel free to:
 
 - **[Cursor isn't just for coding: how AI-native PMs work](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work)** - Tal Raviv and Hilary Gridley's course on transforming Cursor into a PM AI copilot
 - **[AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main)** - Structured workflow framework for AI-assisted development that inspired our PM workflow approach
+- **[Cursor AI Agents Work Like 10 Developers (Cursor VP Live Demo)](https://www.youtube.com/watch?v=8QN23ZThdRY)** - Lee Robinson demonstrates how Cursor AI agents automate developer tasks.
+
+- **[Continuous Discovery Habits](https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products-ebook)** - Teresa Torres' book on continuous discovery
+- **[Evidence-Guided: Creating High Impact Products in the Face of Uncertainty](https://www.amazon.com/Evidence-Guided-Creating-Impact-Products-Uncertainty)** - Itamar Gilad's book on evidence-guided product development
 
 ## ⚠️ Important Notes
 
