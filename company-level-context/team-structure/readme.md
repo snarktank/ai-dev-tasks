@@ -71,17 +71,6 @@ so uploading team structure materials here enables **automated reviews, decision
 
 ---
 
-## Priority Stakeholders Based on Who Gives Direction
-
-| Organization Structure | Key Stakeholders |
-| --------------------- | ---------------- |
-| **Functional**        | Functional leaders |
-| **Matrix**            | Functional leaders → Product leaders |
-| **Value Stream**      | Product/Cross-functional leaders → Functional leaders |
-| **Divisional**        | Division leaders (varies by structure) |
-
----
-
 ## Re-org Considerations
 
 Re-org should only be executed carefully when there is a **strategy and organization misalignment**.
