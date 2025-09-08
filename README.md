@@ -60,7 +60,7 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 
 ## 🧭 Quick Start
 
-1. Clone this repository to your local workspace
+1. Clone this repository to your local workspace (https://github.com/jinjin1/Cursor-for-Product-Managers.git)
 2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
 3. Start with strategic review frameworks:
    - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
