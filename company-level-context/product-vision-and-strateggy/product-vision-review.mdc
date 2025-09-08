@@ -1,0 +1,66 @@
+---
+alwaysApply: false
+---
+
+# Product Vision Review Rule
+
+## Purpose
+Review any attached or referenced Product Vision document. Evaluate its strength against proven principles (clarity, ambition, user-centeredness) and provide constructive feedback.
+
+## Applies to
+All files tagged or named with `vision`, `product-vision`, or uploaded as product vision drafts.
+
+## How to Use
+When a user attaches or references a product vision:
+1. Parse the document.
+2. Run the Evidence Readiness Check.
+3. Score against the 4 Vision Criteria.
+4. Provide feedback using the Output Template.
+
+---
+
+### Evidence Readiness Check
+Before reviewing, verify:
+- A vision statement is explicitly written (not confused with mission/strategy).
+- Clear user problem(s) are referenced or implied.
+- Time horizon (e.g., 3–5 years, long-term direction) is indicated.
+
+If missing → **Status = HOLD**. Prompt the user to add missing pieces.
+
+---
+
+### Vision Criteria (Score 0–5 each)
+
+1. **Lofty & Inspiring**  
+   - Does it paint a future that excites and motivates?  
+   - Score 0 = mundane, 5 = bold, energizing.
+
+2. **Realistic & Attainable**  
+   - Is the future state believable within the company’s trajectory?  
+   - Score 0 = fantasy, 5 = ambitious yet plausible.
+
+3. **Constraint-Free**  
+   - Is it written without being anchored to today’s technology/org limits?  
+   - Score 0 = limited by today, 5 = unconstrained future vision.
+
+4. **Grounded in User Problem**  
+   - Is it rooted in a clear, important user problem?  
+   - Score 0 = solution-driven only, 5 = crystal clear user pain.
+
+---
+
+### Output Template
+
+**Vision Review Summary**
+- Strengths: [list strongest aspects]
+- Risks / Gaps: [list weaknesses, ambiguities, risks]
+- Recommendations: [concrete suggestions for sharpening vision]
+
+**Scores**
+- Lofty/Inspiring: X/5
+- Realistic/Attainable: X/5
+- Constraint-Free: X/5
+- Grounded in User Problem: X/5
+
+**Decision**
+- Proceed / Needs Revision / Hold (missing essentials)

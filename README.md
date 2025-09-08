@@ -17,29 +17,56 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 
 ## 🗂️ Repository Structure
 
-### Company Level Context
-- **Product Vision & Strategy**: Vision documents, strategy frameworks, and product principles
-- **OKRs**: Objectives and Key Results tracking
-- **Lesson Learned**: Insights and learnings from past initiatives
-- **Team Structure**: Team organization and role definitions
+### Company Level Context (`company-level-context/`)
+- **Product Vision & Strategy** (`product-vision-and-strateggy/`): 
+  - `product-strategy-review.mdc`: PRISM-aligned strategy review framework with auto-gate evidence readiness
+  - `product-vision-review.mdc`: Vision evaluation framework with 4-criteria scoring system
+- **OKRs** (`okrs/`): 
+  - `okr-sparring-partner.mdc`: Context-aware OKR coaching and sparring partner
+- **Team Structure** (`team-structure/`): 
+  - `readme.md`: Team organization models, design principles, and re-org considerations
 
-### Frameworks
-- **Continuous Discovery Habits**: Systematic user research and opportunity identification frameworks
-- **Evidence-Guided**: Data-driven decision making frameworks and templates
+### Copilots (`copilots/`)
+- **PM Strategic Copilot** (`pm-strategic-copilot.mdc`): Preconfigured prompts and workflows for strategic assistance
 
-### User Research
-- **Interviews**: User interview snapshots and synthesis documents
-- **App Store Reviews**: App store review analysis and insights
-- **Research Archive**: Research methodology and historical data
+### Frameworks (`frameworks/`)
+- **Continuous Discovery Habits** (`continuous-discovery-habits/`):
+  - `create-interview-snapshots.mdc`
+  - `create-opportunities.mdc`
+  - `generate-solutions.mdc`
+  - `indentify-and-test-assumptions.mdc`
+  - `synthesize-interview-snapshots.mdc`
+- **Evidence-Guided** (`evidence-guided/`):
+  - `calculate-ice-score.mdc`
+- **Strategic Review** (in `company-level-context/product-vision-and-strateggy/`):
+  - **PRISM Product Strategy Review**: 5-dimension framework (Problem, Reframe, Intentional Bets, Systemized Execution, Momentum) with auto-gate evidence readiness
+  - **Product Vision Review**: 4-criteria evaluation (Lofty & Inspiring, Realistic & Attainable, Constraint-Free, Grounded in User Problem)
 
-### Meeting Notes
-- **1:1 Notes**: Individual meeting records and action items
-- **Leadership**: Leadership meeting notes and strategic discussions
-- **Product-Trio**: Product trio collaboration records
-- **Board & Investor**: Board and investor meeting documentation
+### Guides (`guides/`)
+- **Meetings** (`meetings/`): `1-1s.mdc`
+- **Product** (`product/`): `create-prd.mdc`, `generate-tasks.mdc`, `process-task-list.mdc`
+- **Writing** (`writing/`): `writing.mdc`
 
-### Initiatives
-- Active product initiatives and project tracking
+### Initiatives (`initiatives/`)
+- **Templates** (`_templates/`):
+  - `setup-new-initiative.mdc`
+  - `initiative-template/` with subfolders for `assumptions/`, `opportunities/`, `prd/`, `product-analytics/`, `solutions/`, `tasks/`, and `user-interviews/`
+- **Archive** (`archive/`): Archived initiatives (`README.md`)
+
+### Meeting Notes (`meeting-notes/`)
+- `1-1 notes/`, `leadership/`, `product-trio/`, `board-n-investor/`
+
+> Tip: When referencing files in Cursor, use the exact path names above.
+
+## 🧭 Quick Start
+
+1. Clone this repository to your local workspace
+2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
+3. Start with strategic review frameworks:
+   - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
+   - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
+   - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
+4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
 
 ## 🚀 How to Use
 
@@ -68,12 +95,27 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **Visual Diffs**: Clearly see AI-generated content changes and modifications
 - **Continuous Learning**: Documents improve with every AI interaction and iteration
 
+## 🔄 Common Workflows
+
+- **Create a PRD**: Start with `guides/product/create-prd.mdc`
+- **Generate and Process Tasks**: Use `guides/product/generate-tasks.mdc` and `guides/product/process-task-list.mdc`
+- **Run Continuous Discovery**: Follow `frameworks/continuous-discovery-habits/*`
+- **Score Ideas (ICE)**: Use `frameworks/evidence-guided/calculate-ice-score.mdc`
+- **Review Product Strategy**: Use `company-level-context/product-vision-and-strateggy/product-strategy-review.mdc` with PRISM framework
+- **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strateggy/product-vision-review.mdc` with 4-criteria scoring
+- **Coach OKRs**: Use `company-level-context/okrs/okr-sparring-partner.mdc` for context-aware OKR development
+- **Design Team Structure**: Reference `company-level-context/team-structure/readme.md` for organizational models
+- **Start a New Initiative**: Use `initiatives/_templates/setup-new-initiative.mdc` and the `initiative-template/` structure
+
 ## 🌟 Key Benefits
 
 * **Structured PM Workflow**: Enforces clear processes from research to delivery
 * **AI-Native Efficiency**: Leverages Cursor's capabilities for PM-specific tasks
 * **Context Preservation**: Maintains product context across all AI interactions
 * **Framework Integration**: Built-in proven PM methodologies and frameworks
+* **Strategic Review System**: PRISM-aligned strategy evaluation with auto-gate evidence readiness
+* **Vision & OKR Coaching**: Systematic evaluation and coaching for vision clarity and goal setting
+* **Organizational Intelligence**: Team structure models and design principles for better alignment
 * **Iterative Improvement**: Documents and frameworks evolve with use
 * **Unified Knowledge Base**: Single source of truth for all PM activities
 
@@ -90,6 +132,12 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - A/B testing templates and analysis tools
 - User behavior analysis frameworks
 - ROI calculation and measurement tools
+
+### Strategic Review & Evaluation
+- **PRISM Product Strategy Review**: Comprehensive 5-dimension evaluation framework (Problem Diagnosis, Reframe Opportunity, Intentional Bets, Systemized Execution, Momentum & Meta-Reflection) with auto-gate evidence readiness checks
+- **Product Vision Review**: 4-criteria vision evaluation system (Lofty & Inspiring, Realistic & Attainable, Constraint-Free, Grounded in User Problem) with 0-5 scoring
+- **OKR Sparring Partner**: Context-aware OKR coaching that considers organization size, industry, and maturity level for realistic, executable goal setting
+- **Team Structure Design**: Organizational models (Functional, Matrix, Value Stream, Divisional) with design principles and re-org considerations
 
 ## 💡 Tips for Success
 
@@ -121,8 +169,8 @@ Please feel free to:
 - **[AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main)** - Structured workflow framework for AI-assisted development that inspired our PM workflow approach
 - **[Cursor AI Agents Work Like 10 Developers (Cursor VP Live Demo)](https://www.youtube.com/watch?v=8QN23ZThdRY)** - Lee Robinson demonstrates how Cursor AI agents automate developer tasks.
 
-- **[Continuous Discovery Habits](https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products-ebook)** - Teresa Torres' book on continuous discovery
-- **[Evidence-Guided: Creating High Impact Products in the Face of Uncertainty](https://www.amazon.com/Evidence-Guided-Creating-Impact-Products-Uncertainty)** - Itamar Gilad's book on evidence-guided product development
+- **[Continuous Discovery Habits](https://www.youtube.com/watch?v=9RFaz9ZBXpk)** - Teresa Torres' book on continuous discovery
+- **[Evidence-Guided](https://www.youtube.com/watch?v=aJWSn-tz3jQ)** - Itamar Gilad's book on evidence-guided product development
 
 ## ⚠️ Important Notes
 

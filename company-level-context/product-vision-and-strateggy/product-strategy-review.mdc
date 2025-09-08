@@ -1,0 +1,296 @@
+## PRISM Product Strategy Review Rules
+
+Purpose: Provide a rigorous, consistent way to evaluate a product strategy document and generate two outputs: (1) a PRISM-aligned evaluation and (2) prioritized improvements.
+
+Applies to: Any strategy artifacts in this folder (vision, strategy docs, strategic memos, OKR narratives, discovery summaries) and their linked evidence.
+
+Review cadence: Run on first draft, quarterly refreshes, and before major roadmap commitments.
+
+Inputs required before review:
+- Current strategy document and a single link to an evidence hub (doc/sheet/folder). Add supporting research, metrics, OKRs, roadmap, and experiments if available.
+- Latest market/user insights and competitive updates (brief notes acceptable)
+- Prior quarter review and postmortem notes (if any)
+
+
+### How to use this checklist
+1) Run the Evidence Readiness auto-gate below. If status = Hold, run a 1-day evidence sprint, then re-run the gate. Do not score while on Hold.
+2) If status = Proceed, score each PRISM dimension from 0–5 using the rubrics. Capture concrete evidence citations.
+3) Record strengths, risks, decisions, and improvements using the Output Template.
+4) Compute Overall Score and decision. Assign owners and due dates for improvements.
+
+
+### Evidence Readiness Check (gate)
+Track selection is not required. The checklist below auto-applies a Light or Standard interpretation based on the evidence you provide.
+
+- How to use (fastest path):
+  - Paste the strategy doc link. The checklist will guide auto-judgment.
+  - Optionally add this mini-header at the top of your doc:
+    - Doc: <link>
+    - Owner: @name
+    - Window: YYYY-MM-DD ~ YYYY-MM-DD
+
+#### Unified Evidence Checklist (auto-applied)
+
+- Core items
+  - 1–3 recent signals (≤ 180 days): founder/customer notes, 3–5 conversation summaries, support tickets/reviews, competitor moves
+  - Top 2–3 riskiest assumptions clearly tagged ("Riskiest")
+  - One success criterion: OMTM or qualitative success heuristic
+  - 1–2 week discovery plan or an OKR draft
+  - One consolidated evidence hub link (doc/sheet/folder)
+
+- Advanced items
+  - Baseline metric (rough logs or estimates acceptable)
+  - North Star/metric tree or a lightweight funnel
+  - Experiment plan/results with hypothesis-method-outcome
+  - User/market size estimate (rough TAM/SAM/SOM or ICP count)
+
+#### Auto-decision rules
+- Proceed (eligible to score PRISM): ≥ 3 Core items present
+- Hold: ≤ 2 Core items → run a 1-day evidence sprint, then re-check
+- Auto-escalate to Standard interpretation for future reviews if either:
+  - Core met + ≥ 2 Advanced items, or
+  - Both a baseline metric and plan/OKR exist together
+
+#### Operating notes
+- If quantitative data is missing, qualitative/market signals count toward Core
+- Any tool is fine; keep links consolidated in one place
+- If on Hold, the 1-day sprint must be time-boxed (e.g., 3 interviews summary; capture 10 competitive leads)
+
+
+### Scoring overview
+- Eligibility: Only compute and record PRISM scores if Evidence Readiness status = Proceed.
+- Scale per dimension: 0–5
+  - 0: Not present; 1: Minimal; 2: Emerging; 3: Solid; 4: Strong; 5: Exemplary
+- Weighting: Equal weighting across PRISM (20% each)
+- Overall Score = average of P, R, I, S, M
+
+
+---
+### P — Problem Diagnosis
+
+What good looks like:
+- Identifies the core challenge, distinguishes causes vs. symptoms, and is evidence-based.
+- Articulates what’s changing (market/tech/user behavior) and which assumptions broke.
+- Ties user Jobs-To-Be-Done and unmet needs to business context.
+
+Ask:
+- What’s changing in market, technology, or user behavior?
+- Which assumptions are no longer holding true?
+- What are users really trying to get done, and what blocks them?
+
+Evidence to cite:
+- Market/tech trend brief, user research synthesis, JTBD statements, opportunity map, analytics showing friction.
+
+Red flags:
+- Problem framed as a feature gap, not a causal diagnosis
+- No user or market evidence; dated insights
+- Confusing symptom metrics with root cause
+
+Rubric (0–5):
+- 0–1: Vague or opinion-only problem; no causal chain
+- 2: Some evidence; symptoms and causes mixed
+- 3: Clear causal story with recent evidence; scope is reasonable
+- 4: Strong causal model, validated with multiple sources and segmentation
+- 5: Robust problem thesis with leading/lagging indicators and falsification paths
+
+Reviewer outputs:
+- Summary of the diagnosed core problem(s)
+- Top 1–2 causal insights supported by evidence links
+- Improvement suggestions (e.g., missing segments, contradictory signals to reconcile)
+
+
+---
+### R — Reframe Opportunity
+
+What good looks like:
+- Converts the problem into a compelling strategic opportunity with timing rationale.
+- Clarifies what would shift for users/business if solved well; beyond incrementalism.
+
+Ask:
+- Why is now the right time?
+- If solved, what materially changes for users and the business?
+- What makes this more than incremental?
+
+Evidence to cite:
+- TAM/SAM/SOM or value pool, competitive whitespace, timing catalysts (tech, regulation, distribution), user willingness signals.
+
+Red flags:
+- Jumps to features; lacks a clear opportunity thesis
+- No timing rationale; ignores competitive dynamics
+- Overpromises without a mechanism of change
+
+Rubric (0–5):
+- 0–1: No opportunity framing
+- 2: Opportunity stated but generic; weak timing
+- 3: Clear opportunity thesis with timing and scope
+- 4: Differentiated framing with credible mechanism of advantage
+- 5: Compelling, time-sensitive opportunity with defensibility and user/business shift defined
+
+Reviewer outputs:
+- Opportunity statement and timing logic
+- Key differentiators and value mechanism
+- Improvements (e.g., clarify defensibility, quantify upside bounds)
+
+
+---
+### I — Intentional Bets
+
+What good looks like:
+- Bold, testable strategic choices with explicit trade-offs and non-goals.
+- Crisp Where-to-Play / How-to-Win statements linked to measurable hypotheses.
+
+Ask:
+- What are the few big bets? What are we not doing?
+- How are bets testable within a timeframe with clear success thresholds?
+- How do bets connect to hypotheses and upside?
+
+Evidence to cite:
+- Bet statements, non-goals, hypotheses with metrics, decision logs, alternative paths considered.
+
+Red flags:
+- Feature lists disguised as strategy; no trade-offs
+- No hypotheses or thresholds; can’t be falsified
+- Everything is a priority
+
+Rubric (0–5):
+- 0–1: No real choices; themes only
+- 2: Choices exist but lack trade-offs or tests
+- 3: Defined bets with non-goals and baseline hypotheses
+- 4: Testable, time-bound bets with success/failure thresholds and resourcing
+- 5: Coherent portfolio of bets with staged options and kill/sustain criteria
+
+Reviewer outputs:
+- List of bets and non-goals with links
+- Testability assessment and gaps
+- Improvements (e.g., define thresholds, add non-goals, narrow scope)
+
+
+---
+### S — Systemized Execution
+
+What good looks like:
+- Strategy translates into OKRs, North Star/inputs, and discovery loops.
+- Bets shape the backlog, governance, and learning checkpoints.
+
+Ask:
+- Do OKRs reflect the bets vs. BAU metrics?
+- Are discovery/validation loops defined with leading indicators?
+- Are check-ins and operating rhythms in place?
+
+Evidence to cite:
+- OKRs, North Star metric tree, discovery plan, experiment backlog, rituals calendar, resource plan.
+
+Red flags:
+- OKRs disconnected from bets; vanity or lag-only metrics
+- No discovery cadence; roadmap-first planning
+- Lack of ownership or governance
+
+Rubric (0–5):
+- 0–1: No bridge to execution
+- 2: Some metrics or OKRs, weak alignment
+- 3: OKRs and discovery plan map to bets
+- 4: Robust metric tree, clear owners, and learning cadence
+- 5: Tight strategy-to-execution system with adaptive re-planning and leading→lagging linkage
+
+Reviewer outputs:
+- Execution readiness assessment (OKRs, metrics, loops, owners)
+- Risks to delivery or learning velocity
+- Improvements (e.g., define leading indicators, set decision checkpoints)
+
+
+---
+### M — Momentum & Meta-Reflection
+
+What good looks like:
+- Built-in reflection to avoid strategic drift; deliberate learning objectives.
+- Regularly says no; challenges assumptions; documents learning.
+
+Ask:
+- What did we learn this quarter? What changed?
+- Where did we say yes when we should’ve said no?
+- What are we not challenging enough?
+
+Evidence to cite:
+- Quarterly retro, decision reviews, stopped work examples, updated assumptions log.
+
+Red flags:
+- No retros; strategy as a static doc
+- Accretion of scope; no stopped initiatives
+- Assumptions never revisited
+
+Rubric (0–5):
+- 0–1: No reflection mechanisms
+- 2: Ad-hoc reflection; little impact on choices
+- 3: Quarterly reviews with documented learning and some course-correction
+- 4: Systematic reflection tied to decisions and resource shifts
+- 5: Strong learning culture with explicit un-learning and portfolio rebalancing
+
+Reviewer outputs:
+- Reflection mechanisms and learning culture assessment
+- Improvements (e.g., add stop criteria, schedule decision reviews)
+
+
+---
+### Output Template (copy for each review)
+
+```md
+Title: PRISM Strategy Review — <Product/Area> — <YYYY-MM-DD>
+
+Eligibility (auto-gate): Proceed / Hold / Auto-escalated
+Doc: <link>
+Evidence Hub: <link>
+Owner: @name
+Window: YYYY-MM-DD ~ YYYY-MM-DD
+
+Executive Summary (3–5 bullets)
+- Key call: Approve / Provisionally Approve (with conditions) / Revise & Resubmit
+- Top strengths
+- Top risks/assumptions to resolve
+
+Scores (0–5)
+- P – Problem Diagnosis: <score> — evidence: <links>
+- R – Reframe Opportunity: <score> — evidence: <links>
+- I – Intentional Bets: <score> — evidence: <links>
+- S – Systemized Execution: <score> — evidence: <links>
+- M – Momentum & Meta-Reflection: <score> — evidence: <links>
+- Overall Score: <avg>
+
+Findings & Rationale
+- P: <summary of diagnosis quality>
+- R: <summary of opportunity framing>
+- I: <summary of bets and trade-offs>
+- S: <summary of strategy→execution alignment>
+- M: <summary of reflection mechanisms>
+
+Priority Improvements (numbered, with owners & dates)
+1) [P/R/I/S/M] <improvement>, Owner: <name>, Due: <date>, Success: <measure>
+2) ...
+
+Risks & Assumptions to Validate
+- Assumption: <text> — Test: <method> — Threshold: <value> — By: <date>
+
+Decision & Next Steps
+- Decision: <approve status>
+- Immediate actions: <bullets>
+- Next review date: <date>
+```
+
+
+### Reviewer checklist before submission
+- Evidence Readiness status recorded (Proceed/Hold/Auto-escalated)
+- If Hold, a 1-day evidence sprint was executed and the gate re-run
+- Links consolidated to a single evidence hub
+- All scores justified with links to evidence
+- Improvements are actionable, prioritized, and owned
+- Decision is explicit; conditions (if any) are measurable
+- Next review date is set; learning objectives defined
+
+
+### Common anti-patterns (quick reference)
+- Strategy as a feature list; no explicit trade-offs or non-goals
+- Lagging metrics only; no leading indicators for discovery
+- Untested assumptions presented as facts; no falsification plan
+- Over-expansive scope; unclear target segment or use case
+- Reflection is performative; no stopped work or resource reallocation
+
+
