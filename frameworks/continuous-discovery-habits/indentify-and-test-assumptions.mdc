@@ -231,9 +231,9 @@ Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
 
 ## Process Flow
 ```
-Individual Interviews → Create Snapshots → Synthesize Patterns → Create Opportunities → Identify & Test Assumptions → Generate Solutions
+Individual Interviews → Create Snapshots → Synthesize Patterns → Create Opportunities → Generate Solutions → Identify & Test Assumptions
      ↓                    ↓                    ↓                    ↓                       ↓                        ↓
-[Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements]    [Risks & Tests]      [Product Ideas]
+[Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements]    [Product Ideas]      [Risks & Tests]
 ```
 
 ---
