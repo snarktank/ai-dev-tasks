@@ -60,13 +60,16 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 
 ## 🧭 Quick Start
 
-1. Clone this repository to your local workspace (https://github.com/jinjin1/Cursor-for-Product-Managers.git)
-2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
-3. Start with strategic review frameworks:
+1. Clone this repository to your local workspace
+   ```
+   git clone https://github.com/jinjin1/Cursor-for-Product-Managers.git
+   ```
+3. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
+4. Start with strategic review frameworks:
    - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
    - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
    - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
-4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
+5. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
 
 ## 🚀 How to Use
 
