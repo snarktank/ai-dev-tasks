@@ -142,13 +142,6 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **OKR Sparring Partner**: Context-aware OKR coaching that considers organization size, industry, and maturity level for realistic, executable goal setting
 - **Team Structure Design**: Organizational models (Functional, Matrix, Value Stream, Divisional) with design principles and re-org considerations
 
-## 💡 Tips for Success
-
-* **Be Specific**: Provide clear context and specific instructions to your AI copilot
-* **Use MAX Mode**: For complex PRDs and strategic documents, consider using Cursor's MAX mode
-* **Document Everything**: Build your knowledge base systematically through regular documentation
-* **Iterate and Improve**: Use AI feedback to continuously enhance your frameworks and templates
-* **Maintain Context**: Keep your AI copilot informed about your product strategy and goals
 
 ## 🔧 Cursor-Specific Features
 
