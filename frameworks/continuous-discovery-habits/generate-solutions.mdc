@@ -19,9 +19,36 @@ To generate multiple potential solutions for identified opportunities using Tere
 ---
 
 ## Input
-- **Primary Source**: Prioritized opportunities from `opportunities/`
-- **Secondary Source**: Interview snapshots and synthesis documents
-- **Minimum Requirements**: At least 1 target opportunity with supporting evidence
+
+### Primary Input Sources (Choose One)
+- **Option A**: Prioritized opportunities from `opportunities/` directory
+- **Option B**: Direct opportunity input from user (ad-hoc opportunities)
+- **Option C**: Mixed approach (file-based + direct input)
+
+### Secondary Input Sources
+- Interview snapshots and synthesis documents
+- User research findings and behavioral insights
+- Current solution limitations and pain points
+- Business context and constraints
+
+### Input Requirements
+- **Minimum**: At least 1 target opportunity with supporting evidence
+- **Ideal**: 3-5 opportunities for comparison and prioritization
+- **Evidence**: User quotes, behavioral observations, or research data
+
+### Flexible Input Handling
+**When user provides direct opportunity input:**
+1. **Validate Input Quality**: Ensure opportunity is clearly defined
+2. **Request Supporting Evidence**: Ask for user quotes or behavioral data
+3. **Extract Topic**: Analyze opportunity content for semantic filename
+4. **File Existence Check**: MANDATORY - Check for existing files with pattern `solutions-[topic]-v*.md` before creating new file
+5. **Version Management**: MANDATORY - Auto-increment version number based on existing files. Never overwrite existing files
+6. **Proceed with Process**: Continue with standard solution generation
+
+**When user provides mixed input:**
+1. **Combine Sources**: Merge file-based and direct opportunities
+2. **Prioritize**: Help user select target opportunity from combined list
+3. **Standard Process**: Follow normal solution generation workflow
 
 ---
 
@@ -46,16 +73,35 @@ To generate multiple potential solutions for identified opportunities using Tere
 
 ## AI Instructions for Solution Generation
 
-### When Receiving Opportunity Data
+### MANDATORY PROCESS ENFORCEMENT
+**CRITICAL: AI MUST NOT SKIP STEP 2 (Individual Ideation)**
+
+- **STEP 2 MANDATORY**: Request human to generate individual ideas first
+- **VIOLATION PREVENTION**: If human requests solutions without Step 2, AI must:
+  - STOP immediately
+  - Explain: "Please generate at least 3 individual ideas first (recommended: 10-15 ideas)"
+  - Wait for human's ideas before proceeding
+  - Do NOT generate solutions until Step 2 is completed
+
+### Input Validation and Processing
+**When receiving opportunity data:**
 - **Validate Input Quality**: Check if opportunities are clearly defined with supporting evidence
 - **Identify Solution Constraints**: Note technical, business, and user constraints
 - **Request Additional Context**: Ask for more details about user needs and current solutions
 - **Topic Extraction**: Analyze opportunity content to extract main topic for semantic filename
 
+**For direct opportunity input:**
+- **Clarify Context**: Ask for user segments, timing, and current solutions
+- **Request Evidence**: Ask for specific user quotes or behavioral observations
+- **Validate Scope**: Ensure opportunity is appropriately sized (leaf-node level)
+- **Extract Topic**: Analyze opportunity content for semantic filename
+
 ### AI-Human Collaboration Guidelines
-- **Act as Thinking Partner**: Engage in collaborative ideation, not just execution
-- **Ask Probing Questions**: Challenge assumptions and explore different angles
-- **Build on Ideas**: Use human's ideas to spark new thinking and variations
+- **MANDATORY WAIT**: Never generate solutions before human completes individual ideation
+- **Build on Human Ideas**: Use human's ideas as foundation, not starting point
+- **Ask Probing Questions**: "What if we looked at this differently?" "How might different user types experience this?"
+- **Expand and Vary**: Take human's ideas and suggest variations, improvements, and alternatives
+- **Cross-Pollination**: Suggest how ideas could work in different contexts or domains
 - **Maintain Focus**: Keep ideation centered on the target opportunity
 - **Encourage Diversity**: Push for different types of solutions, not just variations
 
@@ -80,11 +126,13 @@ To generate multiple potential solutions for identified opportunities using Tere
 5. Use topic as primary identifier instead of date
 
 **Version Management Process:**
-1. Check existing files with pattern `solutions-[topic]-v*.md`
-2. Find the highest version number for the same topic
-3. Auto-increment version number (v1 → v2 → v3...)
-4. Generate new filename with incremented version
-5. No manual version tracking required
+1. **MANDATORY STEP 1:** Check existing files with pattern `solutions-[topic]-v*.md`
+2. **MANDATORY STEP 2:** Find the highest version number for the same topic
+3. **MANDATORY STEP 3:** Auto-increment version number (v1 → v2 → v3...)
+4. **MANDATORY STEP 4:** Generate new filename with incremented version
+5. **MANDATORY STEP 5:** Verify no file with new filename exists before creation
+6. **CRITICAL:** Never overwrite existing files - always create new version
+7. No manual version tracking required
 
 **Smart Topic Detection:**
 - **Content Analysis**: Extract main themes from opportunity document
@@ -97,20 +145,38 @@ To generate multiple potential solutions for identified opportunities using Tere
 
 ## Process
 
+### 0) File Management (MANDATORY PRE-STEP)
+1. **Extract topic** from opportunity document or direct input
+2. **Check existing files** with pattern `solutions-[topic]-v*.md` in target directory
+3. **Find highest version** number for same topic (e.g., if v1, v2 exist, next is v3)
+4. **Generate new filename** with incremented version: `solutions-[topic]-v[version].md`
+5. **Verify no file exists** with new filename before proceeding
+6. **CRITICAL**: Never overwrite existing files - always create new version
+
 ### 1. Review Your Target Opportunity
 1. **Opportunity Alignment**: Ensure both AI and human understand the opportunity and context
 2. **Opportunity Validation**: Confirm this is an appropriately sized leaf-node opportunity
 3. **Context Review**: Review supporting evidence and user research findings
 4. **Success Criteria**: Define what success looks like for this opportunity
 
+**For direct input opportunities:**
+- **Clarify Details**: Ask for user segments, timing, and current solutions
+- **Request Evidence**: Ask for specific user quotes or behavioral observations
+- **Validate Scope**: Ensure opportunity is appropriately sized
+
 ---
 
-### 2. Individual Ideation (Human)
+### 2. Individual Ideation (Human) - MANDATORY
 1. **Solo Brainstorming**: Human generates initial ideas individually
 2. **Overcome Blocks**: If stuck, take a break and try again
 3. **Seek Inspiration**: Look to competitors or similar products for inspiration
 4. **Think Broadly**: Don't limit to your industry - look at other domains solving similar problems
 5. **Quantity Focus**: Aim for maximum quantity without judgment
+6. **Target**: Generate **minimum 3 individual ideas** before proceeding
+   - **Recommended**: 10-15 ideas for better diversity and quality
+   - **Time-constrained**: 3-5 ideas acceptable for quick iterations
+
+**AI MUST WAIT**: Do not proceed to Step 3 until human completes this step
 
 ---
 
@@ -152,7 +218,7 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 ```
 
 ### Input-Output Relationship
-- **Input:** Prioritized opportunities with supporting evidence
+- **Input:** Prioritized opportunities with supporting evidence (from files or direct input)
 - **Process:** Topic extraction, AI-human collaborative ideation and evaluation
 - **Output:** Top 3 solution approaches with rationale
 - **Next Step:** Use selected solutions for further development or testing
@@ -289,6 +355,19 @@ solutions/
 
 ---
 
+## Process Validation Checkpoints (RECOMMENDED)
+
+**Before proceeding to each step, AI should verify:**
+- **Step 1**: Target opportunity clearly defined with success criteria
+- **Step 2**: Human has generated minimum 3 individual ideas (MANDATORY)
+- **Step 3**: Human's ideas have been shared and reviewed
+- **Step 4**: Multiple rounds of collaborative ideation completed (15-20 total ideas)
+- **Step 5**: Collaborative evaluation and selection completed
+
+**Note**: These checkpoints are recommended for quality assurance but not mandatory for basic usage.
+
+---
+
 ## Common Antipatterns to Avoid
 
 ### 1. Not Including Diverse Perspectives
@@ -400,6 +479,8 @@ solutions/
 - **Incorrect Format**: Use kebab-case for topic, v[number] for version
 - **Missing Topic**: Extract main theme from opportunity document for filename
 - **Overwriting Prevention**: Never overwrite existing solution files, always increment version
+- **File Existence Check Failure**: MANDATORY - Always verify file existence before creation
+- **Version Detection Error**: If version detection fails, start with v1 and add warning note
 
 ---
 
@@ -456,6 +537,37 @@ solutions/
 - [ ] Topic name is descriptive and kebab-case formatted
 - [ ] No overwriting of existing solution files
 - [ ] Topic extraction completed through content analysis before solution creation
+
+---
+
+## AI Implementation Checklist
+
+### Before Creating Any Solution File:
+1. **Topic Extraction** ✅
+   - [ ] Analyze opportunity document for main theme
+   - [ ] Extract kebab-case topic name (e.g., "newsletter-creation")
+   - [ ] Verify topic is descriptive and unique
+
+2. **File Existence Check** ✅
+   - [ ] Search for existing files: `solutions-[topic]-v*.md`
+   - [ ] List all found files with their version numbers
+   - [ ] Identify highest version number
+
+3. **Version Management** ✅
+   - [ ] Calculate next version number (highest + 1)
+   - [ ] Generate new filename: `solutions-[topic]-v[version].md`
+   - [ ] Verify new filename doesn't already exist
+
+4. **File Creation** ✅
+   - [ ] Create file with new filename only
+   - [ ] Never overwrite existing files
+   - [ ] Add version number to document header
+
+### Error Handling:
+- **If topic extraction fails**: Use generic topic name and add warning
+- **If version detection fails**: Start with v1 and add warning note
+- **If file already exists**: Increment version and try again
+- **If multiple topics found**: Use most relevant one and document choice
 
 ---
 

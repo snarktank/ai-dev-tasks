@@ -1,4 +1,4 @@
-# 📂 team-structure/readme.md
+# 📂 Team Structure
 
 ## Purpose
 
@@ -14,6 +14,15 @@ so uploading team structure materials here enables **automated reviews, decision
 * Role definitions by team (PM, Designer, Engineer, Data, Research, etc.)
 * Re-org plans and retrospective materials
 * Team mission and principles definition documents
+
+---
+
+## How to Use This Folder
+
+1. Upload organizational structure documents such as org-chart.png / org-structure.md here
+2. When running Cursor rules, reference team-structure folder documents to provide **team responsibility/role-based feedback**
+3. Store retrospective documents before and after re-org discussions for **historical context tracking**
+4. When reviewing key documents (Product strategy, OKR), reference them together with related team structure documents
 
 ---
 
@@ -105,14 +114,7 @@ Re-org should only be executed carefully when there is a **strategy and organiza
 
 4. **Importance of People and Culture**
    * Marty Cagan emphasizes that "good leaders, team skills, and culture are more important than structure"
-
-## How to Use This Folder
-
-1. Upload organizational structure documents such as org-chart.png / org-structure.md here
-2. When running Cursor rules, reference team-structure folder documents to provide **team responsibility/role-based feedback**
-3. Store retrospective documents before and after re-org discussions for **historical context tracking**
-4. When reviewing key documents (Product strategy, OKR), reference them together with related team structure documents
-
+   
 ---
 
 **Tip:** Including not just "current structure" but also **why this structure was chosen (strategic context)** in organizational documents enables Cursor to provide more sophisticated feedback.

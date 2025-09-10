@@ -18,13 +18,13 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 ## 🗂️ Repository Structure
 
 ### Company Level Context (`company-level-context/`)
-- **Product Vision & Strategy** (`product-vision-and-strateggy/`): 
+- **Product Vision & Strategy** (`product-vision-and-strategy/`): 
   - `product-strategy-review.mdc`: PRISM-aligned strategy review framework with auto-gate evidence readiness
   - `product-vision-review.mdc`: Vision evaluation framework with 4-criteria scoring system
 - **OKRs** (`okrs/`): 
   - `okr-sparring-partner.mdc`: Context-aware OKR coaching and sparring partner
 - **Team Structure** (`team-structure/`): 
-  - `readme.md`: Team organization models, design principles, and re-org considerations
+  - `README.md`: Team organization models, design principles, and re-org considerations
 
 ### Copilots (`copilots/`)
 - **PM Strategic Copilot** (`pm-strategic-copilot.mdc`): Preconfigured prompts and workflows for strategic assistance
@@ -38,7 +38,7 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
   - `synthesize-interview-snapshots.mdc`
 - **Evidence-Guided** (`evidence-guided/`):
   - `calculate-ice-score.mdc`
-- **Strategic Review** (in `company-level-context/product-vision-and-strateggy/`):
+- **Strategic Review** (in `company-level-context/product-vision-and-strategy/`):
   - **PRISM Product Strategy Review**: 5-dimension framework (Problem, Reframe, Intentional Bets, Systemized Execution, Momentum) with auto-gate evidence readiness
   - **Product Vision Review**: 4-criteria evaluation (Lofty & Inspiring, Realistic & Attainable, Constraint-Free, Grounded in User Problem)
 
@@ -61,10 +61,10 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 ## 🧭 Quick Start
 
 1. Clone this repository to your local workspace
-2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
+2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strategy/product-strategy-review.mdc`)
 3. Start with strategic review frameworks:
-   - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
-   - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
+   - **Strategy Review**: `@company-level-context/product-vision-and-strategy/product-strategy-review.mdc`
+   - **Vision Evaluation**: `@company-level-context/product-vision-and-strategy/product-vision-review.mdc`
    - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
 4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
 
@@ -101,10 +101,10 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **Generate and Process Tasks**: Use `guides/product/generate-tasks.mdc` and `guides/product/process-task-list.mdc`
 - **Run Continuous Discovery**: Follow `frameworks/continuous-discovery-habits/*`
 - **Score Ideas (ICE)**: Use `frameworks/evidence-guided/calculate-ice-score.mdc`
-- **Review Product Strategy**: Use `company-level-context/product-vision-and-strateggy/product-strategy-review.mdc` with PRISM framework
-- **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strateggy/product-vision-review.mdc` with 4-criteria scoring
+- **Review Product Strategy**: Use `company-level-context/product-vision-and-strategy/product-strategy-review.mdc` with PRISM framework
+- **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strategy/product-vision-review.mdc` with 4-criteria scoring
 - **Coach OKRs**: Use `company-level-context/okrs/okr-sparring-partner.mdc` for context-aware OKR development
-- **Design Team Structure**: Reference `company-level-context/team-structure/readme.md` for organizational models
+- **Design Team Structure**: Reference `company-level-context/team-structure/README.md` for organizational models
 - **Start a New Initiative**: Use `initiatives/_templates/setup-new-initiative.mdc` and the `initiative-template/` structure
 
 ## 🌟 Key Benefits
@@ -147,14 +147,6 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **Visual Diffs**: Clearly see AI-generated changes and modifications
 - **From Instructions to Initiatives**: Build complete product initiatives step by step
 
-## 🤝 Contributing
-
-Got ideas to improve these frameworks or have new PM methodologies to share? Contributions are welcome!
-
-Please feel free to:
-* Open an issue to discuss changes or suggest new frameworks
-* Submit a pull request with your enhancements
-* Share your PM workflow improvements and learnings
 
 ## 🙏 Acknowledgments
 
@@ -165,10 +157,3 @@ Please feel free to:
 - **[Continuous Discovery Habits](https://www.youtube.com/watch?v=9RFaz9ZBXpk)** - Teresa Torres' framework on continuous discovery
 - **[Evidence-Guided](https://www.youtube.com/watch?v=aJWSn-tz3jQ)** - Itamar Gilad's framework on evidence-guided product development
 
-## ⚠️ Important Notes
-
-This repository contains experimental and technical approaches to AI-native product management. While powerful, these methods may not be suitable for everyone. Recommended for PMs who are fluent in AI tools and want to explore the future of AI-native product teams.
-
----
-
-Happy AI-assisted product managing! 🚀

@@ -6,8 +6,8 @@ This folder stores assumption logs and test plans produced while derisking oppor
 - `assumptions-[opportunity-name]-[YYYY-MM-DD].md`
 
 ## 🧭 Where These Come From
-- Use `frameworks/continuous-discovery-habits/indentify-and-test-assumptions.mdc`.
-- Outputs should be saved here per the framework’s Output section.
+- Use `@frameworks/continuous-discovery-habits/indentify-and-test-assumptions.mdc`
+- Outputs should be saved here per the framework's Output section
 
 ## ✅ Suggested Structure
 ```markdown

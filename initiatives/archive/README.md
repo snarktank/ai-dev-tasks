@@ -1,4 +1,4 @@
-# Initiative Archive
+# 📁 Initiative Archive
 
 This folder contains completed initiatives for reference and learning purposes.
 
@@ -33,7 +33,13 @@ When moving an initiative to archive:
 
 ## 🔍 Quick Reference
 Recent archived initiatives:
-- [Add completed initiative summaries here]
+- [Add completed initiative summaries here as they become available]
+
+## 📊 Archive Statistics
+- **Total Archived Initiatives**: 0
+- **Success Rate**: N/A (no initiatives archived yet)
+- **Average Duration**: N/A
+- **Key Learnings**: [To be populated as initiatives are archived]
 
 ---
 *Archived initiatives provide valuable organizational learning and context.*

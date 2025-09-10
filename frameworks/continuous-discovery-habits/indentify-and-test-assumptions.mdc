@@ -58,6 +58,8 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 - **Clarify Scope:** Define which ideas/journeys will be story-mapped.
 - **Note Constraints:** Technical, legal, GTM, success metrics, time/resource limits.
 - **Topic Extraction:** Analyze opportunity content to extract main topic for semantic filename.
+- **File Existence Check:** MANDATORY - Check for existing files with pattern `assumptions-[topic]-v*.md` before creating new file.
+- **Version Management:** MANDATORY - Auto-increment version number based on existing files. Never overwrite existing files.
 
 ### Assumption Generation Guidelines
 - **Use Five Categories:** Desirability, Usability, Feasibility, Viability, Ethical.
@@ -66,11 +68,35 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 - **Attach Evidence:** Link each assumption to quotes, behaviors, or data when available.
 - **Normalize Granularity:** Split vague, compound assumptions into specific, testable statements.
 
+### Evidence Classification (Binary)
+- **Strong Evidence:** 
+  - Direct user quotes or behaviors supporting assumption
+  - Quantitative data from multiple sources
+  - Previous successful tests of similar assumptions
+- **Weak Evidence:** 
+  - No direct evidence
+  - Single source or anecdotal evidence
+  - Theoretical or assumed knowledge only
+
+### Importance Evaluation (Binary)
+- **More Important:** 
+  - Core value proposition depends on this assumption
+  - Assumption failure would kill the solution
+  - Blocking other critical assumptions
+- **Less Important:** 
+  - Nice-to-have features or optimizations
+  - Minor impact on solution success
+  - Non-blocking assumptions
+
 ### Prioritization Guidelines (Assumption Mapping)
 - Place each assumption on a 2D grid:
   - X-axis: Evidence known (left = strong evidence, right = weak evidence)
-  - Y-axis: Importance to idea success (low → high)
-- **Leap of Faith (LoFA):** Start with the top-right most 2–3 assumptions.
+  - Y-axis: Importance to idea success (bottom = less important, top = more important)
+- **Leap of Faith (LoFA):** Select ONLY assumptions in the top-right quadrant:
+  - **Weak Evidence** (right side of X-axis)
+  - **More Important** (top half of Y-axis)
+  - **Maximum 3 LoFA** per assumption document
+  - **Visual indicator**: Mark with circle or highlight
 
 ### Testing Guidelines
 - **Simulate an Experience, Evaluate Behavior:** Design minimal simulations that let users behave in line with or against the assumption.
@@ -94,11 +120,13 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 5. Use topic as primary identifier instead of date
 
 **Version Management Process:**
-1. Check existing files with pattern `assumptions-[opportunity-name]-v*.md`
-2. Find the highest version number for the same opportunity
-3. Auto-increment version number (v1 → v2 → v3...)
-4. Generate new filename with incremented version
-5. No manual version tracking required
+1. **MANDATORY STEP 1:** Check existing files with pattern `assumptions-[opportunity-name]-v*.md`
+2. **MANDATORY STEP 2:** Find the highest version number for the same opportunity
+3. **MANDATORY STEP 3:** Auto-increment version number (v1 → v2 → v3...)
+4. **MANDATORY STEP 4:** Generate new filename with incremented version
+5. **MANDATORY STEP 5:** Verify no file with new filename exists before creation
+6. **CRITICAL:** Never overwrite existing files - always create new version
+7. No manual version tracking required
 
 **Smart Topic Detection:**
 - **Content Analysis:** Extract main themes from opportunity document
@@ -110,6 +138,14 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 ---
 
 ## Process
+
+### 0) File Management (MANDATORY PRE-STEP)
+1. **Extract topic** from opportunity document content
+2. **Check existing files** with pattern `assumptions-[topic]-v*.md` in target directory
+3. **Find highest version** number for same topic (e.g., if v1, v2 exist, next is v3)
+4. **Generate new filename** with incremented version: `assumptions-[topic]-v[version].md`
+5. **Verify no file exists** with new filename before proceeding
+6. **CRITICAL**: Never overwrite existing files - always create new version
 
 ### 1) Prepare Context and Actors
 1. Confirm target opportunity and desired outcome(s).
@@ -132,10 +168,14 @@ Write why the solution addresses the opportunity and drives the outcome. Extract
 Rewrite assumptions to be positive, specific, and single-concept. Link supporting quotes, behaviors, analytics.
 
 ### 7) Map and Prioritize (Assumption Mapping)
-Place assumptions on the grid; mark top-right-most as LoFA.
+1. **Plot all assumptions** on 2D grid using binary classification
+2. **Identify top-right quadrant** (Weak Evidence + More Important)
+3. **Select maximum 3 assumptions** from this quadrant
+4. **If more than 3 in quadrant**: Prioritize by impact, test complexity, dependencies
+5. **Mark selected LoFA** with visual indicator
 
 ### 8) Define Test Cards for LoFA Assumptions
-For each LoFA, design the smallest simulation with clear success criteria, sample size, method, audience, and time window.
+For each of the 3 selected LoFA, design the smallest simulation with clear success criteria, sample size, method, audience, and time window.
 
 ### 9) Run Tests → Record Results → Update the Map
 Move assumptions leftward as evidence grows; iterate simulation quality or move to next riskiest item.
@@ -168,27 +208,28 @@ Use accumulated evidence to: evolve the idea, change the opportunity focus, or s
 ## Assumption Log
 | ID | Category | Assumption (positive, specific) | Evidence (link/quote/data) | Importance | Evidence Known | LoFA |
 |----|----------|----------------------------------|-----------------------------|------------|----------------|------|
-| A-01 | Desirability | [What must be true] | [Quote/analytics/ref] | High/Med/Low | Weak/Some/Strong | Yes/No |
+| A-01 | Desirability | [What must be true] | [Quote/analytics/ref] | More/Less Important | Strong/Weak | Yes/No |
 
 ---
 
 ## Assumption Map (Summary)
-- Top-right (LoFA): [A-01, A-07, A-12]
-- Notable clusters: [e.g., viability assumptions lacking data]
+- **Top-right (LoFA):** [A-01, A-07, A-12] - Maximum 3 assumptions
+- **Notable clusters:** [e.g., viability assumptions lacking data]
+- **Visual Grid:** Use 2D grid with binary classification (Strong/Weak Evidence, More/Less Important)
 
 ---
 
 ## Test Cards (LoFA)
 
 ### Test Card: [A-01] — [Short name]
-- **Hypothesis (Assumption):** [Assumption statement]
+- **Assumption:** [Assumption statement]
 - **Simulation:** [Prototype/mock experience/data query/concept test]
-- **Method:** [Unmoderated test | 1-question survey | Data-mining | Concierge | Email smoke-screen]
+- **Method:** [Unmoderated test | 1-question survey | Data Analysis | Concierge Test | Wizard of Oz | Usability Test | Ealry Adopters | Longitudinal User Study | Dogfood | Fishfood | Smoke Tests]
 - **Audience:** [Screening criteria; segment]
 - **Sample Size & Window:** [e.g., n=10 over 2 days]
 - **Success Criteria:** [e.g., ≥ 3/10 do X]
 - **Risks & Biases:** [Key concerns and mitigations]
-- **Next Step if Pass/Fail:** [Scale test / iterate assumption / pivot idea]
+- **Next Step if Pass/Fail:** [Scale test / iterate assumption / Experiment(e.g., Multivariate, A/B tests) / pivot idea]
 
 *(Repeat per LoFA assumption)*
 
@@ -227,6 +268,27 @@ Actors: [User, Platform, Partner]
 3) [Partner] provides …
 ```
 
+### Assumption Mapping Template
+```
+                    Evidence Known
+                Strong              Weak
+More     [A-01]  [A-03]    [A-02]  [A-04] ← LoFA (3개)
+Important [A-09]  [A-10]    [A-05]  [A-06] ← LoFA (3개)
+
+Less     [A-15]  [A-14]    [A-18]  [A-17]
+Important [A-12]  [A-11]    [A-13]  [A-16]
+```
+
+### LoFA Selection Process
+1. **Plot all assumptions** on 2D grid using binary classification
+2. **Identify top-right quadrant** (Weak Evidence + More Important)
+3. **Select maximum 3 assumptions** from this quadrant
+4. **If more than 3 in quadrant**: Prioritize by:
+   - Impact on solution success
+   - Test complexity (easier first)
+   - Dependencies (blocking first)
+5. **Mark selected LoFA** with visual indicator (circle or highlight)
+
 ### Success Criteria Pattern
 - Define n participants and success threshold as an absolute number (not %).  
 Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
@@ -236,30 +298,35 @@ Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
 ## Quality Indicators
 
 ### Strong
-- **Specific & Positive:** Testable statements tied to concrete behavior.
-- **Evidence-Linked:** Quotes, analytics, or prior tests attached.
-- **Right LoFA:** Top-right-most items selected to start.
-- **Clear Criteria:** Absolute numbers, audience defined, timeboxed.
-- **Iterative Cadence:** Start small; scale only with positive signals.
+- **Specific & Positive:** Testable statements tied to concrete behavior
+- **Evidence-Linked:** Quotes, analytics, or prior tests attached
+- **Right LoFA:** Maximum 3 from top-right quadrant (Weak Evidence + More Important)
+- **Binary Classification:** Consistent Strong/Weak, More/Less Important evaluation
+- **Clear Criteria:** Absolute numbers, audience defined, timeboxed
+- **Iterative Cadence:** Start small; scale only with positive signals
 
 ### Weak
-- **Vague:** Generic or compound statements.
-- **Opinion-Based:** Future-intent questions; no behavior.
-- **Ambiguous Criteria:** Percentages, no audience, no time window.
-- **Over-Building:** Large experiments before early signals.
+- **Too Many LoFA:** More than 3 assumptions selected
+- **Inconsistent Classification:** Mixed evaluation criteria
+- **Vague:** Generic or compound statements
+- **Opinion-Based:** Future-intent questions; no behavior
+- **Ambiguous Criteria:** Percentages, no audience, no time window
+- **Over-Building:** Large experiments before early signals
 
 ---
 
 ## Common Anti-Patterns and Guardrails
-- Not generating enough assumptions → Use story map + pre-mortem + OST lines.
-- Negative phrasing → Rewrite as what must be true (positive).
-- Not specific enough → Add actor, context, behavior, and outcome.
-- Favoring one category → Cover all five: Desirability/Usability/Feasibility/Viability/Ethical.
-- Overly complex simulations → Design smallest viable simulation first.
-- Using percentages for criteria → Use absolute counts (e.g., 3 of 10).
-- Missing evaluation details → Define audience, n, window, and behavior.
-- Testing with wrong audience → Screen for the target opportunity.
-- Designing for less than best-case → Start where passing is most likely; increase difficulty later.
+- **Too many LoFA** → Select maximum 3 from top-right quadrant only
+- **Inconsistent classification** → Use binary classification (Strong/Weak, More/Less Important)
+- **Not generating enough assumptions** → Use story map + pre-mortem + OST lines
+- **Negative phrasing** → Rewrite as what must be true (positive)
+- **Not specific enough** → Add actor, context, behavior, and outcome
+- **Favoring one category** → Cover all five: Desirability/Usability/Feasibility/Viability/Ethical
+- **Overly complex simulations** → Design smallest viable simulation first
+- **Using percentages for criteria** → Use absolute counts (e.g., 3 of 10)
+- **Missing evaluation details** → Define audience, n, window, and behavior
+- **Testing with wrong audience** → Screen for the target opportunity
+- **Designing for less than best-case** → Start where passing is most likely; increase difficulty later
 
 ---
 
@@ -275,6 +342,8 @@ Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
 - **Incorrect Format:** Use kebab-case for opportunity-name, v[number] for version
 - **Missing Topic:** Extract main theme from opportunity document for filename
 - **Overwriting Prevention:** Never overwrite existing assumption files, always increment version
+- **File Existence Check Failure:** MANDATORY - Always verify file existence before creation
+- **Version Detection Error:** If version detection fails, start with v1 and add warning note
 
 ---
 
@@ -328,11 +397,45 @@ assumptions/
 
 ### File Naming Validation
 - [ ] **MANDATORY**: Extracted clear topic from opportunity content before creating filename
+- [ ] **MANDATORY**: Checked existing files with pattern `assumptions-[topic]-v*.md` before creation
+- [ ] **MANDATORY**: Verified no file with new filename exists before creation
 - [ ] Filename uses semantic naming format: assumptions-[opportunity-name]-v[version].md
 - [ ] Version number is correctly auto-incremented for same-opportunity assumptions
 - [ ] Opportunity name is descriptive and kebab-case formatted
-- [ ] No overwriting of existing assumption files
+- [ ] **CRITICAL**: No overwriting of existing assumption files - always create new version
 - [ ] Topic extraction completed through content analysis before assumption creation
+- [ ] Version management process followed step-by-step
+
+---
+
+## AI Implementation Checklist
+
+### Before Creating Any Assumption File:
+1. **Topic Extraction** ✅
+   - [ ] Analyze opportunity document for main theme
+   - [ ] Extract kebab-case topic name (e.g., "newsletter-creation")
+   - [ ] Verify topic is descriptive and unique
+
+2. **File Existence Check** ✅
+   - [ ] Search for existing files: `assumptions-[topic]-v*.md`
+   - [ ] List all found files with their version numbers
+   - [ ] Identify highest version number
+
+3. **Version Management** ✅
+   - [ ] Calculate next version number (highest + 1)
+   - [ ] Generate new filename: `assumptions-[topic]-v[version].md`
+   - [ ] Verify new filename doesn't already exist
+
+4. **File Creation** ✅
+   - [ ] Create file with new filename only
+   - [ ] Never overwrite existing files
+   - [ ] Add version number to document header
+
+### Error Handling:
+- **If topic extraction fails**: Use generic topic name and add warning
+- **If version detection fails**: Start with v1 and add warning note
+- **If file already exists**: Increment version and try again
+- **If multiple topics found**: Use most relevant one and document choice
 
 ---
 

@@ -7,7 +7,7 @@ This folder contains the product requirements and specifications for this initia
 ### [initiative-name]-prd.md
 Main product requirements document.
 
-**Usage:** Use `@create-prd.mdc` to generate a structured PRD.
+**Usage:** Use `@guides/product/create-prd.mdc` to generate a structured PRD
 
 **Key Sections:**
 - Problem Statement

@@ -52,6 +52,8 @@ and ultimately **propose target opportunities for exploration**.
 - **Identify Research Gaps**: Note missing information that could strengthen opportunity identification
 - **Request Additional Data**: Ask for more interviews if sample size is insufficient
 - **Topic Extraction**: Analyze content to extract main topic for semantic filename
+- **File Existence Check**: MANDATORY - Check for existing files with pattern `opportunities-[topic]-v*.md` before creating new file
+- **Version Management**: MANDATORY - Auto-increment version number based on existing files. Never overwrite existing files
 
 ### Opportunity Extraction Guidelines
 - **Focus on Behavioral Problems**: Look for concrete actions and pain points, not opinions
@@ -80,11 +82,13 @@ and ultimately **propose target opportunities for exploration**.
 5. Use topic as primary identifier instead of date
 
 **Version Management Process:**
-1. Check existing files with pattern `opportunities-[topic]-v*.md`
-2. Find the highest version number for the same topic
-3. Auto-increment version number (v1 → v2 → v3...)
-4. Generate new filename with incremented version
-5. No manual version tracking required
+1. **MANDATORY STEP 1:** Check existing files with pattern `opportunities-[topic]-v*.md`
+2. **MANDATORY STEP 2:** Find the highest version number for the same topic
+3. **MANDATORY STEP 3:** Auto-increment version number (v1 → v2 → v3...)
+4. **MANDATORY STEP 4:** Generate new filename with incremented version
+5. **MANDATORY STEP 5:** Verify no file with new filename exists before creation
+6. **CRITICAL:** Never overwrite existing files - always create new version
+7. No manual version tracking required
 
 **Smart Topic Detection:**
 - **Content Analysis**: Extract main themes from interview snapshots or synthesis
@@ -96,6 +100,14 @@ and ultimately **propose target opportunities for exploration**.
 ---
 
 ## Process
+
+### 0) File Management (MANDATORY PRE-STEP)
+1. **Extract topic** from interview data or synthesis content
+2. **Check existing files** with pattern `opportunities-[topic]-v*.md` in target directory
+3. **Find highest version** number for same topic (e.g., if v1, v2 exist, next is v3)
+4. **Generate new filename** with incremented version: `opportunities-[topic]-v[version].md`
+5. **Verify no file exists** with new filename before proceeding
+6. **CRITICAL**: Never overwrite existing files - always create new version
 
 ### 1. Extract Opportunities
 1. Extract customer **stories, needs, pain points, and desires** from interview snapshots and synthesis results.  
@@ -291,6 +303,8 @@ opportunities/
 - **Incorrect Format**: Use kebab-case for topic, v[number] for version
 - **Missing Topic**: Extract main theme from interview snapshots or synthesis for filename
 - **Overwriting Prevention**: Never overwrite existing opportunity files, always increment version
+- **File Existence Check Failure**: MANDATORY - Always verify file existence before creation
+- **Version Detection Error**: If version detection fails, start with v1 and add warning note
 
 ### Quality Issues
 - **Vague Problems**: Push for specific customer stories and examples
@@ -321,11 +335,45 @@ opportunities/
 
 ### File Naming Validation
 - [ ] **MANDATORY**: Extracted clear topic from content analysis before creating filename
+- [ ] **MANDATORY**: Checked existing files with pattern `opportunities-[topic]-v*.md` before creation
+- [ ] **MANDATORY**: Verified no file with new filename exists before creation
 - [ ] Filename uses semantic naming format: opportunities-[topic]-v[version].md
 - [ ] Version number is correctly auto-incremented for same-topic opportunities
 - [ ] Topic name is descriptive and kebab-case formatted
-- [ ] No overwriting of existing opportunity files
+- [ ] **CRITICAL**: No overwriting of existing opportunity files - always create new version
 - [ ] Topic extraction completed through content analysis before opportunity creation
+- [ ] Version management process followed step-by-step
+
+---
+
+## AI Implementation Checklist
+
+### Before Creating Any Opportunity File:
+1. **Topic Extraction** ✅
+   - [ ] Analyze interview data or synthesis for main theme
+   - [ ] Extract kebab-case topic name (e.g., "newsletter-creation")
+   - [ ] Verify topic is descriptive and unique
+
+2. **File Existence Check** ✅
+   - [ ] Search for existing files: `opportunities-[topic]-v*.md`
+   - [ ] List all found files with their version numbers
+   - [ ] Identify highest version number
+
+3. **Version Management** ✅
+   - [ ] Calculate next version number (highest + 1)
+   - [ ] Generate new filename: `opportunities-[topic]-v[version].md`
+   - [ ] Verify new filename doesn't already exist
+
+4. **File Creation** ✅
+   - [ ] Create file with new filename only
+   - [ ] Never overwrite existing files
+   - [ ] Add version number to document header
+
+### Error Handling:
+- **If topic extraction fails**: Use generic topic name and add warning
+- **If version detection fails**: Start with v1 and add warning note
+- **If file already exists**: Increment version and try again
+- **If multiple topics found**: Use most relevant one and document choice
 
 ---
 

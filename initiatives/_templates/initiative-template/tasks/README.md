@@ -7,9 +7,9 @@ This folder contains the detailed task breakdown for implementing this initiativ
 ### [initiative-name]-tasks.md
 Main implementation task list.
 
-**Usage:** Use `@generate-tasks.mdc` to create tasks from your PRD.
+**Usage:** Use `@guides/product/generate-tasks.mdc` to create tasks from your PRD
 
-**Processing:** Use `@process-task-list.mdc` to work through tasks systematically.
+**Processing:** Use `@guides/product/process-task-list.mdc` to work through tasks systematically
 
 ### task-progress.md
 Track overall progress and completed tasks.
@@ -53,12 +53,12 @@ Sprint retrospectives and lessons learned.
 ## 🔄 Task Management Process
 
 ### 1. Task Generation
-- Use PRD as input for `@generate-tasks.mdc`
+- Use PRD as input for `@guides/product/generate-tasks.mdc`
 - Break down into small, manageable tasks
 - Estimate effort and dependencies
 
 ### 2. Task Processing
-- Use `@process-task-list.mdc` for systematic execution
+- Use `@guides/product/process-task-list.mdc` for systematic execution
 - Work on one task at a time
 - Review and approve before moving to next
 
