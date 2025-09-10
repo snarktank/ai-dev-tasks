@@ -27,8 +27,20 @@ To generate multiple potential solutions for identified opportunities using Tere
 
 ## Output
 **Format:** Markdown (`.md`)  
-**Location:** `solutions/`  
-**Filename:** `solutions-[opportunity-name]-[YYYY-MM-DD].md`  
+**Location:** `solutions/[topic]/`  
+**Filename:** `solutions-[topic]-v[version].md`
+
+**Semantic Naming Guidelines:**
+- topic: kebab-case topic name extracted from opportunity content (e.g., newsletter-creation, user-onboarding)
+- version: auto-incrementing version number (v1, v2, v3...)
+- Example: solutions-newsletter-creation-v1.md
+
+**Version Management:**
+- Check existing files with same topic pattern before creating new solutions
+- Auto-increment version number (v1 → v2 → v3...)
+- Never overwrite existing solution files
+- Preserve all solution versions for comparison
+- No date dependency required  
 
 ---
 
@@ -38,6 +50,7 @@ To generate multiple potential solutions for identified opportunities using Tere
 - **Validate Input Quality**: Check if opportunities are clearly defined with supporting evidence
 - **Identify Solution Constraints**: Note technical, business, and user constraints
 - **Request Additional Context**: Ask for more details about user needs and current solutions
+- **Topic Extraction**: Analyze opportunity content to extract main topic for semantic filename
 
 ### AI-Human Collaboration Guidelines
 - **Act as Thinking Partner**: Engage in collaborative ideation, not just execution
@@ -51,6 +64,34 @@ To generate multiple potential solutions for identified opportunities using Tere
 - **Evidence-Based**: Solutions grounded in user research and behavioral insights
 - **Diverse Approaches**: Multiple solution types and implementation strategies
 - **Actionable**: Solutions that can be realistically implemented
+
+### Semantic File Naming Guidelines
+- **Topic Extraction**: Analyze opportunity content to identify main topic/theme
+- **Filename Format**: Use semantic naming pattern `solutions-[topic]-v[version].md`
+- **Version Management**: Auto-increment version number based on existing files
+- **Folder Organization**: Create topic-specific subfolders for better organization
+- **No Date Dependency**: Remove all date-based filename requirements
+
+**Topic Extraction Process:**
+1. Analyze opportunity document for main theme and keywords
+2. Identify the most relevant topic/theme from opportunity content
+3. Convert to kebab-case format (e.g., "Newsletter Creation" → "newsletter-creation")
+4. Ensure topic uniqueness across different solution files
+5. Use topic as primary identifier instead of date
+
+**Version Management Process:**
+1. Check existing files with pattern `solutions-[topic]-v*.md`
+2. Find the highest version number for the same topic
+3. Auto-increment version number (v1 → v2 → v3...)
+4. Generate new filename with incremented version
+5. No manual version tracking required
+
+**Smart Topic Detection:**
+- **Content Analysis**: Extract main themes from opportunity document
+- **Keyword Frequency**: Use most frequent relevant keywords as topic
+- **Kebab-Case Format**: Convert spaces to hyphens, lowercase (e.g., "User Onboarding" → "user-onboarding")
+- **Uniqueness Check**: Ensure topic doesn't conflict with existing files
+- **Fallback**: Use generic topic name if extraction fails
 
 ---
 
@@ -112,9 +153,22 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 
 ### Input-Output Relationship
 - **Input:** Prioritized opportunities with supporting evidence
-- **Process:** AI-human collaborative ideation and evaluation
+- **Process:** Topic extraction, AI-human collaborative ideation and evaluation
 - **Output:** Top 3 solution approaches with rationale
 - **Next Step:** Use selected solutions for further development or testing
+
+### Recommended Folder Structure
+```
+solutions/
+├── newsletter-creation/
+│   ├── solutions-newsletter-creation-v1.md
+│   └── solutions-newsletter-creation-v2.md
+├── user-onboarding/
+│   ├── solutions-user-onboarding-v1.md
+│   └── solutions-user-onboarding-v2.md
+└── payment-flow/
+    └── solutions-payment-flow-v1.md
+```
 
 ---
 
@@ -123,7 +177,8 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 ```markdown
 # Solutions for [Opportunity Name]
 
-**Date Created:** [YYYY-MM-DD]  
+**Topic:** [Extracted topic name]  
+**Version:** [v1, v2, v3...]  
 **Target Opportunity:** [Opportunity statement]  
 **Source Documents:** [List of opportunities and research documents used]  
 **Total Ideas Generated:** [Number] (Target: 15-20)  
@@ -339,6 +394,13 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 - **Lack of Diversity**: Encourage different types of solutions
 - **Off-Target Ideas**: Redirect focus to target opportunity
 
+### File Naming Issues
+- **Topic Extraction Failure**: Ensure clear topic identification from opportunity content
+- **Version Conflicts**: Always check existing files before creating new solutions
+- **Incorrect Format**: Use kebab-case for topic, v[number] for version
+- **Missing Topic**: Extract main theme from opportunity document for filename
+- **Overwriting Prevention**: Never overwrite existing solution files, always increment version
+
 ---
 
 ## Best Practices
@@ -386,6 +448,14 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 - [ ] All solutions evaluated against criteria
 - [ ] Implementation considerations documented
 - [ ] Next steps are clear and actionable
+
+### File Naming Validation
+- [ ] **MANDATORY**: Extracted clear topic from opportunity content before creating filename
+- [ ] Filename uses semantic naming format: solutions-[topic]-v[version].md
+- [ ] Version number is correctly auto-incremented for same-topic solutions
+- [ ] Topic name is descriptive and kebab-case formatted
+- [ ] No overwriting of existing solution files
+- [ ] Topic extraction completed through content analysis before solution creation
 
 ---
 

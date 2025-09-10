@@ -16,19 +16,20 @@ This framework guides you through analyzing multiple interview snapshots to iden
 
 ## Output
 **Format:** Markdown (`.md`)  
-**Location:** `user-interviews/synthesis/`  
-**Filename:** `synthesis-[topic]-[YYYYMMDD]-[sequence].md`
+**Location:** `user-interviews/synthesis/[topic]/`  
+**Filename:** `synthesis-[topic]-v[version].md`
 
-**Date Guidelines:**
-- YYYYMMDD: Synthesis completion date (not interview dates) - use current date when creating synthesis
-- sequence: Two-digit sequence number for same-day syntheses (01, 02, 03...)
-- Example: synthesis-newsletter-creation-20250909-01.md
+**Semantic Naming Guidelines:**
+- topic: kebab-case topic name extracted from content analysis (e.g., newsletter-creation, user-onboarding)
+- version: auto-incrementing version number (v1, v2, v3...)
+- Example: synthesis-newsletter-creation-v1.md
 
-**Multiple Syntheses Same Day:**
-- Check existing files before creating new synthesis
-- If file exists with same date, increment sequence number
+**Version Management:**
+- Check existing files with same topic pattern before creating new synthesis
+- Auto-increment version number (v1 → v2 → v3...)
 - Never overwrite existing synthesis files
 - Preserve all synthesis versions for comparison
+- No date dependency required
 
 ---
 
@@ -52,7 +53,7 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Validate Input Quality**: Check if snapshots meet minimum standards from create-interview-snapshots.mdc
 - **Identify Research Gaps**: Note missing information that could strengthen synthesis
 - **Request Additional Data**: Ask for missing snapshots if sample size is insufficient
-- **MANDATORY Date Check**: ALWAYS verify current date using terminal command before creating synthesis filename
+- **Topic Extraction**: Analyze content to extract main topic for semantic filename
 
 ### Incremental Synthesis Process (Efficiency Optimization)
 - **Check for Existing Synthesis**: Look for previous synthesis files in the same topic area
@@ -61,34 +62,34 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Update Existing Synthesis**: Enhance previous synthesis with new insights rather than starting from scratch
 - **Full Synthesis Only When**: No existing synthesis found, or significant topic shift detected
 
-### Date Handling Guidelines
-- **Current Date Verification**: ALWAYS verify current date using terminal command before creating synthesis filename
-- **Filename Date**: Use current date (synthesis completion date) in YYYYMMDD format
+### Semantic File Naming Guidelines
+- **Topic Extraction**: Analyze interview content to identify main topic/theme
+- **Filename Format**: Use semantic naming pattern `synthesis-[topic]-v[version].md`
+- **Version Management**: Auto-increment version number based on existing files
 - **Document Date Range**: Use actual interview date range (e.g., 2025-09-01 - 2025-09-07)
-- **Sequence Management**: Check existing files, increment sequence if same date exists
-- **Interview Dates**: Extract from individual snapshots to create accurate date range
-- **Consistency Check**: Ensure filename uses current date, document content uses interview date range
+- **Folder Organization**: Create topic-specific subfolders for better organization
+- **No Date Dependency**: Remove all date-based filename requirements
 
-**Date Check Process:**
-1. Before creating synthesis filename, use terminal command to verify current date: `date`
-2. Extract the current date from terminal output and convert to YYYYMMDD format
-3. Use the verified date to create filename in YYYYMMDD format
-4. If terminal command fails, extract from interview snapshots and add reasonable buffer (e.g., 1-2 days after last interview)
-5. Always verify the date before proceeding with synthesis creation
+**Topic Extraction Process:**
+1. Analyze interview snapshots for common themes and keywords
+2. Identify the most frequent and relevant topic/theme
+3. Convert to kebab-case format (e.g., "Newsletter Creation" → "newsletter-creation")
+4. Ensure topic uniqueness across different synthesis files
+5. Use topic as primary identifier instead of date
 
-**Terminal Date Verification:**
-- **Command**: `date` (returns format like "Tue Sep 9 22:14:39 PDT 2025")
-- **Extraction**: Parse the date from terminal output (e.g., "Sep 9 2025")
-- **Conversion**: Convert to YYYYMMDD format (e.g., Sep 9 2025 → 20250909)
-- **Fallback**: If terminal fails, use interview date range + 1-2 days buffer
-- **Verification**: Double-check date format before creating filename
+**Version Management Process:**
+1. Check existing files with pattern `synthesis-[topic]-v*.md`
+2. Find the highest version number for the same topic
+3. Auto-increment version number (v1 → v2 → v3...)
+4. Generate new filename with incremented version
+5. No manual version tracking required
 
-**Smart Date Estimation (Primary Method):**
-- **Extract Latest Interview Date**: Find the most recent interview date from snapshots
-- **Add Buffer Period**: Add 1-3 days to the latest interview date for synthesis completion
-- **Check Existing Files**: Look for existing synthesis files to determine sequence number
-- **Format Conversion**: Convert to YYYYMMDD format (e.g., 2025-09-07 + 2 days = 20250909)
-- **Example**: If latest interview is 2025-09-07, use 2025-09-09 for synthesis filename
+**Smart Topic Detection:**
+- **Content Analysis**: Extract main themes from interview snapshots
+- **Keyword Frequency**: Use most frequent relevant keywords as topic
+- **Kebab-Case Format**: Convert spaces to hyphens, lowercase (e.g., "User Onboarding" → "user-onboarding")
+- **Uniqueness Check**: Ensure topic doesn't conflict with existing files
+- **Fallback**: Use generic topic name if extraction fails
 
 ### Pattern Recognition Guidelines
 - **Focus on Behavioral Patterns**: Look for concrete actions, not opinions
@@ -163,16 +164,38 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Generate 
 
 ### Incremental Synthesis Workflow (Efficiency Mode)
 ```
-New Snapshots → Check Existing Synthesis → Process Only New Data → Merge with Existing → Updated Synthesis
-     ↓                    ↓                        ↓                    ↓                    ↓
-[New Data]        [Previous Analysis]      [Pattern Comparison]   [Integration]      [Enhanced Output]
+New Snapshots → Extract Topic → Check Existing Synthesis → Process Only New Data → Merge with Existing → Updated Synthesis
+     ↓              ↓                    ↓                        ↓                    ↓                    ↓
+[New Data]    [Topic Analysis]    [Previous Analysis]      [Pattern Comparison]   [Integration]      [Enhanced Output]
 ```
 
 ### Input-Output Relationship
 - **Input:** 3-5 completed interview snapshots from create-interview-snapshots.mdc
-- **Process:** Pattern recognition, experience map integration, insight synthesis
+- **Process:** Topic extraction, pattern recognition, experience map integration, insight synthesis
 - **Output:** Comprehensive synthesis document with integrated experience map
 - **Next Step:** Use synthesis to create opportunities and generate solutions
+
+### Recommended Folder Structure
+```
+user-interviews/
+├── synthesis/
+│   ├── newsletter-creation/
+│   │   ├── synthesis-newsletter-creation-v1.md
+│   │   ├── synthesis-newsletter-creation-v2.md
+│   │   └── synthesis-newsletter-creation-final-v3.md
+│   ├── user-onboarding/
+│   │   ├── synthesis-user-onboarding-v1.md
+│   │   └── synthesis-user-onboarding-v2.md
+│   └── payment-flow/
+│       └── synthesis-payment-flow-v1.md
+├── snapshots/
+│   └── [individual snapshot files]
+└── opportunities/
+    ├── newsletter-creation/
+    │   └── opportunities-newsletter-creation-v1.md
+    └── user-onboarding/
+        └── opportunities-user-onboarding-v1.md
+```
 
 ### Efficiency Guidelines
 - **1-2 New Snapshots**: Process immediately with incremental synthesis
@@ -193,6 +216,8 @@ New Snapshots → Check Existing Synthesis → Process Only New Data → Merge w
 **Research Goal:** [Clear statement]  
 **Desired Outcome:** [Expected results]
 **Synthesis Type:** [Initial/Incremental/Full Re-synthesis]
+**Topic:** [Extracted topic name]
+**Version:** [v1, v2, v3...]
 **Processed Snapshots:** [List of all snapshots included in this synthesis]
 ```
 
@@ -205,6 +230,8 @@ New Snapshots → Check Existing Synthesis → Process Only New Data → Merge w
 **Research Goal:** [Clear statement]  
 **Desired Outcome:** [Expected results]
 **Synthesis Type:** Incremental Update
+**Topic:** [Extracted topic name]
+**Version:** [v2, v3, v4...]
 **Previous Synthesis:** [Reference to previous synthesis file]
 **New Snapshots Added:** [List of newly processed snapshots]
 **Updated On:** [Current date]
@@ -494,12 +521,12 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Missing Context**: Request additional details from original interviews
 - **Unclear Variations**: Ask for better segment differentiation
 
-### Date Handling Issues
-- **Filename vs Content Mismatch**: Ensure filename uses synthesis completion date, content uses interview date range
-- **Incorrect Date Format**: Use YYYYMMDD-sequence for filename, YYYY-MM-DD for content
-- **Missing Date Range**: Extract dates from individual snapshots to create accurate range
-- **Sequence Conflicts**: Always check existing files before creating new synthesis
-- **Overwriting Prevention**: Never overwrite existing synthesis files, always increment sequence
+### File Naming Issues
+- **Topic Extraction Failure**: Ensure clear topic identification from content analysis
+- **Version Conflicts**: Always check existing files before creating new synthesis
+- **Incorrect Format**: Use kebab-case for topic, v[number] for version
+- **Missing Topic**: Extract main theme from interview snapshots for filename
+- **Overwriting Prevention**: Never overwrite existing synthesis files, always increment version
 
 ---
 
@@ -530,17 +557,17 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Solution**: Stay in the problem space longer
 - **Practice**: Ask "What else do we need to understand?"
 
-### 6. Date Confusion
-- **Problem**: Using current date instead of interview dates for content, or vice versa for filename
-- **Solution**: Clear separation between synthesis completion date (filename) and interview date range (content)
-- **Practice**: Always extract interview dates from snapshots, use current date for filename
+### 6. Topic Extraction Confusion
+- **Problem**: Using vague or incorrect topic names for filename
+- **Solution**: Clear topic extraction process from content analysis
+- **Practice**: Always analyze interview content to identify main theme before creating filename
 
 ---
 
 ## Best Practices
 
 ### Do's
-- **MANDATORY**: Always verify current date using terminal command before creating synthesis filename
+- **TOPIC EXTRACTION**: Always analyze content to extract clear topic for semantic filename
 - **EFFICIENCY FIRST**: Check for existing synthesis before starting new analysis
 - **INCREMENTAL PROCESSING**: Process only new snapshots when updating existing synthesis
 - Synthesize after multiple interviews on the same topic
@@ -551,10 +578,10 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Look for patterns, not just individual stories
 - Document your synthesis process and reasoning
 - Share findings with stakeholders for validation
-- Use correct date formats: YYYYMMDD-sequence for filename, YYYY-MM-DD for content
-- Extract interview dates from snapshots for accurate date range
+- Use semantic naming: synthesis-[topic]-v[version].md format
+- Extract main theme from interview content for topic identification
 - Check existing files before creating new synthesis
-- Increment sequence number for same-day syntheses
+- Auto-increment version number for same-topic syntheses
 - Preserve all synthesis versions for comparison
 - **TRACK PROCESSED SNAPSHOTS**: Always note which snapshots were included in each synthesis
 - **MERGE STRATEGICALLY**: Integrate new insights with existing patterns rather than starting over
@@ -565,12 +592,12 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Don't ignore contradictory evidence
 - Don't assume one user represents all users
 - Don't skip the synthesis step to save time
-- **NEVER**: Create synthesis filename without verifying current date using terminal command
-- Don't mix up synthesis completion date with interview dates
-- Don't use inconsistent date formats
+- **NEVER**: Create synthesis filename without extracting clear topic from content
+- Don't use vague or generic topic names for filename
+- Don't use inconsistent naming formats
 - Don't overwrite existing synthesis files
-- Don't skip sequence number checking
-- Don't guess or assume current date without verification
+- Don't skip version number checking
+- Don't guess or assume topic without content analysis
 - **AVOID**: Re-processing snapshots that were already analyzed in previous synthesis
 - **DON'T**: Start from scratch when updating existing synthesis with new snapshots
 - **AVOID**: Full re-synthesis unless significant topic shift or 5+ new snapshots
@@ -602,15 +629,15 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - [ ] Each stage includes supporting evidence from multiple participants
 - [ ] Segment variations are clearly documented with rationale
 
-### Date Validation
-- [ ] **MANDATORY**: Verified current date using terminal command before creating filename
-- [ ] Filename uses synthesis completion date in YYYYMMDD format
-- [ ] Sequence number is correctly incremented for same-day syntheses
+### File Naming Validation
+- [ ] **MANDATORY**: Extracted clear topic from content analysis before creating filename
+- [ ] Filename uses semantic naming format: synthesis-[topic]-v[version].md
+- [ ] Version number is correctly auto-incremented for same-topic syntheses
 - [ ] Document content uses interview date range in YYYY-MM-DD format
 - [ ] Date range accurately reflects all interview dates from snapshots
-- [ ] No confusion between synthesis date and interview dates
+- [ ] Topic name is descriptive and kebab-case formatted
 - [ ] No overwriting of existing synthesis files
-- [ ] Current date verification completed using terminal command before synthesis creation
+- [ ] Topic extraction completed through content analysis before synthesis creation
 
 ### Efficiency Validation
 - [ ] **INCREMENTAL CHECK**: Verified if existing synthesis exists for same topic

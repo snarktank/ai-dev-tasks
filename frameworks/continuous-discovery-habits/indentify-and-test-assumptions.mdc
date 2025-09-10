@@ -34,8 +34,20 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 
 ## Output
 **Format:** Markdown (`.md`)
-**Location:** `assumptions/`
-**Filename:** `assumptions-[opportunity-name]-[YYYY-MM-DD].md`
+**Location:** `assumptions/[topic]/`
+**Filename:** `assumptions-[opportunity-name]-v[version].md`
+
+**Semantic Naming Guidelines:**
+- opportunity-name: kebab-case opportunity name from opportunity document (e.g., newsletter-creation, user-onboarding)
+- version: auto-incrementing version number (v1, v2, v3...)
+- Example: assumptions-newsletter-creation-v1.md
+
+**Version Management:**
+- Check existing files with same opportunity-name pattern before creating new assumptions
+- Auto-increment version number (v1 → v2 → v3...)
+- Never overwrite existing assumption files
+- Preserve all assumption versions for comparison
+- No date dependency required
 
 ---
 
@@ -45,6 +57,7 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 - **Validate Inputs:** Confirm target opportunity, evidence strength, and affected segments.
 - **Clarify Scope:** Define which ideas/journeys will be story-mapped.
 - **Note Constraints:** Technical, legal, GTM, success metrics, time/resource limits.
+- **Topic Extraction:** Analyze opportunity content to extract main topic for semantic filename.
 
 ### Assumption Generation Guidelines
 - **Use Five Categories:** Desirability, Usability, Feasibility, Viability, Ethical.
@@ -61,10 +74,38 @@ To extract explicit assumptions from insights and opportunities, categorize and 
 
 ### Testing Guidelines
 - **Simulate an Experience, Evaluate Behavior:** Design minimal simulations that let users behave in line with or against the assumption.
-- **Define Success Upfront:** Use numbers (e.g., “≥ 3 of 10 participants choose X”), not percentages.
+- **Define Success Upfront:** Use numbers (e.g., "≥ 3 of 10 participants choose X"), not percentages.
 - **Recruit the Right Audience:** Screen by target opportunity and segment; select for variation.
 - **Start Small, Then Scale:** Begin with quick signals; escalate to larger tests only if warranted.
 - **Triangulate:** Combine small, different methods to reduce false positives/negatives.
+
+### Semantic File Naming Guidelines
+- **Topic Extraction:** Analyze opportunity content to identify main topic/theme
+- **Filename Format:** Use semantic naming pattern `assumptions-[opportunity-name]-v[version].md`
+- **Version Management:** Auto-increment version number based on existing files
+- **Folder Organization:** Create topic-specific subfolders for better organization
+- **No Date Dependency:** Remove all date-based filename requirements
+
+**Topic Extraction Process:**
+1. Analyze opportunity document for main theme and keywords
+2. Identify the most relevant topic/theme from opportunity content
+3. Convert to kebab-case format (e.g., "Newsletter Creation" → "newsletter-creation")
+4. Ensure topic uniqueness across different assumption files
+5. Use topic as primary identifier instead of date
+
+**Version Management Process:**
+1. Check existing files with pattern `assumptions-[opportunity-name]-v*.md`
+2. Find the highest version number for the same opportunity
+3. Auto-increment version number (v1 → v2 → v3...)
+4. Generate new filename with incremented version
+5. No manual version tracking required
+
+**Smart Topic Detection:**
+- **Content Analysis:** Extract main themes from opportunity document
+- **Keyword Frequency:** Use most frequent relevant keywords as topic
+- **Kebab-Case Format:** Convert spaces to hyphens, lowercase (e.g., "User Onboarding" → "user-onboarding")
+- **Uniqueness Check:** Ensure topic doesn't conflict with existing files
+- **Fallback:** Use generic topic name if extraction fails
 
 ---
 
@@ -104,12 +145,13 @@ Use accumulated evidence to: evolve the idea, change the opportunity focus, or s
 
 ---
 
-## Output Structure (assumptions-[opportunity]-[date].md)
+## Output Structure (assumptions-[opportunity-name]-v[version].md)
 
 ```markdown
 # Assumptions — [Opportunity Name]
 
-**Date Created:** [YYYY-MM-DD]  
+**Topic:** [Extracted topic name]  
+**Version:** [v1, v2, v3...]  
 **Target Opportunity:** [Opportunity statement]  
 **Related Documents:** [Snapshots/Synthesis/Opportunities/Solutions]
 
@@ -223,9 +265,16 @@ Example: “≥ 4 of 10 choose sports content on the prototype home screen.”
 
 ## Error Handling
 - **Insufficient Data:** Request more snapshots/synthesis; reduce scope.
-- **Weak Evidence:** Mark evidence as “Weak” and prioritize accordingly.
+- **Weak Evidence:** Mark evidence as "Weak" and prioritize accordingly.
 - **Conflicting Results:** Triangulate with another small method before decisions.
 - **Ethical Concerns:** Document potential harms; design mitigation and/or halt.
+
+### File Naming Issues
+- **Topic Extraction Failure:** Ensure clear topic identification from opportunity content
+- **Version Conflicts:** Always check existing files before creating new assumptions
+- **Incorrect Format:** Use kebab-case for opportunity-name, v[number] for version
+- **Missing Topic:** Extract main theme from opportunity document for filename
+- **Overwriting Prevention:** Never overwrite existing assumption files, always increment version
 
 ---
 
@@ -235,6 +284,55 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
      ↓                    ↓                    ↓                    ↓                       ↓                        ↓
 [Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements]    [Product Ideas]      [Risks & Tests]
 ```
+
+### Recommended Folder Structure
+```
+assumptions/
+├── newsletter-creation/
+│   ├── assumptions-newsletter-creation-v1.md
+│   └── assumptions-newsletter-creation-v2.md
+├── user-onboarding/
+│   ├── assumptions-user-onboarding-v1.md
+│   └── assumptions-user-onboarding-v2.md
+└── payment-flow/
+    └── assumptions-payment-flow-v1.md
+```
+
+---
+
+## Quality Assurance Checklist
+
+### Input Validation
+- [ ] Clear target opportunity statement with supporting evidence
+- [ ] Opportunity context and problem definition complete
+- [ ] Solution ideas or user journeys defined
+- [ ] Evidence strength assessed and documented
+
+### Assumption Quality
+- [ ] Assumptions cover all five categories (Desirability, Usability, Feasibility, Viability, Ethical)
+- [ ] Assumptions are positive, specific, and testable
+- [ ] Evidence linked to each assumption where available
+- [ ] Assumption mapping completed with LoFA identified
+
+### Testing Quality
+- [ ] Test cards designed for LoFA assumptions
+- [ ] Success criteria defined with absolute numbers
+- [ ] Audience screening criteria specified
+- [ ] Sample size and time window defined
+
+### Process Completion
+- [ ] All assumptions evaluated and mapped
+- [ ] Test results documented and analyzed
+- [ ] Decisions made based on evidence
+- [ ] Next steps are clear and actionable
+
+### File Naming Validation
+- [ ] **MANDATORY**: Extracted clear topic from opportunity content before creating filename
+- [ ] Filename uses semantic naming format: assumptions-[opportunity-name]-v[version].md
+- [ ] Version number is correctly auto-incremented for same-opportunity assumptions
+- [ ] Opportunity name is descriptive and kebab-case formatted
+- [ ] No overwriting of existing assumption files
+- [ ] Topic extraction completed through content analysis before assumption creation
 
 ---
 

@@ -28,8 +28,20 @@ and ultimately **propose target opportunities for exploration**.
 
 ## Output
 **Format:** Markdown (`.md`)  
-**Location:** `opportunities/`  
-**Filename:** `opportunities-[YYYY-MM-DD].md`  
+**Location:** `opportunities/[topic]/`  
+**Filename:** `opportunities-[topic]-v[version].md`
+
+**Semantic Naming Guidelines:**
+- topic: kebab-case topic name extracted from content analysis (e.g., newsletter-creation, user-onboarding)
+- version: auto-incrementing version number (v1, v2, v3...)
+- Example: opportunities-newsletter-creation-v1.md
+
+**Version Management:**
+- Check existing files with same topic pattern before creating new opportunities
+- Auto-increment version number (v1 → v2 → v3...)
+- Never overwrite existing opportunity files
+- Preserve all opportunity versions for comparison
+- No date dependency required  
 
 ---
 
@@ -39,6 +51,7 @@ and ultimately **propose target opportunities for exploration**.
 - **Validate Input Quality**: Check if snapshots or synthesis meet minimum standards
 - **Identify Research Gaps**: Note missing information that could strengthen opportunity identification
 - **Request Additional Data**: Ask for more interviews if sample size is insufficient
+- **Topic Extraction**: Analyze content to extract main topic for semantic filename
 
 ### Opportunity Extraction Guidelines
 - **Focus on Behavioral Problems**: Look for concrete actions and pain points, not opinions
@@ -51,6 +64,34 @@ and ultimately **propose target opportunities for exploration**.
 - **Evidence Strength**: Multiple participants or strong behavioral evidence
 - **Actionable Scope**: Problems that can be addressed through product changes
 - **Customer-Centric**: Expressed in customer language, not company terms
+
+### Semantic File Naming Guidelines
+- **Topic Extraction**: Analyze interview content to identify main topic/theme
+- **Filename Format**: Use semantic naming pattern `opportunities-[topic]-v[version].md`
+- **Version Management**: Auto-increment version number based on existing files
+- **Folder Organization**: Create topic-specific subfolders for better organization
+- **No Date Dependency**: Remove all date-based filename requirements
+
+**Topic Extraction Process:**
+1. Analyze interview snapshots or synthesis for common themes and keywords
+2. Identify the most frequent and relevant topic/theme
+3. Convert to kebab-case format (e.g., "Newsletter Creation" → "newsletter-creation")
+4. Ensure topic uniqueness across different opportunity files
+5. Use topic as primary identifier instead of date
+
+**Version Management Process:**
+1. Check existing files with pattern `opportunities-[topic]-v*.md`
+2. Find the highest version number for the same topic
+3. Auto-increment version number (v1 → v2 → v3...)
+4. Generate new filename with incremented version
+5. No manual version tracking required
+
+**Smart Topic Detection:**
+- **Content Analysis**: Extract main themes from interview snapshots or synthesis
+- **Keyword Frequency**: Use most frequent relevant keywords as topic
+- **Kebab-Case Format**: Convert spaces to hyphens, lowercase (e.g., "User Onboarding" → "user-onboarding")
+- **Uniqueness Check**: Ensure topic doesn't conflict with existing files
+- **Fallback**: Use generic topic name if extraction fails
 
 ---
 
@@ -123,18 +164,32 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 
 ### Input-Output Relationship
 - **Input:** Interview snapshots and/or synthesis documents
-- **Process:** Opportunity extraction, mapping, prioritization
+- **Process:** Topic extraction, opportunity extraction, mapping, prioritization
 - **Output:** Prioritized opportunity solution tree with target opportunity
 - **Next Step:** Use opportunities to generate multiple solutions
 
+### Recommended Folder Structure
+```
+opportunities/
+├── newsletter-creation/
+│   ├── opportunities-newsletter-creation-v1.md
+│   └── opportunities-newsletter-creation-v2.md
+├── user-onboarding/
+│   ├── opportunities-user-onboarding-v1.md
+│   └── opportunities-user-onboarding-v2.md
+└── payment-flow/
+    └── opportunities-payment-flow-v1.md
+```
+
 ---
 
-## Output Structure (opportunities-[date].md)
+## Output Structure (opportunities-[topic]-v[version].md)
 
 ```markdown
-# Opportunities — [YYYY-MM-DD]
+# Opportunities — [Topic Name]
 
-**Date Created:** [YYYY-MM-DD]  
+**Topic:** [Extracted topic name]  
+**Version:** [v1, v2, v3...]  
 **Source Documents:** [List of snapshots and/or synthesis documents used]  
 **Total Opportunities Identified:** [Number]  
 
@@ -230,6 +285,13 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 - **Weak Evidence**: Ask for more specific behavioral examples
 - **Missing Context**: Request additional details from original interviews
 
+### File Naming Issues
+- **Topic Extraction Failure**: Ensure clear topic identification from content analysis
+- **Version Conflicts**: Always check existing files before creating new opportunities
+- **Incorrect Format**: Use kebab-case for topic, v[number] for version
+- **Missing Topic**: Extract main theme from interview snapshots or synthesis for filename
+- **Overwriting Prevention**: Never overwrite existing opportunity files, always increment version
+
 ### Quality Issues
 - **Vague Problems**: Push for specific customer stories and examples
 - **Solution Requests**: Help reframe as underlying customer needs
@@ -256,6 +318,14 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Create Op
 - [ ] Prioritization assessment completed
 - [ ] Target opportunity selected and documented
 - [ ] Next steps are clear and actionable
+
+### File Naming Validation
+- [ ] **MANDATORY**: Extracted clear topic from content analysis before creating filename
+- [ ] Filename uses semantic naming format: opportunities-[topic]-v[version].md
+- [ ] Version number is correctly auto-incremented for same-topic opportunities
+- [ ] Topic name is descriptive and kebab-case formatted
+- [ ] No overwriting of existing opportunity files
+- [ ] Topic extraction completed through content analysis before opportunity creation
 
 ---
 
