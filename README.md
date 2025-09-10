@@ -61,12 +61,15 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 ## 🧭 Quick Start
 
 1. Clone this repository to your local workspace
-2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
-3. Start with strategic review frameworks:
+   ```
+   git clone https://github.com/jinjin1/Cursor-for-Product-Managers.git
+   ```
+3. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
+4. Start with strategic review frameworks:
    - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
    - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
    - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
-4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
+5. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
 
 ## 🚀 How to Use
 
@@ -139,13 +142,6 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **OKR Sparring Partner**: Context-aware OKR coaching that considers organization size, industry, and maturity level for realistic, executable goal setting
 - **Team Structure Design**: Organizational models (Functional, Matrix, Value Stream, Divisional) with design principles and re-org considerations
 
-## 💡 Tips for Success
-
-* **Be Specific**: Provide clear context and specific instructions to your AI copilot
-* **Use MAX Mode**: For complex PRDs and strategic documents, consider using Cursor's MAX mode
-* **Document Everything**: Build your knowledge base systematically through regular documentation
-* **Iterate and Improve**: Use AI feedback to continuously enhance your frameworks and templates
-* **Maintain Context**: Keep your AI copilot informed about your product strategy and goals
 
 ## 🔧 Cursor-Specific Features
 
@@ -168,9 +164,8 @@ Please feel free to:
 - **[Cursor isn't just for coding: how AI-native PMs work](https://maven.com/p/0a96cb/cursor-isn-t-just-for-coding-how-ai-native-p-ms-work)** - Tal Raviv and Hilary Gridley's course on transforming Cursor into a PM AI copilot
 - **[AI Dev Tasks](https://github.com/snarktank/ai-dev-tasks/tree/main)** - Structured workflow framework for AI-assisted development that inspired our PM workflow approach
 - **[Cursor AI Agents Work Like 10 Developers (Cursor VP Live Demo)](https://www.youtube.com/watch?v=8QN23ZThdRY)** - Lee Robinson demonstrates how Cursor AI agents automate developer tasks.
-
-- **[Continuous Discovery Habits](https://www.youtube.com/watch?v=9RFaz9ZBXpk)** - Teresa Torres' book on continuous discovery
-- **[Evidence-Guided](https://www.youtube.com/watch?v=aJWSn-tz3jQ)** - Itamar Gilad's book on evidence-guided product development
+- **[Continuous Discovery Habits](https://www.youtube.com/watch?v=9RFaz9ZBXpk)** - Teresa Torres' framework on continuous discovery
+- **[Evidence-Guided](https://www.youtube.com/watch?v=aJWSn-tz3jQ)** - Itamar Gilad's framework on evidence-guided product development
 
 ## ⚠️ Important Notes
 
