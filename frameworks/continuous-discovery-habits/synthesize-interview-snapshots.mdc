@@ -20,9 +20,9 @@ This framework guides you through analyzing multiple interview snapshots to iden
 **Filename:** `synthesis-[topic]-[YYYYMMDD]-[sequence].md`
 
 **Date Guidelines:**
-- YYYYMMDD: Synthesis completion date (not interview dates)
+- YYYYMMDD: Synthesis completion date (not interview dates) - use current date when creating synthesis
 - sequence: Two-digit sequence number for same-day syntheses (01, 02, 03...)
-- Example: synthesis-newsletter-creation-20250109-01.md
+- Example: synthesis-newsletter-creation-20250909-01.md
 
 **Multiple Syntheses Same Day:**
 - Check existing files before creating new synthesis
@@ -52,13 +52,43 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Validate Input Quality**: Check if snapshots meet minimum standards from create-interview-snapshots.mdc
 - **Identify Research Gaps**: Note missing information that could strengthen synthesis
 - **Request Additional Data**: Ask for missing snapshots if sample size is insufficient
+- **MANDATORY Date Check**: ALWAYS verify current date using terminal command before creating synthesis filename
+
+### Incremental Synthesis Process (Efficiency Optimization)
+- **Check for Existing Synthesis**: Look for previous synthesis files in the same topic area
+- **Identify New Snapshots**: Compare current snapshots with those already processed in existing synthesis
+- **Process Only New Data**: If existing synthesis found, analyze only new snapshots and merge with existing patterns
+- **Update Existing Synthesis**: Enhance previous synthesis with new insights rather than starting from scratch
+- **Full Synthesis Only When**: No existing synthesis found, or significant topic shift detected
 
 ### Date Handling Guidelines
-- **Filename Date**: Use synthesis completion date in YYYYMMDD format
+- **Current Date Verification**: ALWAYS verify current date using terminal command before creating synthesis filename
+- **Filename Date**: Use current date (synthesis completion date) in YYYYMMDD format
 - **Document Date Range**: Use actual interview date range (e.g., 2025-09-01 - 2025-09-07)
 - **Sequence Management**: Check existing files, increment sequence if same date exists
 - **Interview Dates**: Extract from individual snapshots to create accurate date range
-- **Consistency Check**: Ensure filename date and document completion date match
+- **Consistency Check**: Ensure filename uses current date, document content uses interview date range
+
+**Date Check Process:**
+1. Before creating synthesis filename, use terminal command to verify current date: `date`
+2. Extract the current date from terminal output and convert to YYYYMMDD format
+3. Use the verified date to create filename in YYYYMMDD format
+4. If terminal command fails, extract from interview snapshots and add reasonable buffer (e.g., 1-2 days after last interview)
+5. Always verify the date before proceeding with synthesis creation
+
+**Terminal Date Verification:**
+- **Command**: `date` (returns format like "Tue Sep 9 22:14:39 PDT 2025")
+- **Extraction**: Parse the date from terminal output (e.g., "Sep 9 2025")
+- **Conversion**: Convert to YYYYMMDD format (e.g., Sep 9 2025 → 20250909)
+- **Fallback**: If terminal fails, use interview date range + 1-2 days buffer
+- **Verification**: Double-check date format before creating filename
+
+**Smart Date Estimation (Primary Method):**
+- **Extract Latest Interview Date**: Find the most recent interview date from snapshots
+- **Add Buffer Period**: Add 1-3 days to the latest interview date for synthesis completion
+- **Check Existing Files**: Look for existing synthesis files to determine sequence number
+- **Format Conversion**: Convert to YYYYMMDD format (e.g., 2025-09-07 + 2 days = 20250909)
+- **Example**: If latest interview is 2025-09-07, use 2025-09-09 for synthesis filename
 
 ### Pattern Recognition Guidelines
 - **Focus on Behavioral Patterns**: Look for concrete actions, not opinions
@@ -78,9 +108,17 @@ This framework guides you through analyzing multiple interview snapshots to iden
 
 ### 1. Data Preparation
 - **Interview Collection**: Gather all relevant interview snapshots
+- **Existing Synthesis Check**: Look for previous synthesis files in the same topic area
+- **New Snapshot Identification**: Compare current snapshots with previously processed ones
 - **Data Standardization**: Ensure consistent format and structure across snapshots
 - **Quality Check**: Verify all snapshots are complete and accurate
 - **Context Documentation**: Note any relevant background information
+
+### 1.1 Incremental Processing (Efficiency Mode)
+- **Processed Snapshot Tracking**: Identify which snapshots were already analyzed in previous synthesis
+- **New Data Focus**: Analyze only new snapshots that haven't been processed
+- **Pattern Comparison**: Compare new patterns with existing synthesis patterns
+- **Merge Strategy**: Determine how to integrate new insights with existing synthesis
 
 ### 2. Pattern Analysis
 - **Extract Common Elements**: Identify recurring themes, behaviors, and pain points
@@ -88,11 +126,23 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Find Overlaps**: Discover where individual stories intersect
 - **Identify Variations**: Document how different segments behave differently
 
+### 2.1 Incremental Pattern Analysis
+- **New Pattern Detection**: Identify patterns that emerge only from new snapshots
+- **Existing Pattern Validation**: Check if new data confirms or contradicts existing patterns
+- **Frequency Updates**: Update pattern frequency counts with new data
+- **Segment Variation Updates**: Add new segment variations discovered in new snapshots
+
 ### 3. Pattern Integration
 - **Group Similar Patterns**: Cluster related insights and behaviors
 - **Merge Experience Maps**: Combine individual journey stages into shared stages
 - **Preserve Unique Elements**: Maintain important segment-specific details
 - **Create Shared Narrative**: Develop a comprehensive story that represents all users
+
+### 3.1 Incremental Integration
+- **Merge with Existing Synthesis**: Integrate new patterns with previously identified patterns
+- **Update Experience Maps**: Add new journey stages or modify existing ones based on new data
+- **Preserve Previous Insights**: Maintain valuable insights from previous synthesis
+- **Update Evidence Base**: Add new supporting quotes and observations to existing patterns
 
 ### 4. Insight Development
 - **Common Patterns**: What patterns emerge across interviews?
@@ -111,16 +161,30 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Generate 
 [Raw Data]        [Structured Stories]   [Shared Patterns]    [Problem Statements] [Product Ideas]
 ```
 
+### Incremental Synthesis Workflow (Efficiency Mode)
+```
+New Snapshots → Check Existing Synthesis → Process Only New Data → Merge with Existing → Updated Synthesis
+     ↓                    ↓                        ↓                    ↓                    ↓
+[New Data]        [Previous Analysis]      [Pattern Comparison]   [Integration]      [Enhanced Output]
+```
+
 ### Input-Output Relationship
 - **Input:** 3-5 completed interview snapshots from create-interview-snapshots.mdc
 - **Process:** Pattern recognition, experience map integration, insight synthesis
 - **Output:** Comprehensive synthesis document with integrated experience map
 - **Next Step:** Use synthesis to create opportunities and generate solutions
 
+### Efficiency Guidelines
+- **1-2 New Snapshots**: Process immediately with incremental synthesis
+- **3-5 New Snapshots**: Consider batch processing for efficiency
+- **5+ New Snapshots**: Evaluate if full re-synthesis is needed
+- **Topic Shift**: Always perform full synthesis when research focus changes
+
 ---
 
 ## Synthesis Template
 
+### Standard Synthesis Template
 ```markdown
 # What We Learned: [Research Topic] Discovery Research
 
@@ -128,6 +192,22 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Generate 
 **Total Participants:** [Number]  
 **Research Goal:** [Clear statement]  
 **Desired Outcome:** [Expected results]
+**Synthesis Type:** [Initial/Incremental/Full Re-synthesis]
+**Processed Snapshots:** [List of all snapshots included in this synthesis]
+```
+
+### Incremental Synthesis Template
+```markdown
+# What We Learned: [Research Topic] Discovery Research (Updated)
+
+**Date Range:** [Start Date] - [End Date]  
+**Total Participants:** [Number] (Previously: [Previous Number], Added: [New Number])
+**Research Goal:** [Clear statement]  
+**Desired Outcome:** [Expected results]
+**Synthesis Type:** Incremental Update
+**Previous Synthesis:** [Reference to previous synthesis file]
+**New Snapshots Added:** [List of newly processed snapshots]
+**Updated On:** [Current date]
 
 ## Executive Summary
 [3-5 key findings with immediate recommendations]
@@ -460,6 +540,9 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 ## Best Practices
 
 ### Do's
+- **MANDATORY**: Always verify current date using terminal command before creating synthesis filename
+- **EFFICIENCY FIRST**: Check for existing synthesis before starting new analysis
+- **INCREMENTAL PROCESSING**: Process only new snapshots when updating existing synthesis
 - Synthesize after multiple interviews on the same topic
 - Focus on finding common patterns across individual stories
 - Document variations by user segment
@@ -473,6 +556,8 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Check existing files before creating new synthesis
 - Increment sequence number for same-day syntheses
 - Preserve all synthesis versions for comparison
+- **TRACK PROCESSED SNAPSHOTS**: Always note which snapshots were included in each synthesis
+- **MERGE STRATEGICALLY**: Integrate new insights with existing patterns rather than starting over
 
 ### Don'ts
 - Don't synthesize too early (before patterns emerge)
@@ -480,10 +565,15 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Don't ignore contradictory evidence
 - Don't assume one user represents all users
 - Don't skip the synthesis step to save time
+- **NEVER**: Create synthesis filename without verifying current date using terminal command
 - Don't mix up synthesis completion date with interview dates
 - Don't use inconsistent date formats
 - Don't overwrite existing synthesis files
 - Don't skip sequence number checking
+- Don't guess or assume current date without verification
+- **AVOID**: Re-processing snapshots that were already analyzed in previous synthesis
+- **DON'T**: Start from scratch when updating existing synthesis with new snapshots
+- **AVOID**: Full re-synthesis unless significant topic shift or 5+ new snapshots
 
 ---
 
@@ -513,12 +603,22 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - [ ] Segment variations are clearly documented with rationale
 
 ### Date Validation
+- [ ] **MANDATORY**: Verified current date using terminal command before creating filename
 - [ ] Filename uses synthesis completion date in YYYYMMDD format
 - [ ] Sequence number is correctly incremented for same-day syntheses
 - [ ] Document content uses interview date range in YYYY-MM-DD format
 - [ ] Date range accurately reflects all interview dates from snapshots
 - [ ] No confusion between synthesis date and interview dates
 - [ ] No overwriting of existing synthesis files
+- [ ] Current date verification completed using terminal command before synthesis creation
+
+### Efficiency Validation
+- [ ] **INCREMENTAL CHECK**: Verified if existing synthesis exists for same topic
+- [ ] **NEW SNAPSHOT IDENTIFICATION**: Identified which snapshots are new vs. previously processed
+- [ ] **PROCESSING STRATEGY**: Chose appropriate processing method (incremental vs. full synthesis)
+- [ ] **SNAPSHOT TRACKING**: Documented which snapshots were included in this synthesis
+- [ ] **MERGE QUALITY**: Successfully integrated new insights with existing patterns
+- [ ] **EFFICIENCY GAINS**: Avoided re-processing previously analyzed snapshots
 
 ---
 
