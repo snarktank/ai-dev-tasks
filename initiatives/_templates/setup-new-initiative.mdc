@@ -31,6 +31,7 @@ Create a new initiative folder with standardized structure and populate with cus
    - Create `.gitkeep` files in empty folders to preserve structure
    - Ensure all subfolder README files are properly copied
    - Maintain file permissions and structure
+   - **Critical:** Preserve all `.gitkeep` files from template to maintain empty folder structure
 
 ## Naming Conventions
 - **Initiative Folder:** Use kebab-case (e.g., `mobile-app-redesign`, `checkout-optimization`)
