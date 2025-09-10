@@ -17,7 +17,18 @@ This framework guides you through analyzing multiple interview snapshots to iden
 ## Output
 **Format:** Markdown (`.md`)  
 **Location:** `user-interviews/synthesis/`  
-**Filename:** `synthesis-[topic]-[date].md`
+**Filename:** `synthesis-[topic]-[YYYYMMDD]-[sequence].md`
+
+**Date Guidelines:**
+- YYYYMMDD: Synthesis completion date (not interview dates)
+- sequence: Two-digit sequence number for same-day syntheses (01, 02, 03...)
+- Example: synthesis-newsletter-creation-20250109-01.md
+
+**Multiple Syntheses Same Day:**
+- Check existing files before creating new synthesis
+- If file exists with same date, increment sequence number
+- Never overwrite existing synthesis files
+- Preserve all synthesis versions for comparison
 
 ---
 
@@ -41,6 +52,13 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Validate Input Quality**: Check if snapshots meet minimum standards from create-interview-snapshots.mdc
 - **Identify Research Gaps**: Note missing information that could strengthen synthesis
 - **Request Additional Data**: Ask for missing snapshots if sample size is insufficient
+
+### Date Handling Guidelines
+- **Filename Date**: Use synthesis completion date in YYYYMMDD format
+- **Document Date Range**: Use actual interview date range (e.g., 2025-09-01 - 2025-09-07)
+- **Sequence Management**: Check existing files, increment sequence if same date exists
+- **Interview Dates**: Extract from individual snapshots to create accurate date range
+- **Consistency Check**: Ensure filename date and document completion date match
 
 ### Pattern Recognition Guidelines
 - **Focus on Behavioral Patterns**: Look for concrete actions, not opinions
@@ -396,6 +414,13 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Missing Context**: Request additional details from original interviews
 - **Unclear Variations**: Ask for better segment differentiation
 
+### Date Handling Issues
+- **Filename vs Content Mismatch**: Ensure filename uses synthesis completion date, content uses interview date range
+- **Incorrect Date Format**: Use YYYYMMDD-sequence for filename, YYYY-MM-DD for content
+- **Missing Date Range**: Extract dates from individual snapshots to create accurate range
+- **Sequence Conflicts**: Always check existing files before creating new synthesis
+- **Overwriting Prevention**: Never overwrite existing synthesis files, always increment sequence
+
 ---
 
 ## Common Synthesis Mistakes
@@ -425,6 +450,11 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Solution**: Stay in the problem space longer
 - **Practice**: Ask "What else do we need to understand?"
 
+### 6. Date Confusion
+- **Problem**: Using current date instead of interview dates for content, or vice versa for filename
+- **Solution**: Clear separation between synthesis completion date (filename) and interview date range (content)
+- **Practice**: Always extract interview dates from snapshots, use current date for filename
+
 ---
 
 ## Best Practices
@@ -438,6 +468,11 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Look for patterns, not just individual stories
 - Document your synthesis process and reasoning
 - Share findings with stakeholders for validation
+- Use correct date formats: YYYYMMDD-sequence for filename, YYYY-MM-DD for content
+- Extract interview dates from snapshots for accurate date range
+- Check existing files before creating new synthesis
+- Increment sequence number for same-day syntheses
+- Preserve all synthesis versions for comparison
 
 ### Don'ts
 - Don't synthesize too early (before patterns emerge)
@@ -445,6 +480,10 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Don't ignore contradictory evidence
 - Don't assume one user represents all users
 - Don't skip the synthesis step to save time
+- Don't mix up synthesis completion date with interview dates
+- Don't use inconsistent date formats
+- Don't overwrite existing synthesis files
+- Don't skip sequence number checking
 
 ---
 
@@ -472,6 +511,14 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - [ ] Experience map integration provides clear context for opportunities
 - [ ] Each stage includes supporting evidence from multiple participants
 - [ ] Segment variations are clearly documented with rationale
+
+### Date Validation
+- [ ] Filename uses synthesis completion date in YYYYMMDD format
+- [ ] Sequence number is correctly incremented for same-day syntheses
+- [ ] Document content uses interview date range in YYYY-MM-DD format
+- [ ] Date range accurately reflects all interview dates from snapshots
+- [ ] No confusion between synthesis date and interview dates
+- [ ] No overwriting of existing synthesis files
 
 ---
 
