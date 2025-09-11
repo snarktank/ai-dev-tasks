@@ -224,7 +224,7 @@ Use accumulated evidence to: evolve the idea, change the opportunity focus, or s
 ### Test Card: [A-01] — [Short name]
 - **Assumption:** [Assumption statement]
 - **Simulation:** [Prototype/mock experience/data query/concept test]
-- **Method:** [Unmoderated test | 1-question survey | Data Analysis | Concierge Test | Wizard of Oz | Usability Test | Ealry Adopters | Longitudinal User Study | Dogfood | Fishfood | Smoke Tests]
+- **Method:** [Unmoderated test | 1-question survey | Customer letter technique|  Data Analysis | Concierge Test | Wizard of Oz | Usability Test | Live-data prototype | Fake door test | Landing Page Demand Test | Ealry Adopters | Longitudinal User Study | Qualitative Value Testing | Dogfood | Fishfood | Smoke Tests]
 - **Audience:** [Screening criteria; segment]
 - **Sample Size & Window:** [e.g., n=10 over 2 days]
 - **Success Criteria:** [e.g., ≥ 3/10 do X]
