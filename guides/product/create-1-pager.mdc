@@ -1,0 +1,81 @@
+---
+alwaysApply: false
+---
+
+
+# Rule: 1-Pager Creation Guide
+
+## Goal
+
+Guide the AI assistant to create **decision-focused 1-Pagers** in **narrative Markdown format** based on initial user input.  
+The document should be readable within 5 minutes while providing sufficient context and discussion points to enable **fast, high-quality decision-making**.  
+
+The core purpose is to validate whether Outcomes and Opportunities actually have enough value to be pursued as initiatives/projects. That is, rather than simply selecting solutions, we must examine: **"Are this opportunity and goal important enough to invest in and execute?"**
+
+Rather than simple organization/sharing, we aim for **structures that deliberately trigger discussion**. In meetings, revealing disagreements and debating them leads to better decision-making than seeking consensus.  
+Therefore, the key is to clearly show **"where disagreements might arise"** rather than "what we agreed on."  
+
+## Guiding Principles
+
+- **Clarity over persuasion:** Clarity over persuasion  
+- **Structure over style:** Structured logic over fancy language  
+- **Cognitive empathy:** Flow that can be understood through **quiet reading, not presentations**  
+- **Truth-seeking:** Revealing uncomfortable facts without hiding them  
+- **Initiative validation:** Verifying whether Outcome/Opportunity has justification to proceed as initiative/project
+
+---
+
+## Process
+
+1. **Initial Input:** User briefly describes target users, problems, goals, service/product, and situation.  
+2. **Clarifying Questions:** Before writing, essential questions must be asked to gather detailed information. (See Clarifying Questions below)  
+3. **1-Pager Narrative Generation:** Based on input and answers, write **Outcome → Opportunity → Lessons → Solutions & Assumptions → Next Steps** elements as naturally connected paragraphs.  
+
+After Clarifying Questions and 1-Pager draft creation, verify in 1-2 lines whether the validity of Outcome/Opportunity has been sufficiently reviewed. If insufficient, ask additional questions; if sufficient, proceed to next step.
+
+---
+
+## Clarifying Questions (Examples)
+AI should adjust questions according to the prompt, but below are generally areas to explore.
+
+- **Outcome:** "What specific results do you want to achieve?" "Is it a customer metric or business metric?"
+- **Opportunity:** "What are the core pain points, needs, desires of customers that need to be solved?" "Why is this opportunity important compared to alternatives?" "If there's a customer story about this opportunity, what is it?"
+- **Lessons Learned:** "Have you had similar attempts in the past? Are there success/failure cases?"
+- **Solutions:** "What options are you considering? (including Do Nothing)"
+- **Assumptions:** "What are the top 2-3 assumptions that must hold for success?"
+- **Decision Request:** "What specific decision does leadership need to make after reading this document? (e.g., whether to projectize this opportunity)"
+
+---
+
+## 1-Pager Structure
+
+The document connects the elements below as one narrative. **"Justification as an initiative"** for Outcome/Opportunity must be included.
+
+1. **Outcome (Goal)** – Clearly present customer/business impact, reasons why this goal is sufficiently important
+2. **Opportunity (Opportunity and Customer Problem Identification)** – Core pain points, needs, desires, limitations of alternatives, importance of this opportunity
+3. **Lessons Learned (Past Attempts and Lessons)** – Related cases and lessons learned
+4. **Solutions & Assumptions** – Minimum 3 options (including Do Nothing), pros/cons, top 3 key assumptions
+5. **Next Steps** – Clear decision request to leadership: "Whether to actually pursue this Outcome/Opportunity as a project"
+
+---
+
+## Target Audience (Primary Readers)
+Primary readers are **decision-makers (leadership)**. Therefore, the document should be:  
+
+- Short and clear,  
+- Verifiable whether Outcome/Opportunity itself has justification as an initiative,
+- **Understandable context and discussion points from the document alone** without other materials or verbal explanations,  
+- Written at a level where discussion can begin immediately.  
+
+---
+
+## Output
+- **Format:** Markdown
+- **Form:** Narrative paragraphs (Amazon-style narrative format)  
+
+---
+
+## Final Instructions
+1. Don't generate the 1-Pager immediately; first supplement input through clarifying questions. Especially include questions that can verify the justification of Outcome/Opportunity.  
+2. Write a narrative 1-Pager reflecting the user's answers.  
+3. Verify that the completed document fulfills the purposes of **triggering discussion, revealing uncomfortable facts, and decision-making resolution**.
