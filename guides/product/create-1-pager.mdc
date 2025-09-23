@@ -30,6 +30,7 @@ Therefore, the key is to clearly show **"where disagreements might arise"** rath
 1. **Initial Input:** User briefly describes target users, problems, goals, service/product, and situation.  
 2. **Clarifying Questions:** Before writing, essential questions must be asked to gather detailed information. (See Clarifying Questions below)  
 3. **1-Pager Narrative Generation:** Based on input and answers, write **Outcome → Opportunity → Lessons → Solutions & Assumptions → Next Steps** elements as naturally connected paragraphs.  
+4. **Save 1 pager:** Save the generated document as `1-pager-[feature-name].md` inside the `/prd` directory.
 
 After Clarifying Questions and 1-Pager draft creation, verify in 1-2 lines whether the validity of Outcome/Opportunity has been sufficiently reviewed. If insufficient, ask additional questions; if sufficient, proceed to next step.
 
@@ -70,8 +71,11 @@ Primary readers are **decision-makers (leadership)**. Therefore, the document sh
 ---
 
 ## Output
+- **Location:** `/prd/`
+- **Filename:** `1-pager-[feature-name].md`
 - **Format:** Markdown
 - **Form:** Narrative paragraphs (Amazon-style narrative format)  
+
 
 ---
 
