@@ -96,6 +96,7 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 * **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
 * **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
 * **`process-task-list.md`**: Instructs the AI on how to process the generated task list, tackling one task at a time and waiting for your approval before proceeding. (This file also contains logic for the AI to mark tasks as complete).
+* **`update-ai-dev-tasks.md`**: Helps the AI update your workflow files to the latest version from the original repository.
 
 ## 🌟 Benefits
 
@@ -131,39 +132,17 @@ Cursor users can follow the workflow described above, using the `.md` files dire
 
 To use these tools with Claude Code:
 
-1. **Copy files to your repo**: Copy the three `.md` files to a subdirectory in your project (e.g., `/ai-dev-tasks`)
+```
+Create Claude commands in .claude/commands/ from https://github.com/snarktank/ai-dev-tasks
+```
 
-2. **Reference in CLAUDE.md**: Add these lines to your project's `./CLAUDE.md` file:
-   ```
-   # AI Dev Tasks
-   Use these files when I request structured feature development using PRDs:
-   /ai-dev-tasks/create-prd.md
-   /ai-dev-tasks/generate-tasks.md
-   /ai-dev-tasks/process-task-list.md
-   ```
+Claude will create self-contained command files that include all the workflow instructions:
+- `/create-prd` - Generate Product Requirements Documents
+- `/generate-tasks` - Break down PRDs into task lists
+- `/process-task-list` - Process tasks one at a time
+- `/update-ai-dev-tasks` - Update commands from upstream
 
-3. **Create custom commands** (optional): For easier access, create these files in `.claude/commands/`:
-   - `.claude/commands/create-prd.md` with content:
-     ```
-     Please use the structured workflow in /ai-dev-tasks/create-prd.md to help me create a PRD for a new feature.
-     ```
-   - `.claude/commands/generate-tasks.md` with content:
-     ```
-     Please generate tasks from the PRD using /ai-dev-tasks/generate-tasks.md
-     If not explicitly told which PRD to use, generate a list of PRDs and ask the user to select one under `/tasks` or create a new one using `create-prd.md`:
-     - assume it's stored under `/tasks` and has a filename starting with `[n]-prd-` (e.g., `0001-prd-[name].md`)
-     - it should not already have a corresponding task list in `/tasks` (e.g., `tasks-0001-prd-[name].md`)
-     - **always** ask the user to confirm the PRD file name before proceeding
-     Make sure to provide options in number lists so I can respond easily (if multiple options).
-     ```
-   - `.claude/commands/process-task-list.md` with content:
-     ```
-     Please process the task list using /ai-dev-tasks/process-task-list.md
-     ```
-
-   Make sure to restart Claude Code after adding these files (`/exit`).
-   Then use commands like `/create-prd` to quickly start the workflow.
-   Note: This setup can also be adopted for a global level across all your projects, please refer to the Claude Code documentation [here](https://docs.anthropic.com/en/docs/claude-code/memory) and [here](https://docs.anthropic.com/en/docs/claude-code/common-workflows#create-personal-slash-commands).
+After setup, restart Claude Code (`/exit`) to activate the commands.
 
 ### Other Tools
 
