@@ -18,13 +18,13 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
 ## 🗂️ Repository Structure
 
 ### Company Level Context (`company-level-context/`)
-- **Product Vision & Strategy** (`product-vision-and-strategy/`): 
+- **Product Vision & Strategy** (`product-vision-and-strateggy/`): 
   - `product-strategy-review.mdc`: PRISM-aligned strategy review framework with auto-gate evidence readiness
   - `product-vision-review.mdc`: Vision evaluation framework with 4-criteria scoring system
 - **OKRs** (`okrs/`): 
   - `okr-sparring-partner.mdc`: Context-aware OKR coaching and sparring partner
 - **Team Structure** (`team-structure/`): 
-  - `README.md`: Team organization models, design principles, and re-org considerations
+  - `readme.md`: Team organization models, design principles, and re-org considerations
 
 ### Copilots (`copilots/`)
 - **PM Strategic Copilot** (`pm-strategic-copilot.mdc`): Preconfigured prompts and workflows for strategic assistance
@@ -38,33 +38,50 @@ This approach helps ensure your AI copilot stays on track, makes it easier to ma
   - `synthesize-interview-snapshots.mdc`
 - **Evidence-Guided** (`evidence-guided/`):
   - `calculate-ice-score.mdc`
-- **Strategic Review** (in `company-level-context/product-vision-and-strategy/`):
+- **Strategic Review** (in `company-level-context/product-vision-and-strateggy/`):
   - **PRISM Product Strategy Review**: 5-dimension framework (Problem, Reframe, Intentional Bets, Systemized Execution, Momentum) with auto-gate evidence readiness
   - **Product Vision Review**: 4-criteria evaluation (Lofty & Inspiring, Realistic & Attainable, Constraint-Free, Grounded in User Problem)
 
 ### Guides (`guides/`)
 - **Meetings** (`meetings/`): `1-1s.mdc`
-- **Product** (`product/`): `create-prd.mdc`, `generate-tasks.mdc`, `process-task-list.mdc`
+- **Product** (`product/`): 
+  - `create-1-pager.mdc`: One-pager creation framework
+  - `create-design-brief.mdc`: Design brief generation guide
+  - `create-prd.mdc`: Product Requirements Document creation
+  - `generate-figma-make-prompt.mdc`: Figma design prompt generation
+  - `generate-tasks.mdc`: Task breakdown and generation
+  - `process-task-list.mdc`: Task list processing and management
 - **Writing** (`writing/`): `writing.mdc`
 
 ### Initiatives (`initiatives/`)
 - **Templates** (`_templates/`):
-  - `setup-new-initiative.mdc`
-  - `initiative-template/` with subfolders for `assumptions/`, `opportunities/`, `prd/`, `product-analytics/`, `solutions/`, `tasks/`, and `user-interviews/`
+  - `setup-new-initiative.mdc`: New initiative setup guide
+  - `initiative-template/` with subfolders for:
+    - `assumptions/`: Assumption testing and validation
+    - `design/`: Design artifacts and specifications
+    - `opportunities/`: Opportunity identification and mapping
+    - `prd/`: Product Requirements Documents
+    - `product-analytics/`: Analytics and measurement frameworks
+    - `solutions/`: Solution ideation and development
+    - `tasks/`: Task management and tracking
+    - `user-interviews/`: User research with `snapshots/`, `synthesis/`, and `transcripts/` subfolders
 - **Archive** (`archive/`): Archived initiatives (`README.md`)
 
 ### Meeting Notes (`meeting-notes/`)
-- `1-1 notes/`, `leadership/`, `product-trio/`, `board-n-investor/`
+- `1-1 notes/`: One-on-one meeting documentation
+- `leadership/`: Leadership team meeting notes
+- `product-trio/`: Product trio (PM, Design, Engineering) collaboration notes
+- `board-n-investor/`: Board and investor meeting documentation
 
 > Tip: When referencing files in Cursor, use the exact path names above.
 
 ## 🧭 Quick Start
 
 1. Clone this repository to your local workspace
-2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strategy/product-strategy-review.mdc`)
+2. In Cursor, use `@` to mention files (e.g., `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`)
 3. Start with strategic review frameworks:
-   - **Strategy Review**: `@company-level-context/product-vision-and-strategy/product-strategy-review.mdc`
-   - **Vision Evaluation**: `@company-level-context/product-vision-and-strategy/product-vision-review.mdc`
+   - **Strategy Review**: `@company-level-context/product-vision-and-strateggy/product-strategy-review.mdc`
+   - **Vision Evaluation**: `@company-level-context/product-vision-and-strateggy/product-vision-review.mdc`
    - **OKR Coaching**: `@company-level-context/okrs/okr-sparring-partner.mdc`
 4. Or begin with product development: `guides/product/create-prd.mdc` or `initiatives/_templates/setup-new-initiative.mdc`
 
@@ -98,13 +115,16 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 ## 🔄 Common Workflows
 
 - **Create a PRD**: Start with `guides/product/create-prd.mdc`
+- **Create One-Pager**: Use `guides/product/create-1-pager.mdc` for concise product summaries
+- **Generate Design Brief**: Use `guides/product/create-design-brief.mdc` for design specifications
+- **Create Figma Prompts**: Use `guides/product/generate-figma-make-prompt.mdc` for design tool integration
 - **Generate and Process Tasks**: Use `guides/product/generate-tasks.mdc` and `guides/product/process-task-list.mdc`
 - **Run Continuous Discovery**: Follow `frameworks/continuous-discovery-habits/*`
 - **Score Ideas (ICE)**: Use `frameworks/evidence-guided/calculate-ice-score.mdc`
-- **Review Product Strategy**: Use `company-level-context/product-vision-and-strategy/product-strategy-review.mdc` with PRISM framework
-- **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strategy/product-vision-review.mdc` with 4-criteria scoring
+- **Review Product Strategy**: Use `company-level-context/product-vision-and-strateggy/product-strategy-review.mdc` with PRISM framework
+- **Evaluate Product Vision**: Use `company-level-context/product-vision-and-strateggy/product-vision-review.mdc` with 4-criteria scoring
 - **Coach OKRs**: Use `company-level-context/okrs/okr-sparring-partner.mdc` for context-aware OKR development
-- **Design Team Structure**: Reference `company-level-context/team-structure/README.md` for organizational models
+- **Design Team Structure**: Reference `company-level-context/team-structure/readme.md` for organizational models
 - **Start a New Initiative**: Use `initiatives/_templates/setup-new-initiative.mdc` and the `initiative-template/` structure
 
 ## 🌟 Key Benefits
@@ -116,6 +136,8 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 * **Strategic Review System**: PRISM-aligned strategy evaluation with auto-gate evidence readiness
 * **Vision & OKR Coaching**: Systematic evaluation and coaching for vision clarity and goal setting
 * **Organizational Intelligence**: Team structure models and design principles for better alignment
+* **Design Integration**: Seamless workflow from product requirements to design specifications
+* **Comprehensive Documentation**: From one-pagers to detailed PRDs and design briefs
 * **Iterative Improvement**: Documents and frameworks evolve with use
 * **Unified Knowledge Base**: Single source of truth for all PM activities
 
@@ -157,3 +179,6 @@ Instead of chat-based interactions, work directly in documents that grow smarter
 - **[Continuous Discovery Habits](https://www.youtube.com/watch?v=9RFaz9ZBXpk)** - Teresa Torres' framework on continuous discovery
 - **[Evidence-Guided](https://www.youtube.com/watch?v=aJWSn-tz3jQ)** - Itamar Gilad's framework on evidence-guided product development
 
+---
+
+Happy AI-assisted product managing! 🚀

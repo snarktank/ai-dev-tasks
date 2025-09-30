@@ -53,6 +53,8 @@ initiatives/[initiative-name]/
 │   └── README.md                  # Outputs from @indentify-and-test-assumptions.mdc
 ├── solutions/
 │   └── README.md                  # Outputs from @generate-solutions.mdc
+├── design/
+│   └── README.md                  # Design briefs and Figma Make prompts
 ├── product-analytics/
 │   └── README.md
 ├── prd/
@@ -65,6 +67,8 @@ initiatives/[initiative-name]/
 After creating the initiative structure, remind the user about these workflow integrations:
 
 - **User Research:** Use `@create-interview-snapshots.mdc` in `user-interviews/snapshots/`
+- **Design Briefs:** Use `@create-design-brief.mdc` in `design/` folder
+- **Figma Make Prompts:** Use `@generate-figma-make-prompt.mdc` in `design/` folder
 - **PRD Creation:** Use `@create-prd.mdc` in `prd/` folder
 - **Task Generation:** Use `@generate-tasks.mdc` with the PRD to create tasks in `tasks/` folder
 - **Task Processing:** Use `@process-task-list.mdc` to systematically work through tasks
@@ -73,7 +77,7 @@ After creating the initiative structure, remind the user about these workflow in
 
 ## Validation
 Ensure the following after creation:
-- [ ] All folders from template are copied
+- [ ] All folders from template are copied (including design folder)
 - [ ] README.md is properly customized
 - [ ] All subfolder README files are present
 - [ ] Folder structure matches the template exactly
@@ -83,7 +87,7 @@ Ensure the following after creation:
 After successful creation, provide:
 - Confirmation of the new initiative folder location
 - Quick start guide for next steps
-- Links to relevant workflow tools
+- Links to relevant workflow tools (including design brief and Figma Make prompt tools)
 - Reminder about folder structure and integration points
 
 ## Example Usage
@@ -93,7 +97,7 @@ User: "Create a new initiative for mobile app redesign, owned by Sarah Kim"
 AI Response: 
 - Creates: initiatives/mobile-app-redesign/
 - Customizes README with "Mobile App Redesign" and "Sarah Kim"
-- Provides next steps for user research and PRD creation
+- Provides next steps for user research, design brief creation, and PRD creation
 ```
 
 ---

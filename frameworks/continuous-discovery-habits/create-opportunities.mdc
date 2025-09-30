@@ -22,6 +22,7 @@ and ultimately **propose target opportunities for exploration**.
 ## Input
 - **Primary Source**: Interview snapshots from `user-interviews/snapshots/`
 - **Secondary Source**: Synthesis documents from `user-interviews/synthesis/`
+- **Context Source**: All strategic materials from `company-level-context/` (Product Vision, Product Strategy, OKRs, Goals, Team Structure, other company strategy documents, etc.)
 - **Minimum Requirements**: At least 3-5 interview snapshots or 1 synthesis document
 
 ---
@@ -48,24 +49,46 @@ and ultimately **propose target opportunities for exploration**.
 ## AI Instructions for Opportunity Creation
 
 ### When Receiving Interview Data
-- **Validate Input Quality**: Check if snapshots or synthesis meet minimum standards
-- **Identify Research Gaps**: Note missing information that could strengthen opportunity identification
-- **Request Additional Data**: Ask for more interviews if sample size is insufficient
-- **Topic Extraction**: Analyze content to extract main topic for semantic filename
+- **Input Quality Validation**: Verify that snapshots or synthesis meet minimum standards
+- **Research Gaps Identification**: Record missing information that could strengthen opportunity identification
+- **Additional Data Request**: Request more interviews if sample size is insufficient
+- **Context Source Utilization**: Automatically scan and utilize all strategic materials from `company-level-context/` for opportunity prioritization decisions
+- **Topic Extraction**: Extract main topic from content analysis for semantic filename
 - **File Existence Check**: MANDATORY - Check for existing files with pattern `opportunities-[topic]-v*.md` before creating new file
 - **Version Management**: MANDATORY - Auto-increment version number based on existing files. Never overwrite existing files
 
 ### Opportunity Extraction Guidelines
-- **Focus on Behavioral Problems**: Look for concrete actions and pain points, not opinions
-- **Identify Root Causes**: Dig deeper than surface-level complaints
-- **Preserve Customer Language**: Use exact quotes and customer terminology
-- **Document Evidence**: Link each opportunity to specific stories and quotes
+- **Focus on Customer Needs, Pain Points, Desires**: Follow Teresa Torres' opportunity solution tree principles by focusing on **customer needs, pain points, and desires**
+- **Problem-Focused Statements**: Use **problem-focused statement** format: "I want to ~ but ~ makes it difficult"
+- **Avoid Solution Language**: Reconstruct feature suggestions or solution requests as **underlying needs**
+- **Identify Root Causes**: Don't stay at surface-level complaints, identify **root causes**
+- **Preserve Customer Language**: Use **exact customer quotes** and **customer terminology**
+- **Document Evidence**: Link each opportunity to **specific examples and quotes** for evidence documentation
+
+### Opportunity Statement Formatting Rules
+**Correct Opportunity Statement Format:**
+- **Need-based**: "I want [desired outcome] but [barrier/problem] makes it difficult"
+- **Pain point-based**: "I feel frustrated in [situation] because of [specific problem]"
+- **Desire-based**: "I wish I could [desired experience] but [current constraint] makes it impossible"
+
+**Incorrect Opportunity Statement (Avoid These):**
+- ❌ Feature suggestions: "Highlight/VOD instant recommendation feature"
+- ❌ Solution requests: "We need chapter functionality"
+- ❌ Technical solutions: "Automatic handoff functionality"
+
+**Correct Examples:**
+- ✅ "I can't find content worth watching"
+- ✅ "I've run out of episodes of my favorite show"
+- ✅ "I don't know how to search for specific programs"
+- ✅ "The program I was watching is no longer available"
 
 ### Quality Standards
-- **Problem Clarity**: Each opportunity clearly describes a customer problem
-- **Evidence Strength**: Multiple participants or strong behavioral evidence
-- **Actionable Scope**: Problems that can be addressed through product changes
-- **Customer-Centric**: Expressed in customer language, not company terms
+- **Customer Problem Focus**: Each opportunity clearly describes **customer needs, pain points, and desires**
+- **Problem Statement Format**: Use **problem-focused statement** format: "I want ~ but ~ makes it difficult"
+- **Evidence Strength**: Supported by **multiple participants** or **strong behavioral evidence**
+- **Actionable Scope**: Problems that can be addressed through **product changes**
+- **Customer-Centric Language**: Expressed in **customer language**, not company terms
+- **Solution-Free**: Focus on **underlying customer needs**, not feature suggestions or solution requests
 
 ### Semantic File Naming Guidelines
 - **Topic Extraction**: Analyze interview content to identify main topic/theme
@@ -109,12 +132,22 @@ and ultimately **propose target opportunities for exploration**.
 5. **Verify no file exists** with new filename before proceeding
 6. **CRITICAL**: Never overwrite existing files - always create new version
 
+### 0.5) Context Source Analysis (MANDATORY PRE-STEP)
+1. **Automatically scan** all strategic materials in `company-level-context/` directory
+2. **Categorize by file type**: Product Vision, Product Strategy, OKRs, Goals, Team Structure, other strategy documents
+3. **Extract key strategic elements**: vision, goals, priorities, constraints, resource status, etc.
+4. **Set opportunity evaluation criteria**: alignment with company strategy, resource availability, business impact, etc.
+5. **Prepare context utilization**: provide strategic context for priority decisions
+
 ### 1. Extract Opportunities
 1. Extract customer **stories, needs, pain points, and desires** from interview snapshots and synthesis results.  
 2. Organize all items as **Opportunities**.  
-   - Use **problem-focused statements** like "I want to ~ but ~ makes it difficult"  
+   - **Need-based**: "I want [desired outcome] but [barrier/problem] makes it difficult"
+   - **Pain point-based**: "I feel frustrated in [situation] because of [specific problem]"
+   - **Desire-based**: "I wish I could [desired experience] but [current constraint] makes it impossible"
    - Do not include solution requests as opportunities; instead, reconstruct them as **underlying needs**.  
 3. Link **evidence** to each opportunity. (quotes, frequency, customer segments, etc.)
+4. **Exclude feature suggestions or solution requests** and focus only on **actual customer problems**
 
 ---
 
@@ -142,6 +175,9 @@ Evaluation criteria through four lenses:
 1. **Opportunity Sizing** — How many customers and how frequently does this occur?  
 2. **Market Factors** — How important is this from a competitive/market trend perspective? (table stakes vs differentiator)  
 3. **Company Factors** — How well does this align with our organizational strategy and capabilities?  
+   - **Context Source Utilization**: Reference specific `company-level-context/` files and strategic elements considered
+   - **Strategic Alignment**: How opportunity aligns with company vision, goals, OKRs
+   - **Resource Considerations**: Team capabilities, resource availability from context
 4. **Customer Factors** — How important is this to customers? What is their satisfaction with existing alternatives?  
 
 > Do not use scoring.  
@@ -203,6 +239,7 @@ opportunities/
 **Topic:** [Extracted topic name]  
 **Version:** [v1, v2, v3...]  
 **Source Documents:** [List of snapshots and/or synthesis documents used]  
+**Context Sources:** [List of company-level-context files referenced]  
 **Total Opportunities Identified:** [Number]  
 
 ---
@@ -235,6 +272,9 @@ opportunities/
   - Opportunity Sizing: [Frequency and scope]
   - Market Factors: [Competitive landscape and trends]
   - Company Factors: [Strategic alignment and capabilities]
+    - **Context Reference:** [Specific company-level-context files and strategic elements considered]
+    - **Strategic Alignment:** [How opportunity aligns with company vision, goals, OKRs]
+    - **Resource Considerations:** [Team capabilities, resource availability from context]
   - Customer Factors: [Importance and satisfaction with alternatives]
 - **Discussion:** [Key points from comparison]
 - **Tentative Winner:** [Selected opportunity with rationale]
@@ -269,24 +309,31 @@ opportunities/
 ## Quality Indicators
 
 ### Strong Opportunities
-- **Clear Problem Statement**: Specific customer problem, not general frustration
-- **Strong Evidence**: Multiple participants or detailed behavioral stories
-- **Customer Language**: Expressed in user's own words
-- **Actionable Scope**: Problem that can be addressed through product changes
+- **Clear Customer Problem**: Not general complaints but **specific customer needs/pain points/desires**
+- **Problem-Focused Statement**: Clear problem statement in "I want to ~ but ~ makes it difficult" format
+- **Strong Evidence**: Multiple participants or detailed **behavior-based stories**
+- **Customer Language**: Expressed in **user's own words**
+- **Actionable Scope**: Problems that can be addressed through **product changes**
+- **Solution-Free**: Focus on **underlying customer needs**, not feature suggestions
 
 ### Weak Opportunities
 - **Vague Description**: General statements without specific context
 - **Single Source**: Only mentioned by one participant
-- **Solution Disguised**: Product feature request instead of problem
+- **Solution Disguised**: Product feature request instead of problem (e.g., "highlight recommendation feature")
 - **Company Language**: Internal terminology instead of customer voice
+- **Feature Request**: Contains solution or feature suggestions
 
 ---
 
 ## Guardrails
-- Opportunities must be expressed in customer language (prohibition of internal company language).
-- Emotions themselves are not Opportunities. (e.g., "I'm frustrated" → reconstruct as underlying opportunity)
-- Prohibition of unnecessary precise scoring. Focus on relative comparison and discussion-based recording.
-- Decisions are suggestive and reversible, and can be adjusted at any time based on continuous learning.
+- Opportunities must be expressed in **customer language** (prohibition of internal company language).
+- **Feature suggestions or solution requests are not Opportunities**.  
+  (e.g., "highlight recommendation feature" → **"I can't find content worth watching"** - reconstruct as underlying need)
+- Emotions themselves are not Opportunities.  
+  (e.g., "I'm frustrated" → **reconstruct as underlying opportunity**)
+- Must use **problem-focused statement** format: "I want ~ but ~ makes it difficult"
+- Prohibition of unnecessary precise scoring. Focus on **relative comparison** and **discussion-based recording**.
+- All decisions are **hypothetical and reversible** and can be adjusted at any time based on continuous learning.
 
 ---
 
@@ -319,6 +366,8 @@ opportunities/
 - [ ] Sufficient interview data available (3+ snapshots or 1 synthesis)
 - [ ] Data quality meets standards from create-interview-snapshots.mdc
 - [ ] Behavioral evidence is concrete and specific
+- [ ] Context sources from company-level-context/ have been scanned and analyzed
+- [ ] Strategic alignment factors have been identified from context documents
 
 ### Opportunity Quality
 - [ ] Each opportunity clearly describes a customer problem
@@ -329,7 +378,8 @@ opportunities/
 ### Process Completion
 - [ ] All opportunities mapped to solution tree structure
 - [ ] User review completed for opportunity candidates
-- [ ] Prioritization assessment completed
+- [ ] Prioritization assessment completed with context source considerations
+- [ ] Company factors assessment includes strategic alignment analysis
 - [ ] Target opportunity selected and documented
 - [ ] Next steps are clear and actionable
 
@@ -349,31 +399,41 @@ opportunities/
 ## AI Implementation Checklist
 
 ### Before Creating Any Opportunity File:
-1. **Topic Extraction** ✅
+1. **Context Source Analysis** ✅
+   - [ ] Scan `company-level-context/` directory for all strategic documents
+   - [ ] Identify and categorize files: Product Vision, Product Strategy, OKRs, Goals, Team Structure, etc.
+   - [ ] Extract key strategic elements: vision, goals, priorities, constraints, resources
+   - [ ] Prepare context for opportunity assessment and prioritization
+
+2. **Topic Extraction** ✅
    - [ ] Analyze interview data or synthesis for main theme
    - [ ] Extract kebab-case topic name (e.g., "newsletter-creation")
    - [ ] Verify topic is descriptive and unique
 
-2. **File Existence Check** ✅
+3. **File Existence Check** ✅
    - [ ] Search for existing files: `opportunities-[topic]-v*.md`
    - [ ] List all found files with their version numbers
    - [ ] Identify highest version number
 
-3. **Version Management** ✅
+4. **Version Management** ✅
    - [ ] Calculate next version number (highest + 1)
    - [ ] Generate new filename: `opportunities-[topic]-v[version].md`
    - [ ] Verify new filename doesn't already exist
 
-4. **File Creation** ✅
+5. **File Creation** ✅
    - [ ] Create file with new filename only
    - [ ] Never overwrite existing files
    - [ ] Add version number to document header
+   - [ ] Include context sources in document metadata
 
 ### Error Handling:
 - **If topic extraction fails**: Use generic topic name and add warning
 - **If version detection fails**: Start with v1 and add warning note
 - **If file already exists**: Increment version and try again
 - **If multiple topics found**: Use most relevant one and document choice
+- **If context source scan fails**: Continue with opportunity creation but note missing context
+- **If no strategic documents found**: Proceed with customer-focused assessment only
+- **If context files are inaccessible**: Document limitation and focus on available data
 
 ---
 

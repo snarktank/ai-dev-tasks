@@ -18,15 +18,15 @@
 
 ## 🗂️ Folder Structure
 - **[user-interviews/](./user-interviews/)** - Customer discovery and research
-  - `snapshots/` - Individual interview insights using `@frameworks/continuous-discovery-habits/create-interview-snapshots.mdc`
+  - `snapshots/` - Individual interview insights using `@create-interview-snapshots.mdc`
   - `synthesis/` - Cross-interview analysis and patterns
   - `transcripts/` - Raw interview recordings and notes
 - **[opportunities/](./opportunities/)** - Identified opportunities and pain points
-- **[assumptions/](./assumptions/)** - Assumption logs and test cards from `@frameworks/continuous-discovery-habits/indentify-and-test-assumptions.mdc`
-- **[solutions/](./solutions/)** - Solution explorations from `@frameworks/continuous-discovery-habits/generate-solutions.mdc`
+- **[assumptions/](./assumptions/)** - Assumption logs and test cards from `@indentify-and-test-assumptions.mdc`
+- **[solutions/](./solutions/)** - Solution explorations from `@generate-solutions.mdc`
 - **[product-analytics/](./product-analytics/)** - Data analysis and metrics
-- **[prd/](./prd/)** - Product Requirements Document using `@guides/product/create-prd.mdc`
-- **[tasks/](./tasks/)** - Implementation tasks using `@guides/product/generate-tasks.mdc`
+- **[prd/](./prd/)** - Product Requirements Document using `@create-prd.mdc`
+- **[tasks/](./tasks/)** - Implementation tasks using `@generate-tasks.mdc`
 
 ## 🔗 Quick Links
 - [PRD](./prd/)
@@ -40,4 +40,4 @@
 [Any additional context, assumptions, or important information about this initiative]
 
 ---
-*Created using initiatives template. Use `@initiatives/_templates/setup-new-initiative.mdc` for new initiatives.*
+*Created using initiatives template. Use `@setup-new-initiative.mdc` for new initiatives.*

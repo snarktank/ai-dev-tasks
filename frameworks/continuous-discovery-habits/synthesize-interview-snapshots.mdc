@@ -16,16 +16,16 @@ This framework guides you through analyzing multiple interview snapshots to iden
 
 ## Output
 **Format:** Markdown (`.md`)  
-**Location:** `user-interviews/synthesis/[topic]/`  
-**Filename:** `synthesis-[topic]-v[version].md`
+**Location:** `user-interviews/synthesis/`  
+**Filename:** `synthesis-[initiative-name]-v[version].md`
 
 **Semantic Naming Guidelines:**
-- topic: kebab-case topic name extracted from content analysis (e.g., newsletter-creation, user-onboarding)
+- initiative-name: kebab-case initiative name from current initiative folder (e.g., live-sports-vod-conversion, newsletter-creation)
 - version: auto-incrementing version number (v1, v2, v3...)
-- Example: synthesis-newsletter-creation-v1.md
+- Example: synthesis-live-sports-vod-conversion-v1.md
 
 **Version Management:**
-- Check existing files with same topic pattern before creating new synthesis
+- Check existing files with same initiative pattern before creating new synthesis
 - Auto-increment version number (v1 → v2 → v3...)
 - Never overwrite existing synthesis files
 - Preserve all synthesis versions for comparison
@@ -53,43 +53,43 @@ This framework guides you through analyzing multiple interview snapshots to iden
 - **Validate Input Quality**: Check if snapshots meet minimum standards from create-interview-snapshots.mdc
 - **Identify Research Gaps**: Note missing information that could strengthen synthesis
 - **Request Additional Data**: Ask for missing snapshots if sample size is insufficient
-- **Topic Extraction**: Analyze content to extract main topic for semantic filename
+- **Initiative Name**: Use current initiative folder name for semantic filename generation
 
 ### Incremental Synthesis Process (Efficiency Optimization)
-- **Check for Existing Synthesis**: Look for previous synthesis files in the same topic area
+- **Check for Existing Synthesis**: Look for previous synthesis files in the same initiative area
 - **Identify New Snapshots**: Compare current snapshots with those already processed in existing synthesis
 - **Process Only New Data**: If existing synthesis found, analyze only new snapshots and merge with existing patterns
 - **Update Existing Synthesis**: Enhance previous synthesis with new insights rather than starting from scratch
 - **Full Synthesis Only When**: No existing synthesis found, or significant topic shift detected
 
 ### Semantic File Naming Guidelines
-- **Topic Extraction**: Analyze interview content to identify main topic/theme
-- **Filename Format**: Use semantic naming pattern `synthesis-[topic]-v[version].md`
+- **Initiative Name**: Use current initiative folder name as primary identifier
+- **Filename Format**: Use semantic naming pattern `synthesis-[initiative-name]-v[version].md`
 - **Version Management**: Auto-increment version number based on existing files
 - **Document Date Range**: Use actual interview date range (e.g., 2025-09-01 - 2025-09-07)
-- **Folder Organization**: Create topic-specific subfolders for better organization
+- **Folder Organization**: Store all synthesis files in initiative's synthesis folder
 - **No Date Dependency**: Remove all date-based filename requirements
 
-**Topic Extraction Process:**
-1. Analyze interview snapshots for common themes and keywords
-2. Identify the most frequent and relevant topic/theme
-3. Convert to kebab-case format (e.g., "Newsletter Creation" → "newsletter-creation")
-4. Ensure topic uniqueness across different synthesis files
-5. Use topic as primary identifier instead of date
+**Initiative Name Process:**
+1. Use current initiative folder name as primary identifier
+2. Ensure initiative name is kebab-case format (e.g., "live-sports-vod-conversion")
+3. Use extracted topic instead of initiative name as primary identifier
+4. Maintain consistency across all synthesis files for same initiative
+5. No content analysis needed for topic extraction
 
 **Version Management Process:**
-1. Check existing files with pattern `synthesis-[topic]-v*.md`
-2. Find the highest version number for the same topic
+1. Check existing files with pattern `synthesis-[initiative-name]-v*.md`
+2. Find the highest version number for the same initiative
 3. Auto-increment version number (v1 → v2 → v3...)
 4. Generate new filename with incremented version
 5. No manual version tracking required
 
-**Smart Topic Detection:**
-- **Content Analysis**: Extract main themes from interview snapshots
-- **Keyword Frequency**: Use most frequent relevant keywords as topic
-- **Kebab-Case Format**: Convert spaces to hyphens, lowercase (e.g., "User Onboarding" → "user-onboarding")
-- **Uniqueness Check**: Ensure topic doesn't conflict with existing files
-- **Fallback**: Use generic topic name if extraction fails
+**Initiative Name Usage:**
+- **Folder-Based**: Use current initiative folder name directly
+- **Consistency**: Use same initiative name across all synthesis versions
+- **Kebab-Case Format**: Ensure initiative name is kebab-case (e.g., "live-sports-vod-conversion")
+- **Uniqueness**: Each initiative has its own synthesis files
+- **No Extraction**: No need to extract or analyze content for naming
 
 ### Pattern Recognition Guidelines
 - **Focus on Behavioral Patterns**: Look for concrete actions, not opinions
@@ -109,7 +109,7 @@ This framework guides you through analyzing multiple interview snapshots to iden
 
 ### 1. Data Preparation
 - **Interview Collection**: Gather all relevant interview snapshots
-- **Existing Synthesis Check**: Look for previous synthesis files in the same topic area
+- **Existing Synthesis Check**: Look for previous synthesis files in the same initiative area
 - **New Snapshot Identification**: Compare current snapshots with previously processed ones
 - **Data Standardization**: Ensure consistent format and structure across snapshots
 - **Quality Check**: Verify all snapshots are complete and accurate
@@ -164,37 +164,43 @@ Individual Interviews → Create Snapshots → Synthesize Patterns → Generate 
 
 ### Incremental Synthesis Workflow (Efficiency Mode)
 ```
-New Snapshots → Extract Topic → Check Existing Synthesis → Process Only New Data → Merge with Existing → Updated Synthesis
+New Snapshots → Use Initiative Name → Check Existing Synthesis → Process Only New Data → Merge with Existing → Updated Synthesis
      ↓              ↓                    ↓                        ↓                    ↓                    ↓
-[New Data]    [Topic Analysis]    [Previous Analysis]      [Pattern Comparison]   [Integration]      [Enhanced Output]
+[New Data]    [Initiative Analysis]    [Previous Analysis]      [Pattern Comparison]   [Integration]      [Enhanced Output]
 ```
 
 ### Input-Output Relationship
 - **Input:** 3-5 completed interview snapshots from create-interview-snapshots.mdc
-- **Process:** Topic extraction, pattern recognition, experience map integration, insight synthesis
+- **Process:** Initiative name usage, pattern recognition, experience map integration, insight synthesis
 - **Output:** Comprehensive synthesis document with integrated experience map
 - **Next Step:** Use synthesis to create opportunities and generate solutions
 
 ### Recommended Folder Structure
 ```
-user-interviews/
-├── synthesis/
-│   ├── newsletter-creation/
-│   │   ├── synthesis-newsletter-creation-v1.md
-│   │   ├── synthesis-newsletter-creation-v2.md
-│   │   └── synthesis-newsletter-creation-final-v3.md
-│   ├── user-onboarding/
-│   │   ├── synthesis-user-onboarding-v1.md
-│   │   └── synthesis-user-onboarding-v2.md
-│   └── payment-flow/
-│       └── synthesis-payment-flow-v1.md
-├── snapshots/
-│   └── [individual snapshot files]
-└── opportunities/
-    ├── newsletter-creation/
-    │   └── opportunities-newsletter-creation-v1.md
-    └── user-onboarding/
-        └── opportunities-user-onboarding-v1.md
+initiatives/
+├── live-sports-vod-conversion/
+│   └── user-interviews/
+│       ├── synthesis/
+│       │   ├── synthesis-live-sports-vod-conversion-v1.md
+│       │   ├── synthesis-live-sports-vod-conversion-v2.md
+│       │   └── synthesis-live-sports-vod-conversion-v3.md
+│       ├── snapshots/
+│       │   └── [individual snapshot files]
+│       └── opportunities/
+│           └── opportunities-live-sports-vod-conversion-v1.md
+├── newsletter-creation/
+│   └── user-interviews/
+│       ├── synthesis/
+│       │   ├── synthesis-newsletter-creation-v1.md
+│       │   └── synthesis-newsletter-creation-v2.md
+│       └── snapshots/
+│           └── [individual snapshot files]
+└── user-onboarding/
+    └── user-interviews/
+        ├── synthesis/
+        │   └── synthesis-user-onboarding-v1.md
+        └── snapshots/
+            └── [individual snapshot files]
 ```
 
 ### Efficiency Guidelines
@@ -216,7 +222,7 @@ user-interviews/
 **Research Goal:** [Clear statement]  
 **Desired Outcome:** [Expected results]
 **Synthesis Type:** [Initial/Incremental/Full Re-synthesis]
-**Topic:** [Extracted topic name]
+**Initiative:** [Initiative name]
 **Version:** [v1, v2, v3...]
 **Processed Snapshots:** [List of all snapshots included in this synthesis]
 ```
@@ -230,7 +236,7 @@ user-interviews/
 **Research Goal:** [Clear statement]  
 **Desired Outcome:** [Expected results]
 **Synthesis Type:** Incremental Update
-**Topic:** [Extracted topic name]
+**Initiative:** [Initiative name]
 **Version:** [v2, v3, v4...]
 **Previous Synthesis:** [Reference to previous synthesis file]
 **New Snapshots Added:** [List of newly processed snapshots]
@@ -246,13 +252,19 @@ user-interviews/
 
 ## Top Opportunities
 
+**Opportunity Writing Guidelines:**
+- Reflect user needs/pain points/desires directly from individual snapshots' "Opportunities" sections
+- Use "I want to... but... because..." format to maintain user perspective
+- Focus on actual user needs and difficulties, not functional solution suggestions
+- Identify common needs/pain points/desires as patterns across multiple participants
+
 ### 1. [Opportunity Title]
 **Frequency:** [X] out of [Y] participants  
 **Evidence Strength:** [Strong/Moderate/Weak]  
 **Impact:** [High/Medium/Low]  
 
-**The Opportunity:**  
-[Problem statement using "We believe..." format]
+**Opportunity:**  
+[User's need/pain point/desire expressed as "I want to... but... because..."]
 
 **Supporting Evidence:**  
 - **[User Name (Segment):]** "[Direct quote]" - [Context/Impact]
@@ -271,8 +283,8 @@ user-interviews/
 **Evidence Strength:** [Strong/Moderate/Weak]  
 **Impact:** [High/Medium/Low]  
 
-**The Opportunity:**  
-[Problem statement using "We believe..." format]
+**Opportunity:**  
+[User's need/pain point/desire expressed as "I want to... but... because..."]
 
 **Supporting Evidence:**  
 - **[User Name (Segment):]** "[Direct quote]" - [Context/Impact]
@@ -522,10 +534,10 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Unclear Variations**: Ask for better segment differentiation
 
 ### File Naming Issues
-- **Topic Extraction Failure**: Ensure clear topic identification from content analysis
+- **Initiative Name Mismatch**: Ensure initiative name matches the current initiative folder
 - **Version Conflicts**: Always check existing files before creating new synthesis
-- **Incorrect Format**: Use kebab-case for topic, v[number] for version
-- **Missing Topic**: Extract main theme from interview snapshots for filename
+- **Incorrect Format**: Use kebab-case for initiative name, v[number] for version
+- **Missing Initiative Name**: Use the current initiative folder name for filename
 - **Overwriting Prevention**: Never overwrite existing synthesis files, always increment version
 
 ---
@@ -557,17 +569,17 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - **Solution**: Stay in the problem space longer
 - **Practice**: Ask "What else do we need to understand?"
 
-### 6. Topic Extraction Confusion
-- **Problem**: Using vague or incorrect topic names for filename
-- **Solution**: Clear topic extraction process from content analysis
-- **Practice**: Always analyze interview content to identify main theme before creating filename
+### 6. Initiative Name Confusion
+- **Problem**: Using vague or incorrect initiative names for filename
+- **Solution**: Use current initiative folder name consistently
+- **Practice**: Always check current initiative folder name before creating synthesis filename
 
 ---
 
 ## Best Practices
 
 ### Do's
-- **TOPIC EXTRACTION**: Always analyze content to extract clear topic for semantic filename
+- **INITIATIVE-BASED NAMING**: Use current initiative folder name consistently for file naming
 - **EFFICIENCY FIRST**: Check for existing synthesis before starting new analysis
 - **INCREMENTAL PROCESSING**: Process only new snapshots when updating existing synthesis
 - Synthesize after multiple interviews on the same topic
@@ -578,10 +590,10 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Look for patterns, not just individual stories
 - Document your synthesis process and reasoning
 - Share findings with stakeholders for validation
-- Use semantic naming: synthesis-[topic]-v[version].md format
-- Extract main theme from interview content for topic identification
+- Use semantic naming: synthesis-[initiative-name]-v[version].md format
+- Use initiative folder name for consistent identification
 - Check existing files before creating new synthesis
-- Auto-increment version number for same-topic syntheses
+- Auto-increment version number for same-initiative syntheses
 - Preserve all synthesis versions for comparison
 - **TRACK PROCESSED SNAPSHOTS**: Always note which snapshots were included in each synthesis
 - **MERGE STRATEGICALLY**: Integrate new insights with existing patterns rather than starting over
@@ -592,12 +604,12 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - Don't ignore contradictory evidence
 - Don't assume one user represents all users
 - Don't skip the synthesis step to save time
-- **NEVER**: Create synthesis filename without extracting clear topic from content
-- Don't use vague or generic topic names for filename
+- **NEVER**: Create synthesis filename without using initiative folder name
+- Don't use vague or generic initiative names for filename
 - Don't use inconsistent naming formats
 - Don't overwrite existing synthesis files
 - Don't skip version number checking
-- Don't guess or assume topic without content analysis
+- Don't guess or assume initiative name without checking folder structure
 - **AVOID**: Re-processing snapshots that were already analyzed in previous synthesis
 - **DON'T**: Start from scratch when updating existing synthesis with new snapshots
 - **AVOID**: Full re-synthesis unless significant topic shift or 5+ new snapshots
@@ -630,17 +642,17 @@ The Integrated Experience Map should directly support the Top Opportunities sect
 - [ ] Segment variations are clearly documented with rationale
 
 ### File Naming Validation
-- [ ] **MANDATORY**: Extracted clear topic from content analysis before creating filename
-- [ ] Filename uses semantic naming format: synthesis-[topic]-v[version].md
-- [ ] Version number is correctly auto-incremented for same-topic syntheses
+- [ ] **MANDATORY**: Used current initiative folder name for filename
+- [ ] Filename uses semantic naming format: synthesis-[initiative-name]-v[version].md
+- [ ] Version number is correctly auto-incremented for same-initiative syntheses
 - [ ] Document content uses interview date range in YYYY-MM-DD format
 - [ ] Date range accurately reflects all interview dates from snapshots
-- [ ] Topic name is descriptive and kebab-case formatted
+- [ ] Initiative name is descriptive and kebab-case formatted
 - [ ] No overwriting of existing synthesis files
-- [ ] Topic extraction completed through content analysis before synthesis creation
+- [ ] Initiative name matches current initiative folder structure
 
 ### Efficiency Validation
-- [ ] **INCREMENTAL CHECK**: Verified if existing synthesis exists for same topic
+- [ ] **INCREMENTAL CHECK**: Verified if existing synthesis exists for same initiative
 - [ ] **NEW SNAPSHOT IDENTIFICATION**: Identified which snapshots are new vs. previously processed
 - [ ] **PROCESSING STRATEGY**: Chose appropriate processing method (incremental vs. full synthesis)
 - [ ] **SNAPSHOT TRACKING**: Documented which snapshots were included in this synthesis
