@@ -37,11 +37,27 @@ Guidelines for managing task lists in markdown files to track progress on comple
 
 When working with task lists, the AI must:
 
-1. Regularly update the task list file after finishing any significant work.
-2. Follow the completion protocol:
-   - Mark each finished **sub‑task** `[x]`.
+1. **Confirm and enrich the working context before proceeding**
+   - Before starting any sub-task, identify and summarize all context sources that will influence the work (e.g., files, rules, code snippets, specifications).
+   - Present this context clearly to the user:
+     > “I plan to use the following context for this sub-task:  
+     > [list of files / rules / snippets]  
+     > Would you like to **add**, **remove**, or **adjust** anything?  
+     > You may also include **additional considerations** (e.g., rules files, project constraints, encryption algorithms, standards, recent changes, or style preferences).”
+   - Wait for explicit confirmation or updates from the user.
+   - If new context or considerations are added, refresh the summary and reconfirm before proceeding.
+   - Once confirmed, continue the task using the finalized context and considerations.
+
+   **Notes:**
+   - Encourages developers to surface tacit knowledge not captured in files.
+   - Prevents “silent context gaps” that can cause unexpected outputs.
+   - Reinforces trust and transparency between AI reasoning and developer intent.
+
+2. Regularly update the task list file after finishing any significant work.
+3. Follow the completion protocol:
+   - Mark each finished **sub-task** `[x]`.
    - Mark the **parent task** `[x]` once **all** its subtasks are `[x]`.
-3. Add newly discovered tasks.
-4. Keep "Relevant Files" accurate and up to date.
-5. Before starting work, check which sub‑task is next.
-6. After implementing a sub‑task, update the file and then pause for user approval.
+4. Add newly discovered tasks.
+5. Keep "Relevant Files" accurate and up to date.
+6. Before starting work, check which sub-task is next.
+7. After implementing a sub-task, update the file and then pause for user approval.
