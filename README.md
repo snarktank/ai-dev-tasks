@@ -120,11 +120,30 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 
 ### Cursor
 
-Cursor users can follow the workflow described above, using the `.md` files directly in the Agent chat:
+To use these tools with Cursor:
 
-1. Ensure you have the files from this repository accessible
-2. In Cursor's Agent chat, reference files with `@` (e.g., `@create-prd.md`)
-3. Follow the 5-step workflow as outlined above
+1. **Create custom commands**: Copy the three `.md` files into a commands folder:
+   
+   **Choose your scope:**
+   - **Project-level**: Copy to `.cursor/commands/` for a specific project
+   - **Global**: Copy to `~/.cursor/commands/` for all your projects
+   
+   Copy these three files:
+   - `create-prd.md`
+   - `generate-tasks.md`
+   - `process-task-list.md`
+
+2. **Use commands in Agent chat**: Reference your custom commands with `/` to quickly start the workflow.
+   
+   Example usage:
+   - `/create-prd I want to build a CLI tool that tells dad jokes`
+   - `/generate-tasks @0001-prd-dad-joke-cli.md`
+   - `/process-task-list @tasks-0001-prd-dad-joke-cli.md Start with task 1.1`
+   
+   Learn more about [Cursor commands](https://cursor.com/docs/agent/chat/commands).
+
+3. **Alternative: Rules file**: If you prefer, you can also reference these files in `.cursor/rules` instead of using commands, though commands provide a cleaner workflow experience.
+
 4. **MAX Mode for PRDs:** Using MAX mode in Cursor for PRD creation can yield more thorough results if your budget supports it
 
 ### Claude Code
