@@ -50,7 +50,13 @@ With your PRD drafted (e.g., `MyFeature-PRD.md`), the next step is to generate a
 
     ![Example of generating tasks from PRD](https://pbs.twimg.com/media/Go6FITbWkAA-RCT?format=jpg&name=medium)
 
-### 3. Instruct the AI to Work Through Tasks (and Mark Completion)
+### 3. Examine Your Task List
+
+You'll now have a well-structured task list, often with tasks and sub-tasks, ready for the AI to start working on. This provides a clear roadmap for implementation.
+
+![Example of a generated task list](https://pbs.twimg.com/media/Go6GNuOWsAEcSDm?format=jpg&name=medium)
+
+### 4. Instruct the AI to Work Through Tasks (and Mark Completion)
 
 To ensure methodical progress and allow for verification, we'll use `process-task-list.md`. This command instructs the AI to focus on one task at a time and wait for your go-ahead before moving to the next.
 
@@ -66,7 +72,7 @@ To ensure methodical progress and allow for verification, we'll use `process-tas
 
     ![Example of starting on a task with process-task-list.md](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
 
-### 4. Review, Approve, and Progress
+### 5. Review, Approve, and Progress
 
 As the AI completes each task, you review the changes.
 
@@ -89,7 +95,6 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 
 * **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
 * **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
-* **`process-task-list.md`**: Instructs the AI on how to process the generated task list, tackling one task at a time and waiting for your approval before proceeding. (This file also contains logic for the AI to mark tasks as complete).
 
 ## Benefits
 
@@ -118,7 +123,7 @@ Cursor users can follow the workflow described above, using the `.md` files dire
 
 1. Ensure you have the files from this repository accessible
 2. In Cursor's Agent chat, reference files with `@` (e.g., `@create-prd.md`)
-3. Follow the 4-step workflow as outlined above
+3. Follow the 5-step workflow as outlined above
 4. **MAX Mode for PRDs:** Using MAX mode in Cursor for PRD creation can yield more thorough results if your budget supports it
 
 ### Claude Code
