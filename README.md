@@ -1,10 +1,10 @@
-# 🚀 AI Dev Tasks 🤖
+# AI Dev Tasks
 
 Welcome to **AI Dev Tasks**! This repository provides a collection of markdown files designed to supercharge your feature development workflow with AI-powered IDEs and CLIs. Originally built for [Cursor](https://cursor.sh/), these tools work with any AI coding assistant including Claude Code, Windsurf, and others. By leveraging these structured prompts, you can systematically approach building features, from ideation to implementation, with built-in checkpoints for verification.
 
 Stop wrestling with monolithic AI requests and start guiding your AI collaborator step-by-step!
 
-## ✨ The Core Idea
+## The Core Idea
 
 Building complex features with AI can sometimes feel like a black box. This workflow aims to bring structure, clarity, and control to the process by:
 
@@ -14,11 +14,11 @@ Building complex features with AI can sometimes feel like a black box. This work
 
 This structured approach helps ensure the AI stays on track, makes it easier to debug issues, and gives you confidence in the generated code.
 
-## Workflow: From Idea to Implemented Feature 💡➡️💻
+## Workflow: From Idea to Implemented Feature
 
 Here's the step-by-step process using the `.md` files in this repository:
 
-### 1️⃣ Create a Product Requirement Document (PRD)
+### 1. Create a Product Requirement Document (PRD)
 
 First, lay out the blueprint for your feature. A PRD clarifies what you're building, for whom, and why.
 
@@ -36,7 +36,7 @@ You can create a lightweight PRD directly within your AI tool of choice:
 
     ![Example of initiating PRD creation](https://pbs.twimg.com/media/Go6DDlyX0AAS7JE?format=jpg&name=large)
 
-### 2️⃣ Generate Your Task List from the PRD
+### 2. Generate Your Task List from the PRD
 
 With your PRD drafted (e.g., `MyFeature-PRD.md`), the next step is to generate a detailed, step-by-step implementation plan for your AI Developer.
 
@@ -50,13 +50,7 @@ With your PRD drafted (e.g., `MyFeature-PRD.md`), the next step is to generate a
 
     ![Example of generating tasks from PRD](https://pbs.twimg.com/media/Go6FITbWkAA-RCT?format=jpg&name=medium)
 
-### 3️⃣ Examine Your Task List
-
-You'll now have a well-structured task list, often with tasks and sub-tasks, ready for the AI to start working on. This provides a clear roadmap for implementation.
-
-![Example of a generated task list](https://pbs.twimg.com/media/Go6GNuOWsAEcSDm?format=jpg&name=medium)
-
-### 4️⃣ Instruct the AI to Work Through Tasks (and Mark Completion)
+### 3. Instruct the AI to Work Through Tasks (and Mark Completion)
 
 To ensure methodical progress and allow for verification, we'll use `process-task-list.md`. This command instructs the AI to focus on one task at a time and wait for your go-ahead before moving to the next.
 
@@ -72,7 +66,7 @@ To ensure methodical progress and allow for verification, we'll use `process-tas
 
     ![Example of starting on a task with process-task-list.md](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
 
-### 5️⃣ Review, Approve, and Progress ✅
+### 4. Review, Approve, and Progress
 
 As the AI completes each task, you review the changes.
 
@@ -85,19 +79,19 @@ You'll see a satisfying list of completed items grow, providing a clear visual o
 
 While it's not always perfect, this method has proven to be a very reliable way to build out larger features with AI assistance.
 
-### Video Demonstration 🎥
+### Video Demonstration
 
 If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI" podcast](https://www.youtube.com/watch?v=fD4ktSkNCw4).
 
 [![Demonstration of AI Dev Tasks on How I AI Podcast](https://img.youtube.com/vi/fD4ktSkNCw4/maxresdefault.jpg)](https://www.youtube.com/watch?v=fD4ktSkNCw4).
 
-## 🗂️ Files in this Repository
+## Files in this Repository
 
 * **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
 * **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
 * **`process-task-list.md`**: Instructs the AI on how to process the generated task list, tackling one task at a time and waiting for your approval before proceeding. (This file also contains logic for the AI to mark tasks as complete).
 
-## 🌟 Benefits
+## Benefits
 
 * **Structured Development:** Enforces a clear process from idea to code.
 * **Step-by-Step Verification:** Allows you to review and approve AI-generated code at each small step, ensuring quality and control.
@@ -105,7 +99,7 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 * **Improved Reliability:** Offers a more dependable approach to leveraging AI for significant development work compared to single, large prompts.
 * **Clear Progress Tracking:** Provides a visual representation of completed tasks, making it easy to see how much has been done and what's next.
 
-## 🛠️ How to Use
+## How to Use
 
 1. **Clone or Download:** Get these `.md` files into your project or a central location where your AI tool can access them.
    ```bash
@@ -124,7 +118,7 @@ Cursor users can follow the workflow described above, using the `.md` files dire
 
 1. Ensure you have the files from this repository accessible
 2. In Cursor's Agent chat, reference files with `@` (e.g., `@create-prd.md`)
-3. Follow the 5-step workflow as outlined above
+3. Follow the 4-step workflow as outlined above
 4. **MAX Mode for PRDs:** Using MAX mode in Cursor for PRD creation can yield more thorough results if your budget supports it
 
 ### Claude Code
@@ -173,7 +167,7 @@ For other AI-powered IDEs or CLIs:
 2. Reference them according to your tool's documentation
 3. Follow the same workflow principles
 
-## 💡 Tips for Success
+## Tips for Success
 
 * **Be Specific:** The more context and clear instructions you provide (both in your initial feature description and any clarifications), the better the AI's output will be.
 * **Use a Capable Model:** The free version of Cursor currently uses less capable AI models that often struggle to follow the structured instructions in this workflow. For best results, consider upgrading to the Pro plan to ensure consistent, accurate task execution.
@@ -181,7 +175,7 @@ For other AI-powered IDEs or CLIs:
 * **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.md`) when generating tasks.
 * **Patience and Iteration:** AI is a powerful tool, but it's not magic. Be prepared to guide, correct, and iterate. This workflow is designed to make that iteration process smoother.
 
-## 🤝 Contributing
+## Contributing
 
 Got ideas to improve these `.md` files or have new ones that fit this workflow? Contributions are welcome!
 
