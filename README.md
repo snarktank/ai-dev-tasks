@@ -70,16 +70,9 @@ To ensure methodical progress and allow for verification, instruct the AI to wor
 
     ![Example of starting on a task](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
 
-### 5. Review, Approve, and Progress
+### 5. Progress
 
-As the AI completes each task, you review the changes.
-
-* If the changes are good, simply reply with "yes" (or a similar affirmative) to instruct the AI to mark the task complete and move to the next one.
-* If changes are needed, provide feedback to the AI to correct the current task before moving on.
-
-You'll see a satisfying list of completed items grow, providing a clear visual of your feature coming to life!
-
-![Example of a progressing task list with completed items](https://pbs.twimg.com/media/Go6KrXZWkAA_UuX?format=jpg&name=medium)
+The AI will continue working through the remaining tasks in the list.
 
 While it's not always perfect, this method has proven to be a very reliable way to build out larger features with AI assistance.
 
