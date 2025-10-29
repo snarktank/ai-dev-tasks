@@ -74,6 +74,8 @@ To ensure methodical progress and allow for verification, instruct the AI to wor
 
 The AI will continue working through the remaining tasks in the list.
 
+![Example of a progressing task list with completed items](https://pbs.twimg.com/media/Go6KrXZWkAA_UuX?format=jpg&name=medium)
+
 While it's not always perfect, this method has proven to be a very reliable way to build out larger features with AI assistance.
 
 ### Video Demonstration
