@@ -58,19 +58,17 @@ You'll now have a well-structured task list, often with tasks and sub-tasks, rea
 
 ### 4. Instruct the AI to Work Through Tasks (and Mark Completion)
 
-To ensure methodical progress and allow for verification, we'll use `process-task-list.md`. This command instructs the AI to focus on one task at a time and wait for your go-ahead before moving to the next.
+To ensure methodical progress and allow for verification, instruct the AI to work through the task list one sub-task at a time.
 
-1. Create or ensure you have the `process-task-list.md` file accessible.
-2. In your AI tool, tell the AI to start with the first task (e.g., `1.1`):
+1. In your AI tool, tell the AI to start with the first task (e.g., `1.1`):
 
     ```text
-    Please start on task 1.1 and use @process-task-list.md
+    Please start on task 1.1 from the generated task list.
     ```
-    *(Important: You only need to reference `@process-task-list.md` for the *first* task. The instructions within it guide the AI for subsequent tasks.)*
 
     The AI will attempt the task and then prompt you to review.
 
-    ![Example of starting on a task with process-task-list.md](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
+    ![Example of starting on a task](https://pbs.twimg.com/media/Go6I41KWcAAAlHc?format=jpg&name=medium)
 
 ### 5. Review, Approve, and Progress
 
