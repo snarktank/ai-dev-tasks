@@ -136,7 +136,7 @@ export class LocalProvider extends BaseAIProvider {
       throw new Error(`Ollama API error: ${error}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
 
     return {
       content: data.response,
@@ -165,7 +165,7 @@ export class LocalProvider extends BaseAIProvider {
       throw new Error(`Ollama API error: ${error}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
 
     return {
       content: data.message.content,
@@ -194,7 +194,7 @@ export class LocalProvider extends BaseAIProvider {
       throw new Error(`Local API error: ${error}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
 
     return {
       content: data.choices[0].message.content,
@@ -220,7 +220,7 @@ export class LocalProvider extends BaseAIProvider {
       throw new Error(`Local API error: ${error}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
 
     return {
       content: data.choices[0].message.content,
@@ -258,11 +258,11 @@ export class LocalProvider extends BaseAIProvider {
     try {
       if (this.localProvider === 'ollama') {
         const response = await fetch(`${this.baseUrl}/api/tags`);
-        const data = await response.json();
+        const data = await response.json() as any;
         return data.models.map((m: any) => m.name);
       } else {
         const response = await fetch(`${this.baseUrl}/v1/models`);
-        const data = await response.json();
+        const data = await response.json() as any;
         return data.data.map((m: any) => m.id);
       }
     } catch (error) {

@@ -6,12 +6,12 @@ import logger from '@/utils/logger';
  * Uses Google's Generative AI API
  */
 export class GoogleProvider extends BaseAIProvider {
-  private apiKey: string;
+  private googleApiKey: string;
   private baseUrl = 'https://generativelanguage.googleapis.com/v1beta';
 
   constructor(config: AIProviderConfig) {
     super(config);
-    this.apiKey = config.apiKey;
+    this.googleApiKey = config.apiKey;
   }
 
   getProviderName(): string {
@@ -37,7 +37,7 @@ export class GoogleProvider extends BaseAIProvider {
   }): Promise<AIResponse> {
     try {
       const model = options?.model || this.defaultModel;
-      const url = `${this.baseUrl}/models/${model}:generateContent?key=${this.apiKey}`;
+      const url = `${this.baseUrl}/models/${model}:generateContent?key=${this.googleApiKey}`;
 
       const response = await fetch(url, {
         method: 'POST',
@@ -57,7 +57,7 @@ export class GoogleProvider extends BaseAIProvider {
         throw new Error(`Google API error: ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const data = await response.json() as any;
       const content = data.candidates[0].content.parts[0].text;
 
       return {
@@ -78,7 +78,7 @@ export class GoogleProvider extends BaseAIProvider {
   }): Promise<AIResponse> {
     try {
       const model = options?.model || this.defaultModel;
-      const url = `${this.baseUrl}/models/${model}:generateContent?key=${this.apiKey}`;
+      const url = `${this.baseUrl}/models/${model}:generateContent?key=${this.googleApiKey}`;
 
       // Convert messages to Gemini format
       const contents = messages.map(msg => ({
@@ -102,7 +102,7 @@ export class GoogleProvider extends BaseAIProvider {
         throw new Error(`Google API error: ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const data = await response.json() as any;
       const content = data.candidates[0].content.parts[0].text;
 
       return {

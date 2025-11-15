@@ -65,7 +65,7 @@ export class QueueService {
     userId: string;
     apiKey?: string;
   }) {
-    const jobIds: string[] = [];
+    const jobIds: Array<string | number> = [];
 
     for (let i = params.startChapter; i <= params.endChapter; i++) {
       // Find or create chapter
@@ -171,7 +171,7 @@ export class QueueService {
       const agentService = new AgentService(apiKey);
       const brief = await agentService.runArchitect({
         storyBible: project.storyBible || '',
-        previousChapters: project.chapters.map((ch) => ({
+        previousChapters: project.chapters.map((ch: any) => ({
           number: ch.chapterNumber,
           brief: ch.brief || '',
           content: ch.content || '',
@@ -256,7 +256,7 @@ export class QueueService {
       const content = await agentService.runWriter({
         storyBible: chapter.project.storyBible || '',
         brief: chapter.brief,
-        previousChapters: chapter.project.chapters.map((ch) => ({
+        previousChapters: chapter.project.chapters.map((ch: any) => ({
           number: ch.chapterNumber,
           content: ch.content || '',
         })),
@@ -358,7 +358,7 @@ export class QueueService {
 
       // Get character states from previous chapters
       const characterStates = chapter.project.chapters
-        .flatMap((ch) => ch.characterStates)
+        .flatMap((ch: any) => ch.characterStates)
         .filter(Boolean);
 
       const agentService = new AgentService(apiKey);
@@ -366,7 +366,7 @@ export class QueueService {
         storyBible: chapter.project.storyBible || '',
         chapterContent: chapter.content,
         chapterNumber,
-        previousChapters: chapter.project.chapters.map((ch) => ({
+        previousChapters: chapter.project.chapters.map((ch: any) => ({
           number: ch.chapterNumber,
           content: ch.content || '',
         })),
@@ -469,7 +469,7 @@ export class QueueService {
       const agentService = new AgentService(apiKey);
       const timeline = await agentService.runTimelineExtraction({
         projectId,
-        chapters: project.chapters.map((ch) => ({
+        chapters: project.chapters.map((ch: any) => ({
           number: ch.chapterNumber,
           content: ch.content || '',
         })),
@@ -486,7 +486,7 @@ export class QueueService {
             sequenceOrder: event.sequenceOrder,
             involvedCharacters: event.involvedCharacters || [],
             location: event.location,
-            chapterId: project.chapters.find((ch) => ch.chapterNumber === event.chapterNumber)?.id,
+            chapterId: project.chapters.find((ch: any) => ch.chapterNumber === event.chapterNumber)?.id,
           },
         });
       }
