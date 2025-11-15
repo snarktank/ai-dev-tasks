@@ -2,12 +2,15 @@ import { BaseAIProvider, AIProviderConfig } from './BaseProvider';
 import { AnthropicProvider } from './AnthropicProvider';
 import { OpenAIProvider } from './OpenAIProvider';
 import { GoogleProvider } from './GoogleProvider';
+import { LocalProvider, LocalProviderConfig } from './LocalProvider';
 import logger from '@/utils/logger';
 
-export type AIProviderType = 'anthropic' | 'openai' | 'google' | 'cohere';
+export type AIProviderType = 'anthropic' | 'openai' | 'google' | 'local';
 
 export interface ProviderConfig extends AIProviderConfig {
   provider: AIProviderType;
+  baseUrl?: string; // For local provider
+  localProvider?: 'ollama' | 'lmstudio' | 'localai' | 'textgen' | 'openai-compatible';
 }
 
 /**
@@ -31,6 +34,15 @@ export class AIProviderFactory {
       case 'gemini':
         return new GoogleProvider(config);
 
+      case 'local':
+      case 'ollama':
+      case 'lmstudio':
+        return new LocalProvider({
+          ...config,
+          baseUrl: config.baseUrl || process.env.LOCAL_LLM_URL || 'http://localhost:11434',
+          provider: config.localProvider || 'ollama',
+        } as LocalProviderConfig);
+
       default:
         logger.warn(`Unknown provider: ${config.provider}, defaulting to Anthropic`);
         return new AnthropicProvider(config);
@@ -44,16 +56,19 @@ export class AIProviderFactory {
     const provider = (process.env.AI_PROVIDER || 'anthropic') as AIProviderType;
     const apiKey = this.getApiKeyForProvider(provider);
 
-    if (!apiKey) {
+    // Local provider doesn't need an API key
+    if (!apiKey && provider !== 'local') {
       throw new Error(`API key not found for provider: ${provider}`);
     }
 
     return this.createProvider({
       provider,
-      apiKey,
+      apiKey: apiKey || 'not-needed-for-local',
       model: process.env.DEFAULT_MODEL,
       maxTokens: parseInt(process.env.MAX_TOKENS_CHAPTER || '16000'),
       temperature: parseFloat(process.env.AI_TEMPERATURE || '0.7'),
+      baseUrl: process.env.LOCAL_LLM_URL,
+      localProvider: process.env.LOCAL_LLM_PROVIDER as any,
     });
   }
 
@@ -65,7 +80,7 @@ export class AIProviderFactory {
       anthropic: process.env.ANTHROPIC_API_KEY || '',
       openai: process.env.OPENAI_API_KEY || '',
       google: process.env.GOOGLE_API_KEY || '',
-      cohere: process.env.COHERE_API_KEY || '',
+      local: 'not-needed', // Local LLMs don't need API keys
     };
 
     return envKeys[provider] || '';
@@ -79,13 +94,13 @@ export class AIProviderFactory {
     configured: boolean;
     models: string[];
   }> {
-    const providers: AIProviderType[] = ['anthropic', 'openai', 'google'];
+    const providers: AIProviderType[] = ['anthropic', 'openai', 'google', 'local'];
 
     return providers.map(provider => {
       const apiKey = this.getApiKeyForProvider(provider);
       let models: string[] = [];
 
-      if (apiKey) {
+      if (apiKey || provider === 'local') {
         try {
           const instance = this.createProvider({ provider, apiKey });
           models = instance.getAvailableModels();
@@ -96,7 +111,7 @@ export class AIProviderFactory {
 
       return {
         name: provider,
-        configured: !!apiKey,
+        configured: provider === 'local' ? !!process.env.LOCAL_LLM_URL : !!apiKey,
         models,
       };
     });
