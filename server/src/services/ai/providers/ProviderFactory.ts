@@ -3,9 +3,11 @@ import { AnthropicProvider } from './AnthropicProvider';
 import { OpenAIProvider } from './OpenAIProvider';
 import { GoogleProvider } from './GoogleProvider';
 import { LocalProvider, LocalProviderConfig } from './LocalProvider';
+import { KimiProvider } from './KimiProvider';
+import { GensparkProvider } from './GensparkProvider';
 import logger from '@/utils/logger';
 
-export type AIProviderType = 'anthropic' | 'openai' | 'google' | 'local';
+export type AIProviderType = 'anthropic' | 'openai' | 'google' | 'local' | 'kimi' | 'genspark';
 
 export interface ProviderConfig extends AIProviderConfig {
   provider: AIProviderType;
@@ -42,6 +44,23 @@ export class AIProviderFactory {
           baseUrl: config.baseUrl || process.env.LOCAL_LLM_URL || 'http://localhost:11434',
           provider: config.localProvider || 'ollama',
         } as LocalProviderConfig);
+
+      case 'kimi':
+      case 'moonshot':
+        return new KimiProvider({
+          apiKey: config.apiKey,
+          model: config.model,
+          baseUrl: config.baseUrl || process.env.KIMI_BASE_URL,
+          maxTokens: config.maxTokens,
+        });
+
+      case 'genspark':
+        return new GensparkProvider({
+          apiKey: config.apiKey,
+          model: config.model,
+          baseUrl: config.baseUrl || process.env.GENSPARK_BASE_URL,
+          maxTokens: config.maxTokens,
+        });
 
       default:
         logger.warn(`Unknown provider: ${config.provider}, defaulting to Anthropic`);
@@ -81,6 +100,8 @@ export class AIProviderFactory {
       openai: process.env.OPENAI_API_KEY || '',
       google: process.env.GOOGLE_API_KEY || '',
       local: 'not-needed', // Local LLMs don't need API keys
+      kimi: process.env.KIMI_API_KEY || '',
+      genspark: process.env.GENSPARK_API_KEY || '',
     };
 
     return envKeys[provider] || '';
@@ -94,7 +115,7 @@ export class AIProviderFactory {
     configured: boolean;
     models: string[];
   }> {
-    const providers: AIProviderType[] = ['anthropic', 'openai', 'google', 'local'];
+    const providers: AIProviderType[] = ['anthropic', 'openai', 'google', 'local', 'kimi', 'genspark'];
 
     return providers.map(provider => {
       const apiKey = this.getApiKeyForProvider(provider);

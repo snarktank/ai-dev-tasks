@@ -11,6 +11,8 @@ Your AI Book Writer system supports **multiple AI providers**! Choose the AI tha
 | **Anthropic Claude** | Opus, Sonnet, Haiku | Literary quality, nuance | $0.25-$75 per 1M tokens |
 | **OpenAI GPT** | GPT-4, GPT-3.5 | Versatile, well-documented | $0.5-$60 per 1M tokens |
 | **Google Gemini** | Gemini 1.5 Pro/Flash | Fast, cost-effective | $0.35-$10.5 per 1M tokens |
+| **Kimi (Moonshot AI)** | K2 (8K-256K context) | Long documents, FREE tier | $0.12-$2 per 1M tokens |
+| **Genspark AI** | GPT-4.1, Agent mode | Autonomous agents, advanced | Est. $10-$30 per 1M tokens |
 
 ---
 
@@ -44,6 +46,20 @@ cp .env.multi-ai-example .env
 3. Click "Create API Key"
 4. Copy the key
 
+#### For Kimi (Moonshot AI):
+1. Visit https://platform.moonshot.ai/
+2. Sign up or log in
+3. Go to API Keys section
+4. Create new API key
+5. Copy the key
+6. **Free tier available!** 6 req/min, 64K tokens/min, 3M tokens/day
+
+#### For Genspark AI:
+1. Visit https://www.genspark.ai/
+2. Contact Genspark support for API access
+3. Request API key (API currently in development)
+4. Copy the key when received
+
 ### Step 3: Configure Your .env File
 
 Edit `.env` and set your provider and API key:
@@ -53,14 +69,20 @@ Edit `.env` and set your provider and API key:
 AI_PROVIDER=anthropic
 # or: AI_PROVIDER=openai
 # or: AI_PROVIDER=google
+# or: AI_PROVIDER=kimi
+# or: AI_PROVIDER=genspark
 
 # Add your API key
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 # or: OPENAI_API_KEY=sk-your-key-here
 # or: GOOGLE_API_KEY=your-key-here
+# or: KIMI_API_KEY=your-kimi-key-here
+# or: GENSPARK_API_KEY=your-genspark-key-here
 
 # Optional: Specify model
 DEFAULT_MODEL=claude-sonnet-4-20250514
+# or: DEFAULT_MODEL=moonshot-v1-128k
+# or: DEFAULT_MODEL=gpt-4.1
 ```
 
 ### Step 4: Restart the System
@@ -192,6 +214,116 @@ DEFAULT_MODEL=gemini-1.5-pro
 
 ---
 
+### Kimi (Moonshot AI)
+
+**Strengths:**
+- ✅ **Massive 256K context window** - perfect for long documents!
+- ✅ **FREE tier available** - 3M tokens/day
+- ✅ Excellent for analyzing long books or documents
+- ✅ Very cost-effective for large context needs
+- ✅ OpenAI-compatible API (easy integration)
+- ✅ Strong long-context reasoning
+
+**Models:**
+- **moonshot-v1-256k** - Maximum context (256K tokens)
+  - Best for: Entire book analysis, massive continuity tracking
+  - Cost: ~$2 per 1M tokens (input & output)
+  - Speed: Moderate
+  - Context: 256,000 tokens (one of the largest available!)
+
+- **moonshot-v1-128k** (Recommended)
+  - Best for: Most book writing tasks
+  - Cost: ~$1 per 1M tokens
+  - Speed: Fast
+  - Context: 128,000 tokens
+
+- **moonshot-v1-32k** - Balanced
+  - Best for: Standard chapters
+  - Cost: ~$0.24 per 1M tokens
+  - Speed: Very fast
+  - Context: 32,000 tokens
+
+- **moonshot-v1-8k** - Fastest
+  - Best for: Quick generations
+  - Cost: ~$0.12 per 1M tokens
+  - Speed: Blazing fast
+  - Context: 8,000 tokens
+
+**Cost for Full Novel (130K words):**
+- moonshot-v1-256k: ~$35-50
+- moonshot-v1-128k: ~$18-30 ✅ (Recommended)
+- moonshot-v1-32k: ~$4-8
+- moonshot-v1-8k: ~$2-4
+
+**FREE Tier Limits:**
+- 6 requests per minute
+- 64,000 tokens per minute
+- 3,000,000 tokens per day
+- **Perfect for testing or small projects!**
+
+**Configuration:**
+```bash
+AI_PROVIDER=kimi
+KIMI_API_KEY=your-kimi-key
+KIMI_BASE_URL=https://api.moonshot.ai/v1
+DEFAULT_MODEL=moonshot-v1-128k
+```
+
+**When to Use Kimi:**
+- ✅ You need to analyze entire books in one context
+- ✅ You want a FREE tier for testing
+- ✅ Long-range continuity is critical
+- ✅ Budget is a primary concern
+- ✅ Your chapters are very long
+
+---
+
+### Genspark AI
+
+**Strengths:**
+- ✅ Advanced autonomous agent capabilities
+- ✅ GPT-4.1 integration (cutting edge)
+- ✅ Multi-step task automation
+- ✅ Tool use and reasoning
+- ✅ Integration with productivity platforms
+- ✅ Autonomous thinking and planning
+
+**Models:**
+- **gpt-4.1** - Primary model (Recommended)
+  - Best for: High-quality book writing with agent capabilities
+  - Cost: ~$10-30 per 1M tokens (estimated)
+  - Speed: Fast
+  - Context: ~128K tokens
+
+- **genspark-agent** - Autonomous mode
+  - Best for: Multi-step plot development, character planning
+  - Cost: ~$15-45 per 1M tokens (estimated)
+  - Speed: Moderate
+  - Features: Advanced planning and tool use
+
+**Cost for Full Novel (130K words):**
+- gpt-4.1: ~$80-130 (estimated) ✅ (Recommended)
+- genspark-agent: ~$100-180 (estimated)
+
+**Configuration:**
+```bash
+AI_PROVIDER=genspark
+GENSPARK_API_KEY=your-genspark-key
+GENSPARK_BASE_URL=https://api.genspark.ai/v1
+DEFAULT_MODEL=gpt-4.1
+```
+
+**When to Use Genspark:**
+- ✅ You want cutting-edge AI (GPT-4.1)
+- ✅ You need autonomous agent capabilities
+- ✅ Complex multi-step planning is important
+- ✅ You want advanced reasoning and tool use
+- ✅ Integration with other platforms is needed
+
+**Note:** Genspark's API is currently in development. Contact Genspark support at https://www.genspark.ai/ for API access. Pricing is estimated based on GPT-4.1 integration and will be updated when official pricing is available.
+
+---
+
 ## 🎯 Which AI Should You Choose?
 
 ### For Literary Fiction (Quality First):
@@ -220,6 +352,28 @@ DEFAULT_MODEL=gemini-1.5-pro
 - Very affordable
 - Get first draft done quickly
 - Edit with higher-tier model later
+
+### For Long Documents / Maximum Context:
+**→ Kimi moonshot-v1-128k**
+- 256K context window available
+- Analyze entire books at once
+- FREE tier for testing (3M tokens/day)
+- Perfect for continuity tracking across many chapters
+- Very cost-effective
+
+### For Testing / Learning (FREE):
+**→ Kimi FREE Tier**
+- 3M tokens per day FREE
+- No credit card required
+- Great for learning the system
+- Test different approaches risk-free
+
+### For Advanced AI / Cutting Edge:
+**→ Genspark GPT-4.1**
+- Latest GPT-4.1 model
+- Autonomous agent capabilities
+- Advanced reasoning and planning
+- Perfect for complex plots
 
 ---
 
@@ -264,6 +418,14 @@ AI_PROVIDER=openai docker-compose restart server
 
 # Generate Chapter 1 with Gemini
 AI_PROVIDER=google docker-compose restart server
+# Review output
+
+# Generate Chapter 1 with Kimi (FREE tier!)
+AI_PROVIDER=kimi docker-compose restart server
+# Review output
+
+# Generate Chapter 1 with Genspark
+AI_PROVIDER=genspark docker-compose restart server
 # Review output
 
 # Choose the best!
