@@ -1,0 +1,397 @@
+// Enhanced Prisma Schema with Bulletproof Continuity System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  name            String?
+  passwordHash    String?
+  apiKeyEncrypted String?   @db.Text
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  projects        Project[]
+  series          Series[]
+  settings        UserSettings?
+}
+
+model Project {
+  id               String    @id @default(uuid())
+  userId           String
+  title            String
+  storyBible       String?   @db.Text
+  genre            String?
+  targetWordCount  Int       @default(130000)
+  status           String    @default("draft") // draft, in_progress, complete, published
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapters         Chapter[]
+  characters       Character[]
+  locations        Location[]
+  plotPoints       PlotPoint[]
+  timelineEvents   TimelineEvent[]
+  generationJobs   GenerationJob[]
+  exports          Export[]
+  projectSeries    ProjectSeries[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Series {
+  id          String    @id @default(uuid())
+  userId      String
+  title       String
+  description String?   @db.Text
+  createdAt   DateTime  @default(now())
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projects    ProjectSeries[]
+}
+
+model ProjectSeries {
+  projectId      String
+  seriesId       String
+  sequenceNumber Int
+
+  project        Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  series         Series    @relation(fields: [seriesId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, seriesId])
+}
+
+model Chapter {
+  id            String    @id @default(uuid())
+  projectId     String
+  chapterNumber Int
+  brief         String?   @db.Text
+  content       String?   @db.Text
+  wordCount     Int       @default(0)
+  status        String    @default("not_started") // not_started, brief_complete, written, verified, approved
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  project              Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  revisions            ChapterRevision[]
+  continuityCheck      ContinuityCheck?
+  characterAppearances CharacterAppearance[]
+  characterStates      CharacterState[]
+  locationMentions     LocationMention[]
+  plotPointMentions    PlotPointMention[]
+  timelineEvents       TimelineEvent[]
+  generationJobs       GenerationJob[]
+
+  @@unique([projectId, chapterNumber])
+  @@index([projectId])
+  @@index([status])
+}
+
+model ChapterRevision {
+  id             String    @id @default(uuid())
+  chapterId      String
+  content        String    @db.Text
+  wordCount      Int?
+  revisionNumber Int
+  changeNote     String?   @db.Text
+  createdAt      DateTime  @default(now())
+
+  chapter        Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([chapterId])
+}
+
+// ENHANCED: Continuity Check with detailed tracking
+model ContinuityCheck {
+  id                  String    @id @default(uuid())
+  chapterId           String    @unique
+  overallStatus       String?   // pass, warning, fail
+  summary             String?   @db.Text
+
+  // Detailed issue tracking
+  characterIssues     Json?     // [{character, issue, severity}]
+  plotIssues          Json?     // [{plotPoint, issue, severity}]
+  locationIssues      Json?     // [{location, issue, severity}]
+  timelineIssues      Json?     // [{event, issue, severity}]
+  storyBibleViolations Json?    // [{violation, severity}]
+
+  score               Int?      // 0-100 continuity score
+  checkedAt           DateTime  @default(now())
+
+  chapter             Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+}
+
+// ENHANCED: Character with detailed tracking
+model Character {
+  id          String    @id @default(uuid())
+  projectId   String
+  name        String
+  description String?   @db.Text
+  traits      Json?     // [trait1, trait2, ...]
+  arc         String?   @db.Text
+  role        String?   // protagonist, antagonist, supporting, minor
+
+  // Physical attributes for consistency
+  physicalDescription Json?  // {height, hairColor, eyeColor, age, etc}
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  project     Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  appearances CharacterAppearance[]
+  states      CharacterState[]
+  relationships CharacterRelationship[] @relation("CharacterFrom")
+  relatedTo     CharacterRelationship[] @relation("CharacterTo")
+
+  @@index([projectId])
+}
+
+model CharacterAppearance {
+  id             String    @id @default(uuid())
+  characterId    String
+  chapterId      String
+  role           String?   @db.Text  // What they do in this chapter
+  emotionalState String?
+  significance   String?   // major, minor, mentioned
+
+  character      Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  chapter        Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([characterId])
+  @@index([chapterId])
+}
+
+// NEW: Track character state throughout story (knowledge, injuries, possessions)
+model CharacterState {
+  id             String    @id @default(uuid())
+  characterId    String
+  chapterId      String
+
+  // What character knows at this point
+  knowledge      Json?     // [fact1, fact2, ...]
+
+  // Physical state
+  injuries       Json?     // [{injury, severity, acquired_chapter}]
+  possessions    Json?     // [item1, item2, ...]
+
+  // Location
+  currentLocation String?
+
+  // Emotional/mental state
+  emotionalState  String?
+  mentalState     Json?
+
+  // Relationships at this point
+  relationshipChanges Json? // [{character, relationship, status}]
+
+  createdAt      DateTime  @default(now())
+
+  character      Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  chapter        Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([characterId])
+  @@index([chapterId])
+}
+
+// NEW: Track character relationships
+model CharacterRelationship {
+  id                String    @id @default(uuid())
+  fromCharacterId   String
+  toCharacterId     String
+  relationshipType  String    // family, friend, enemy, lover, ally, rival, etc
+  description       String?   @db.Text
+  strength          Int?      // -100 to 100 (negative = antagonistic, positive = friendly)
+
+  fromCharacter     Character @relation("CharacterFrom", fields: [fromCharacterId], references: [id], onDelete: Cascade)
+  toCharacter       Character @relation("CharacterTo", fields: [toCharacterId], references: [id], onDelete: Cascade)
+
+  @@index([fromCharacterId])
+  @@index([toCharacterId])
+}
+
+// NEW: Location registry for consistency
+model Location {
+  id          String    @id @default(uuid())
+  projectId   String
+  name        String
+  description String?   @db.Text
+  locationType String?  // city, building, room, country, planet, etc
+
+  // Physical attributes
+  attributes  Json?     // {size, climate, population, etc}
+
+  // Parent location (e.g., "King's Landing" is in "Westeros")
+  parentLocationId String?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  project     Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  mentions    LocationMention[]
+  children    Location[] @relation("LocationHierarchy")
+  parent      Location?  @relation("LocationHierarchy", fields: [parentLocationId], references: [id])
+
+  @@index([projectId])
+  @@index([parentLocationId])
+}
+
+model LocationMention {
+  id          String    @id @default(uuid())
+  locationId  String
+  chapterId   String
+  context     String?   @db.Text  // How it was described/used
+  significance String?  // major, minor, mentioned
+
+  location    Location  @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  chapter     Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([locationId])
+  @@index([chapterId])
+}
+
+// NEW: Plot point tracking system
+model PlotPoint {
+  id              String    @id @default(uuid())
+  projectId       String
+  title           String
+  description     String    @db.Text
+  plotType        String    // main_plot, subplot, character_arc, mystery, romance, etc
+
+  // Story structure position
+  actNumber       Int?      // 1, 2, 3
+  sequenceOrder   Int?      // Order within the story
+
+  // Status tracking
+  status          String    @default("planned") // planned, introduced, developing, resolved
+
+  // Dependencies
+  dependsOn       Json?     // [plotPointId1, plotPointId2] - must happen after these
+
+  // Expected resolution
+  expectedChapter Int?
+  actualChapter   Int?
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  project         Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  mentions        PlotPointMention[]
+
+  @@index([projectId])
+  @@index([status])
+}
+
+model PlotPointMention {
+  id              String    @id @default(uuid())
+  plotPointId     String
+  chapterId       String
+  mentionType     String    // introduced, developed, hinted, resolved
+  description     String?   @db.Text
+
+  plotPoint       PlotPoint @relation(fields: [plotPointId], references: [id], onDelete: Cascade)
+  chapter         Chapter   @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([plotPointId])
+  @@index([chapterId])
+}
+
+model TimelineEvent {
+  id               String    @id @default(uuid())
+  projectId        String
+  chapterId        String?
+  eventDescription String    @db.Text
+  eventType        String?   // action, revelation, decision, encounter, etc
+
+  // Timing
+  timeframe        String?   // "Day 1", "Three years later", etc
+  sequenceOrder    Int?
+
+  // Story time vs Chapter time
+  storyTimestamp   String?   // Actual in-story date/time if applicable
+
+  // Participants
+  involvedCharacters Json?   // [characterId1, characterId2]
+  location           String?
+
+  createdAt        DateTime  @default(now())
+
+  project          Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  chapter          Chapter?  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([chapterId])
+  @@index([sequenceOrder])
+}
+
+model GenerationJob {
+  id           String    @id @default(uuid())
+  projectId    String
+  chapterId    String?
+  jobType      String    // architect, writer, continuity, timeline, character, story_bible_check
+  status       String    @default("queued") // queued, processing, completed, failed
+  progress     Int       @default(0)
+  result       Json?
+  errorMessage String?   @db.Text
+
+  // Retry tracking
+  retryCount   Int       @default(0)
+  maxRetries   Int       @default(3)
+
+  startedAt    DateTime?
+  completedAt  DateTime?
+  createdAt    DateTime  @default(now())
+
+  project      Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  chapter      Chapter?  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([status])
+  @@index([jobType])
+}
+
+model Export {
+  id               String    @id @default(uuid())
+  projectId        String
+  format           String    // docx, pdf, epub, txt
+  filePath         String?
+  fileSize         BigInt?
+  chaptersIncluded Json?     // [1, 2, 3, ...]
+
+  // Export options
+  options          Json?     // Font, margins, etc
+
+  createdAt        DateTime  @default(now())
+
+  project          Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model UserSettings {
+  userId              String    @id
+  defaultModel        String    @default("claude-sonnet-4-20250514")
+  autoSaveInterval    Int       @default(30) // seconds
+  defaultExportFormat String    @default("docx")
+
+  // Continuity settings
+  autoRunContinuity   Boolean   @default(true)
+  continuitySeverity  String    @default("warning") // strict, warning, lenient
+
+  // Generation settings
+  chapterWordTarget   Int       @default(5000)
+  writingStyle        String?   // formal, casual, literary, etc
+
+  preferences         Json?
+  updatedAt           DateTime  @updatedAt
+
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
