@@ -52,7 +52,29 @@ Ask only the most critical questions needed to write a clear PRD. Focus on areas
 
 ## PRD Structure
 
-The generated PRD should include the following sections:
+The generated PRD should include YAML front matter at the top, followed by the content sections below.
+
+### Front Matter (Required)
+
+```yaml
+---
+doc_type: "prd"
+id: "prd-[YYYYMMDD]-[short-slug]"
+slug: "[feature-name]"
+version: "1.0.0"
+created_at: "[ISO-8601-datetime]"
+author:
+  name: "[User's name or 'User']"
+  ai_model: "[Your model name, e.g., 'Claude Sonnet 4.5']"
+title: "[Human-readable feature title]"
+description: "[Brief 1-2 sentence description]"
+tags: ["feature", "[category]"]
+---
+```
+
+See `docs/front-matter-schema.md` for detailed field descriptions and optional fields.
+
+### Content Sections
 
 1.  **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal.
 2.  **Goals:** List the specific, measurable objectives for this feature.
@@ -70,12 +92,16 @@ Assume the primary reader of the PRD is a **junior developer**. Therefore, requi
 
 ## Output
 
-*   **Format:** Markdown (`.md`)
+*   **Format:** Markdown (`.md`) with YAML front matter
 *   **Location:** `/tasks/`
 *   **Filename:** `prd-[feature-name].md`
+*   **Structure:** Front matter (YAML) + Content sections (Markdown)
 
 ## Final instructions
 
 1. Do NOT start implementing the PRD
 2. Make sure to ask the user clarifying questions
 3. Take the user's answers to the clarifying questions and improve the PRD
+4. Include complete YAML front matter at the top of the generated PRD
+5. Populate all required front matter fields with appropriate values (see `docs/front-matter-schema.md`)
+6. Use current timestamp for `created_at` field in ISO 8601 format

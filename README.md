@@ -14,6 +14,45 @@ Building complex features with AI can sometimes feel like a black box. This work
 
 This structured approach helps ensure the AI stays on track, makes it easier to debug issues, and gives you confidence in the generated code.
 
+## Multi-Language Support
+
+**AI Dev Tasks** now supports multiple programming languages! The workflow automatically adapts to your project's language, using the appropriate:
+
+- File extensions (`.py`, `.ts`, `.go`, etc.)
+- Testing frameworks (pytest, Jest, go test, etc.)
+- Directory structures and naming conventions
+- Language-specific best practices
+
+### Supported Languages
+
+| Language | Configuration File | Testing Framework |
+|----------|-------------------|-------------------|
+| **TypeScript/JavaScript** | `lang/typescript.md` | Jest (or Vitest, Mocha) |
+| **Python** | `lang/python.md` | pytest (or unittest) |
+| **Go** | `lang/go.md` | Built-in `testing` package |
+
+Additional languages can be easily added by creating new configuration files in the `lang/` directory.
+
+### How It Works
+
+When generating tasks, the AI assistant will:
+
+1. **Auto-detect** your language from:
+   - Your explicit mention ("for my Python project")
+   - The PRD content
+   - File extensions in your repository
+
+2. **Load language configuration** automatically from `lang/[language].md`
+
+3. **Apply conventions** to the generated task list (file extensions, test commands, directory structure)
+
+**Example:**
+```text
+Use @generate-tasks.md to create tasks for my Python project from @MyFeature-PRD.md
+```
+
+The AI will automatically use Python conventions (`.py` files, `pytest`, `tests/` directory structure).
+
 ## Workflow: From Idea to Implemented Feature
 
 Here's the step-by-step process using the `.md` files in this repository:
@@ -84,18 +123,51 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 
 [![Demonstration of AI Dev Tasks on How I AI Podcast](https://img.youtube.com/vi/fD4ktSkNCw4/maxresdefault.jpg)](https://www.youtube.com/watch?v=fD4ktSkNCw4).
 
-## Files in this Repository
+## Repository Structure
 
-* **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
-* **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
+```
+/
+├── create-prd.md              # PRD generation guide
+├── generate-tasks.md          # Task list generation (language-agnostic)
+├── lang/                      # Language-specific configurations
+│   ├── README.md              # Language index and contribution guide
+│   ├── typescript.md          # TypeScript/JavaScript conventions
+│   ├── python.md              # Python conventions
+│   └── go.md                  # Go conventions
+├── docs/                      # Documentation
+│   └── front-matter-schema.md # YAML front matter specification
+├── README.md                  # This file
+└── LICENSE
+```
+
+### Core Files
+
+* **`create-prd.md`**: Guides the AI in generating a Product Requirement Document (PRD) for your feature with structured metadata.
+* **`generate-tasks.md`**: Takes a PRD and helps the AI break it down into a detailed, language-appropriate task list.
+
+### Language Configurations (`lang/`)
+
+Each language file defines:
+- File extensions and naming conventions
+- Testing frameworks and commands
+- Directory structure patterns
+- Language-specific best practices
+
+See `lang/README.md` for the full list of supported languages and how to add new ones.
+
+### Documentation (`docs/`)
+
+* **`front-matter-schema.md`**: Specification for YAML front matter metadata included in all generated documents (PRDs and task lists). Enables better organization, traceability, and version tracking.
 
 ## Benefits
 
 * **Structured Development:** Enforces a clear process from idea to code.
+* **Multi-Language Support:** Works seamlessly with TypeScript, Python, Go, and more. Each language uses appropriate conventions and tooling.
 * **Step-by-Step Verification:** Allows you to review and approve AI-generated code at each small step, ensuring quality and control.
 * **Manages Complexity:** Breaks down large features into smaller, digestible tasks for the AI, reducing the chance of it getting lost or generating overly complex, incorrect code.
 * **Improved Reliability:** Offers a more dependable approach to leveraging AI for significant development work compared to single, large prompts.
 * **Clear Progress Tracking:** Provides a visual representation of completed tasks, making it easy to see how much has been done and what's next.
+* **Document Metadata:** Generated PRDs and task lists include YAML front matter for better organization, versioning, and traceability.
 
 ## How to Use
 
@@ -113,17 +185,38 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 ## Tips for Success
 
 * **Be Specific:** The more context and clear instructions you provide (both in your initial feature description and any clarifications), the better the AI's output will be.
+* **Specify Your Language:** Mention your programming language when generating tasks (e.g., "for my Python project"). The AI will auto-detect it, but explicit mentions ensure accuracy.
 * **Correct File Tagging:** Always ensure you're accurately tagging the PRD filename (e.g., `@MyFeature-PRD.md`) when generating tasks.
 * **Patience and Iteration:** AI is a powerful tool, but it's not magic. Be prepared to guide, correct, and iterate. This workflow is designed to make that iteration process smoother.
+* **Language Fallback:** If the AI doesn't auto-detect your language, you can explicitly reference both files: `@generate-tasks.md @lang/python.md`
 
 ## Contributing
 
 Got ideas to improve these `.md` files or have new ones that fit this workflow? Contributions are welcome!
 
+### Adding New Languages
+
+Want to add support for your favorite programming language? It's easy!
+
+1. Create a new file in `lang/` directory (e.g., `lang/rust.md`, `lang/java.md`)
+2. Follow the structure of existing language files:
+   - File extensions
+   - Testing frameworks and commands
+   - Directory structure conventions
+   - Language-specific best practices
+   - Example task list entries
+3. Update `lang/README.md` to include your new language
+4. Submit a pull request!
+
+See `lang/README.md` for detailed contribution guidelines.
+
+### Other Contributions
+
 Please feel free to:
 
 * Open an issue to discuss changes or suggest new features.
 * Submit a pull request with your enhancements.
+* Improve documentation or fix typos.
 
 ---
 
