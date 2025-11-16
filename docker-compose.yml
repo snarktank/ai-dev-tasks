@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: aibooks-postgres
+    environment:
+      POSTGRES_DB: aibooks
+      POSTGRES_USER: aibooks_user
+      POSTGRES_PASSWORD: aibooks_password_change_in_production
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aibooks_user -d aibooks"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching and job queue
+  redis:
+    image: redis:7-alpine
+    container_name: aibooks-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API Server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: aibooks-server
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://aibooks_user:aibooks_password_change_in_production@postgres:5432/aibooks
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      STORAGE_TYPE: local
+      STORAGE_PATH: /app/uploads
+      CLIENT_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
+    volumes:
+      - server_uploads:/app/uploads
+      - ./server:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  # Frontend Next.js App
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: aibooks-client
+    depends_on:
+      - server
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api/v1
+      NEXT_PUBLIC_WS_URL: http://localhost:3000
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+      - /app/.next
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  server_uploads:
