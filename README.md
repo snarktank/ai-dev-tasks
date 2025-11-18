@@ -88,6 +88,7 @@ If you'd like to see this in action, I demonstrated it on [Claire Vo's "How I AI
 
 * **`create-prd.md`**: Guides the AI in generating a Product Requirement Document for your feature.
 * **`generate-tasks.md`**: Takes a PRD markdown file as input and helps the AI break it down into a detailed, step-by-step implementation task list.
+* **`debug-issue.md`**: Guides the AI in creating a structured Issue Analysis Document for bug reports, helping systematically reproduce, diagnose, and plan fixes.
 
 ## Benefits
 
