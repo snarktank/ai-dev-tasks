@@ -13,7 +13,11 @@ To guide an AI assistant in creating a detailed, step-by-step task list in Markd
 ## Process
 
 1.  **Receive Requirements:** The user provides a feature request, task description, or points to existing documentation
-2.  **Analyze Requirements:** The AI analyzes the functional requirements, user needs, and implementation scope from the provided information
+2. **Analyze Requirements:** Before generating tasks:
+   - List all technical components needed (schema, API, UI, state, tests, etc.)
+   - Map dependencies between components (what blocks what)
+   - Verify every PRD functional requirement is covered by at least one planned component
+   Use this analysis to structure parent tasks. Do not include this breakdown in the output.
 3.  **Phase 1: Generate Parent Tasks:** Based on the requirements analysis, create the file and generate the main, high-level tasks required to implement the feature. **IMPORTANT: Always include task 0.0 "Create feature branch" as the first task, unless the user specifically requests not to create a branch.** Use your judgement on how many additional high-level tasks to use. It's likely to be about 5. Present these tasks to the user in the specified format (without sub-tasks yet). Inform the user: "I have generated the high-level tasks based on your requirements. Ready to generate the sub-tasks? Respond with 'Go' to proceed."
 4.  **Wait for Confirmation:** Pause and wait for the user to respond with "Go".
 5.  **Phase 2: Generate Sub-Tasks:** Once the user confirms, break down each parent task into smaller, actionable sub-tasks necessary to complete the parent task. Ensure sub-tasks logically follow from the parent task and cover the implementation details implied by the requirements.
