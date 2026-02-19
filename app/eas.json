@@ -1,0 +1,37 @@
+{
+  "cli": {
+    "version": ">= 14.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": false
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "ios": {
+        "simulator": false,
+        "buildConfiguration": "Release",
+        "appleTeamId": "U7L2HGTZK7"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "frode.maneskold@outlook.com",
+        "ascAppId": "placeholder",
+        "appleTeamId": "U7L2HGTZK7"
+      }
+    }
+  }
+}

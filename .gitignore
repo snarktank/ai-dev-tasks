@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Node / Expo
+node_modules/
+*.log
+
+# Expo temp home used during installs
+app/.tmp-home/
+backend/.tmp-home/
+
+# Environment files
+app/.env
+.env
+
+# Backend build artifacts and database
+backend/data/*.db
+backend/data/*.sqlite
+backend/.cache/
+
+# Expo / Metro caches
+.expo/
+.expo-shared/
+app/node_modules/.cache/
+
+
+.DS_Store
+.DS_Store
